@@ -21,6 +21,17 @@ following package::
 .. _online: http://www.sphinx-doc.org/en/stable/contents.html
 
 
+Generate new doc::
+
+    make clean
+    make html
+
+Generate Epub::
+
+    make clean
+    make html epub
+
+
 Edit from other format
 ______________________
 
