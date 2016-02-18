@@ -8,6 +8,11 @@ ___________
 
 ReST syntax is text based as markdown or wiki language.
 
+Install *sphinx*::
+
+    virtualenv sphinx
+    source sphinx/bin/activate
+    pip install sphinx sphinx_rtd_theme
 
 Edit the targeted file in ``source/rst/``::
 
