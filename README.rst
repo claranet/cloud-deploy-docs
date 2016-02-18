@@ -36,6 +36,7 @@ Generate Epub::
     make clean
     make html epub
 
+You can read the generated doc from ``build/html/index.html``.
 
 Edit from other format
 ______________________
@@ -45,7 +46,7 @@ it into ReST.
 
 Create new page
 ---------------
-
-Todo::
+::
 
     TODO
+
