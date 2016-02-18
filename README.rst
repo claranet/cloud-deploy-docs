@@ -14,7 +14,7 @@ Install *sphinx*::
     source sphinx/bin/activate
     pip install sphinx sphinx_rtd_theme
 
-Edit the targeted file in ``source/rst/``::
+Edit the targeted file from ``source/rst/``::
 
     vim source/rst/api.rst
 
