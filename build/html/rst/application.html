@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Application &mdash; Morea Ghost 16.02 documentation</title>
+  <title>Application &mdash; Morea Ghost 16.03 documentation</title>
   
 
   
@@ -30,10 +30,10 @@
   
 
   
-    <link rel="top" title="Morea Ghost 16.02 documentation" href="../index.html"/>
-        <link rel="up" title="Ressources" href="ressources.html"/>
+    <link rel="top" title="Morea Ghost 16.03 documentation" href="../index.html"/>
+        <link rel="up" title="Ghost Ressources" href="ressources.html"/>
         <link rel="next" title="Job" href="job.html"/>
-        <link rel="prev" title="Ressources" href="ressources.html"/> 
+        <link rel="prev" title="Ghost Ressources" href="ressources.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                16.02
+                16.03
               </div>
             
           
@@ -84,11 +84,7 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="ressources.html">Ressources</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ressources.html">Ghost Ressources</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">Application</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#application-identifier">Application Identifier</a></li>
@@ -102,6 +98,10 @@
 <li class="toctree-l2"><a class="reference internal" href="job.html">Job</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 </ul>
 
             
@@ -132,7 +132,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="ressources.html">Ressources</a> &raquo;</li>
+          <li><a href="ressources.html">Ghost Ressources</a> &raquo;</li>
       
     <li>Application</li>
       <li class="wy-breadcrumbs-aside">
@@ -157,31 +157,46 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
-<img alt="../_images/Application_schema.png" src="../_images/Application_schema.png" />
-</div>
-<div class="figure">
 <img alt="../_images/Module_schema.png" src="../_images/Module_schema.png" />
 </div>
 </div>
 <div class="section" id="application-identifier">
 <h2>Application Identifier<a class="headerlink" href="#application-identifier" title="Permalink to this headline">¶</a></h2>
+<p>app name + role + env</p>
 </div>
 <div class="section" id="cloud-configuration">
 <h2>Cloud Configuration<a class="headerlink" href="#cloud-configuration" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Source Image (source AMI)</li>
+<li>Networking</li>
+<li>Scale</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="features-libs-and-services">
 <h2>Features: Libs and services<a class="headerlink" href="#features-libs-and-services" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Salt formulas</li>
+<li>Versions</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <p>Modules</p>
+<div class="figure">
+<img alt="../_images/Application_Module_schema.png" src="../_images/Application_Module_schema.png" />
+</div>
 </div>
 <div class="section" id="notifications">
 <h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<p>Mail notification</p>
 </div>
 <div class="section" id="bootstrap-hooks">
 <h2>Bootstrap hooks<a class="headerlink" href="#bootstrap-hooks" title="Permalink to this headline">¶</a></h2>
-<p>Bootstrap hooks</p>
+<p>Bootstrap hooks behaviour</p>
 </div>
 </div>
 
@@ -195,7 +210,7 @@
         <a href="job.html" class="btn btn-neutral float-right" title="Job" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ressources.html" class="btn btn-neutral" title="Ressources" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ressources.html" class="btn btn-neutral" title="Ghost Ressources" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -226,7 +241,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'16.02',
+            VERSION:'16.03',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

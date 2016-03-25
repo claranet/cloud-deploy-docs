@@ -8,3 +8,13 @@
 
 Ghost API
 =========
+
+Application
+-----------
+
+.. figure:: /images/Application_schema.png
+
+Job
+---
+
+.. figure:: /images/job_workflow.png
