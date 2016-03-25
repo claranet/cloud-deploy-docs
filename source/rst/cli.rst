@@ -1,6 +1,6 @@
 .. _cli:
 
-Console client
+Casper: CLI client
 ==============
 
 .. toctree::

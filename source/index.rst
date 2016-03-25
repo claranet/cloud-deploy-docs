@@ -7,10 +7,8 @@ Table of Contents:
     :maxdepth: 2
 
     rst/quick-start
-    rst/cd
-    rst/workflow
     rst/ui
     rst/api
+    rst/workflow
     rst/cli
     rst/ressources
-

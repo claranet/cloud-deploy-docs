@@ -9,13 +9,10 @@ Workflow
 Deployment workflow
 ___________________
 
-work-flow diagram::
 
-    git checkchout -> buildpack -> pre-deploy -> sym link -> post-deploy
-
+.. figure:: /images/deploy_workflow.png
 
 Bootstrap workflow
 __________________
 
-.. image:: /images/bootstarp-workflow.png
-
+.. figure:: /images/bootstrap_workflow.png

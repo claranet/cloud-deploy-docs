@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="Morea Ghost 16.02 documentation" href="../index.html"/>
-        <link rel="next" title="Continous Deployment" href="cd.html"/>
+        <link rel="next" title="Web User Interface" href="ui.html"/>
         <link rel="prev" title="Welcome to Morea Ghost’s documentation!" href="../index.html"/> 
 
   
@@ -83,19 +83,24 @@
             
                 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ghost-features">Ghost Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ressources-presentation">Ressources Presentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#application">Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#job">Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ghost-features">Ghost Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#application">Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jobs">Jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands">Commands</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cd.html">Continous Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ui.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Console client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ressources.html">Ressources</a></li>
 </ul>
 
@@ -143,27 +148,74 @@
             
   <div class="section" id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Ghost aims to deploy, in a secure and reliable way, applications in the Cloud.
+Actual version support only AWS could.</p>
 <div class="section" id="ghost-features">
-<h2>Ghost Features<a class="headerlink" href="#ghost-features" title="Permalink to this headline">¶</a></h2>
-<p>List Ghost Features</p>
+<h3>Ghost Features<a class="headerlink" href="#ghost-features" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Developed in Python.</li>
+<li>for continuous deployment.</li>
+<li>Create, configure and update AWS EC2 instances.</li>
+<li>Used to deploy client application code</li>
+<li>Based on an API REST</li>
+<li>A Ghost GUI uses this API but other clients could use it.</li>
+<li>A CLI tool has been also created to used this API: &#8220;Casper&#8221;</li>
+</ul>
+</div></blockquote>
+<p>The Ghost API is the core of this tool. Different elements compose this API</p>
 </div>
-<div class="section" id="ressources-presentation">
-<h2>Ressources Presentation<a class="headerlink" href="#ressources-presentation" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="application">
-<h3>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h3>
-<p>Working is separate environment is one of major feature. Each <code class="docutils literal"><span class="pre">application</span></code>
+<h2>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
+<p>Its the client code and all the requirements to set up on the instance.
+Working is separate environment is one of major feature. Each <code class="docutils literal"><span class="pre">application</span></code>
 is identified with it&#8217;s <strong>name</strong>, <strong>env</strong> and <strong>role</strong>.</p>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>An application is define by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The AWS characteristics (in which region the application must be deployed,
+its instance type, VPC...)</li>
+<li>The AutoScaling parameters (number of instances, minimum/maximum)</li>
+<li>The instance specifications (number and size of the disks, the ssh key to
+associate, the security group to associate,...)</li>
+<li>The mails to receive the deployment notifications.</li>
+<li>Their features (a feature is the application requirement which will be
+installed on the EC2 instances. For example: PHP 5.4, Zabbix Agent, Nginx,
+PHP5-CURL)</li>
+<li>Their modules(a module represent the code to deploy with some actions to
+realized before or/and after the code deployment. The code is system
+(example: Apache configuration&#8217;s files) or client(the &#8220;pure&#8221; client
+application code)).</li>
+</ul>
+</div></blockquote>
 <p>For more informations please refer to the <a class="reference internal" href="application.html#application"><span>Application</span></a> page.</p>
 </div>
-<div class="section" id="job">
-<h3>Job<a class="headerlink" href="#job" title="Permalink to this headline">¶</a></h3>
-<p>Create a job is to launch a <code class="docutils literal"><span class="pre">command</span></code> from an available list:</p>
-<ul class="simple">
-<li>Deploy</li>
-<li>Build AMI image</li>
-<li>Create new instance</li>
-<li>Update bootstrap hook</li>
+</div>
+<div class="section" id="jobs">
+<h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
+<p>Applications has several available job commands. A <code class="docutils literal"><span class="pre">command</span></code> will be operated
+against an application already created. For each commands you can view the logs
+in real time.</p>
+<div class="section" id="commands">
+<h3>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">Deploy</span></code>: To make a new deployment of an application module.</li>
+<li><code class="docutils literal"><span class="pre">BuildImage</span></code>: create a new AMI with all the features defined in the
+application menu (Example: Launch a new instance and set up Apache and
+finally create a new AMI)</li>
+<li><code class="docutils literal"><span class="pre">ReDeploy</span></code>: aka <strong>rollback</strong> To make a deployment of a previous version
+of an application module.</li>
+<li><code class="docutils literal"><span class="pre">CreateInstance</span></code>: create a new EC2 instance based on the AMI create by the
+<code class="docutils literal"><span class="pre">BuildImage</span></code> command.</li>
+<li><code class="docutils literal"><span class="pre">DestroyInstance</span></code>: Terminate the EC2 instance linked to the application.</li>
 </ul>
+</div></blockquote>
 <p>For more information please refer to <a class="reference internal" href="job.html#job"><span>Job</span></a> page.</p>
 </div>
 </div>
@@ -176,7 +228,7 @@ is identified with it&#8217;s <strong>name</strong>, <strong>env</strong> and <s
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cd.html" class="btn btn-neutral float-right" title="Continous Deployment" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Welcome to Morea Ghost’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
