@@ -5,24 +5,24 @@ Introduction
 ------------
 
 Ghost aims to deploy, in a secure and reliable way, applications in the Cloud.
-Actual version support only AWS could.
+Actual version support only AWS .
 
 Ghost Features
 ______________
 
   * Developed in Python.
 
-  * for continuous deployment.
+  * For continuous deployment.
 
   * Create, configure and update AWS EC2 instances.
 
   * Used to deploy client application code
 
-  * Based on an API REST
+  * Ghost core build within a REST API that any REST client could use it
 
-  * A Ghost GUI uses this API but other clients could use it.
+  * A :ref:`ui`
 
-  * A CLI tool has been also created to used this API: "Casper"
+  * A :ref:`cli`
 
 The Ghost API is the core of this tool. Different elements compose this API
 
@@ -58,7 +58,7 @@ An application is define by:
     (example: Apache configuration's files) or client(the "pure" client
     application code)).
 
-For more informations please refer to the :ref:`application` page.
+For more information, please refer to :ref:`application` page.
 
 Jobs
 ----
@@ -85,4 +85,4 @@ _________
   * ``DestroyInstance``: Terminate the EC2 instance linked to the application.
 
 
-For more information please refer to :ref:`job` page.
+For more information, please refer to :ref:`job` page.
