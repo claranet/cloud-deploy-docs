@@ -1,5 +1,13 @@
 .. title:README file
 
+
+Read the doc
+------------
+
+    * git clone
+
+    * open ``REPO PATH``/build/html/index.html in browser.
+
 Edit page
 ---------
 
