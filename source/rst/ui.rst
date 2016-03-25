@@ -1,6 +1,6 @@
 .. _ui:
 
-User Interface
+Web User Interface
 ==============
 
 .. toctree::

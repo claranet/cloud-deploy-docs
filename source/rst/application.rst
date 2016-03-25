@@ -9,21 +9,27 @@ Application
 Introduction
 ------------
 
-Application ID
---------------
+.. figure:: /images/Application_schema.png
 
-AWS Parameters
---------------
+.. figure:: /images/Module_schema.png
 
-properties
-----------
+Application Identifier
+----------------------
 
-Features
---------
+Cloud Configuration
+-------------------
+
+Features: Libs and services
+---------------------------
+
+
 
 Modules
 -------
 Modules
+
+Notifications
+-------------
 
 Bootstrap hooks
 ---------------
