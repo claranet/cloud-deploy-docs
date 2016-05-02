@@ -36,12 +36,10 @@ following package::
 
 Generate new doc::
 
-    make clean
     make html
 
 Generate Epub::
 
-    make clean
     make html epub
 
 You can read the generated doc from ``build/html/index.html``.
