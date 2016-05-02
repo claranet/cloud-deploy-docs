@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ghost Commands &mdash; Morea Ghost 16.04 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Morea Ghost 16.04 documentation" href="../index.html"/>
+        <link rel="next" title="Web User Interface" href="ui.html"/>
+        <link rel="prev" title="Ghost API" href="api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Morea Ghost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                16.04
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ressources.html">Ghost Ressources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build-updatelifecyclehooks">Build | updatelifecyclehooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-deploy">Run | deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-redeploy">Run | redeploy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Morea Ghost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Ghost Commands</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/rst/commands.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ghost-commands">
+<span id="commands"></span><h1>Ghost Commands<a class="headerlink" href="#ghost-commands" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="build-updatelifecyclehooks">
+<h2>Build | updatelifecyclehooks<a class="headerlink" href="#build-updatelifecyclehooks" title="Permalink to this headline">¶</a></h2>
+<p>This command allows you to upload and upgrade the pre-bootstrap and post-bootstrap scripts defined in the application.
+Those scripts will be executed when a new instance is create by the auto-scaling group or when the <em>createinstance</em> command is triggered in Ghost.</p>
+<p>Here is a workflow diagram for more details :</p>
+<div class="figure">
+<img alt="../_images/bootstrap_workflow.png" src="../_images/bootstrap_workflow.png" />
+</div>
+</div>
+<div class="section" id="run-deploy">
+<h2>Run | deploy<a class="headerlink" href="#run-deploy" title="Permalink to this headline">¶</a></h2>
+<p>This command allows you to deploy a new configuration version or a new revision of the application.
+You can choose the revision you want to deploy (git branch, tag, or hash commit).</p>
+<p>Here is a workflow diagram for more details :</p>
+<div class="figure">
+<img alt="../_images/deploy_workflow.png" src="../_images/deploy_workflow.png" />
+</div>
+<p><strong>Command Options</strong></p>
+<dl class="docutils">
+<dt><em>Strategy</em> :</dt>
+<dd><blockquote class="first">
+<div><cite>serial | parallel</cite></div></blockquote>
+<p class="last">This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.</p>
+</dd>
+<dt><em>Safe Deploy</em> :</dt>
+<dd><blockquote class="first">
+<div><cite>boolean and parameters</cite></div></blockquote>
+<p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
+the instances stay in the Load Balancer&#8217;s pool during the operation even if the deployment process reload or restart a service. It&#8217;s not a really efficient and safe
+because it can break user sessions and create a bad user experience.</p>
+<p>It&#8217;s to tackle this problem that the safe deployment feature as been created. The vision is, for an Autoscaling Group, split the instances in multiple groups.
+The feature gives the possibility to choose the split strategy of the whole AutoScaling instances and so create multiple instance groups. Each instance groups will be remove from their Load Balancer  before to
+be deployed in a standard way and then registered.</p>
+<p>The safe deployment feature can be used with the commands &#8220;deploy&#8221; and &#8220;redeploy&#8221; and can be used with the fabric strategy.</p>
+<p class="last">For AutoScaling Group with one or more Haproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
+</dd>
+</dl>
+<p><em>The safe deployment possiblities are:</em></p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>1by1: Instances will be processed one after the other.</li>
+<li>50%:  The whole instances will be split in 2 groups(the more equals) .</li>
+<li>1/3:  The whole instances will be split in 3 groups(the more equals).</li>
+<li>25%:  The whole instances will be split in 4 groups(the more equals).</li>
+</ul>
+</div></blockquote>
+<p>The safe deployment must be configured in the application.</p>
+<p>Application Parameters (In the new Load Balancer section) you can choose:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The type of the Load Balancer(ELB or Haproxy) used by this application.
+(To identify the Load Balancers, if the type is an ELB, it&#8217;s the AutoScaling Group parameters which will identify them).</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>For an HAproxy type, others informations will be required(app tag, the Haproxy backend).</dt>
+<dd><ul class="first simple">
+<li>The &#8220;Time to wait before deployment&#8221;(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
+(If the Load Balancer is an ELB, this value will be add to the connection draining value of the ELB)</li>
+<li>The &#8220;Time to wait after deployment&#8221;(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
+in their Load Balancer.</li>
+</ul>
+<p>Only if the Load Balancer type is HAproxy:</p>
+<ul class="last simple">
+<li>The &#8220;HAproxy app tag&#8221; is the tag value set for the HAproxy instance which you want to associate to this application.
+(The search will be performed against instances with the tags: app(this value), env(auto retrieve. Same as the application), role(fixed: &#8216;loadbalancer&#8217;))</li>
+<li>The &#8220;HAProxy backend name&#8221; is the name of the backend where the instances are defined in the Haproxy configuration.</li>
+<li>The &#8220;HAproxy API port&#8221; is the HAproxy API listening port.</li>
+</ul>
+</dd>
+</dl>
+<p>To activate it for a deployment, it&#8217;s on the commands side. You can used it when you &#8220;deploy&#8221; or &#8220;redeploy&#8221; a module.</p>
+<dl class="docutils">
+<dt>Commands Parameters:</dt>
+<dd><ul class="first last simple">
+<li>There is check box, &#8220;Deploy with Safe Deployment&#8221;, to activate it.</li>
+<li>The parameter &#8220;Safe Deployment Strategy&#8221; will appear when the check box is checked. It shows the safe deployment possibilities(dynamically identify by the number of currently running instances).</li>
+</ul>
+</dd>
+</dl>
+<p>The process safe deployment process is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Check that every instances in the Load Balancer(ELB or HAproxy) are in service and are enough to perform the safe deployment and check also, when there are multiple Load Balancers, that they have the same configuration.</li>
+<li>Split the instances list in groups according the deployment type choosen(1by1-1/3-25%-50%).</li>
+<li>Before begin to deploy on the instances group, remove them from their Load Balancer(Haproxy or ELB)</li>
+<li>Wait a moment(depends on the connection draining value for the ELB and/or the custom value defines in Ghost)</li>
+<li>Launch the standard deployment process</li>
+<li>Wait a moment(depends on the custom value defines in Ghost)</li>
+<li>Add the updated instances in their Load Balancer.</li>
+<li>Wait until instances become healthly(checked every 10s).</li>
+<li>Do the same process for the next instance groups.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>Example of safe deployment output:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>Suspending auto-scaling group processes [&#8216;Terminate&#8217;, &#8216;Launch&#8217;]</li>
+<li>Instances [u&#8217;i-87bc5b05&#8217;, u&#8217;i-87bcei97&#8217;] well deregistered in the ELB test</li>
+<li>Waiting 15s: The connection draining time more the custom value set for wait_before_deploy</li>
+<li>Updating current instances in serial: [u&#8216;10.10.12.80&#8217;, u&#8216;10.10.11.50&#8217;]</li>
+<li>Waiting 10s: The value set for wait_after_deploy</li>
+<li>Instances [u&#8217;i-87bc5b05&#8217;, u&#8217;i-87bcei97&#8217;] well registered in the ELB test</li>
+<li>Waiting 10s because the instance is not in service in the ELB</li>
+<li>Waiting 10s because the instance is not in service in the ELB</li>
+<li>Instances: [u&#8216;10.10.10.189&#8217;, u&#8216;10.10.11.50&#8217;] have been deployed and are registered in their ELB</li>
+<li>...</li>
+<li>... (same process for the others safe deployment groups)</li>
+<li>...</li>
+<li>Resuming auto-scaling group processes [&#8216;Terminate&#8217;, &#8216;Launch&#8217;]</li>
+</ul>
+</div></blockquote>
+<p>In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complet deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.</p>
+</div></blockquote>
+</div>
+<div class="section" id="run-redeploy">
+<h2>Run | redeploy<a class="headerlink" href="#run-redeploy" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="Ghost API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Morea Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'16.04',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

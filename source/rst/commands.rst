@@ -1,0 +1,119 @@
+.. _commands:
+
+Ghost Commands
+==============
+
+.. toctree::
+    :maxdepth: 2
+
+
+Build | updatelifecyclehooks
+----------------------------
+
+This command allows you to upload and upgrade the pre-bootstrap and post-bootstrap scripts defined in the application.
+Those scripts will be executed when a new instance is create by the auto-scaling group or when the *createinstance* command is triggered in Ghost.
+
+Here is a workflow diagram for more details :
+
+.. figure:: /images/bootstrap_workflow.png
+
+
+Run | deploy
+------------
+
+This command allows you to deploy a new configuration version or a new revision of the application.
+You can choose the revision you want to deploy (git branch, tag, or hash commit).
+
+Here is a workflow diagram for more details :
+
+.. figure:: /images/deploy_workflow.png
+
+
+**Command Options**
+
+*Strategy* :
+  `serial | parallel`
+ This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.
+
+*Safe Deploy* :
+  `boolean and parameters`
+
+ The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
+ the instances stay in the Load Balancer's pool during the operation even if the deployment process reload or restart a service. It's not a really efficient and safe
+ because it can break user sessions and create a bad user experience.
+
+ It's to tackle this problem that the safe deployment feature as been created. The vision is, for an Autoscaling Group, split the instances in multiple groups.
+ The feature gives the possibility to choose the split strategy of the whole AutoScaling instances and so create multiple instance groups. Each instance groups will be remove from their Load Balancer  before to
+ be deployed in a standard way and then registered.
+
+ The safe deployment feature can be used with the commands "deploy" and "redeploy" and can be used with the fabric strategy.
+
+
+ For AutoScaling Group with one or more Haproxy as Load Balancer, the safe deployment process works with Hapi only.
+
+*The safe deployment possiblities are:*
+
+		* 1by1: Instances will be processed one after the other.
+		* 50%:  The whole instances will be split in 2 groups(the more equals) .
+		* 1/3:  The whole instances will be split in 3 groups(the more equals).
+		* 25%:  The whole instances will be split in 4 groups(the more equals).
+
+ The safe deployment must be configured in the application.
+
+ Application Parameters (In the new Load Balancer section) you can choose:
+
+		* The type of the Load Balancer(ELB or Haproxy) used by this application.
+		  (To identify the Load Balancers, if the type is an ELB, it's the AutoScaling Group parameters which will identify them).
+ For an HAproxy type, others informations will be required(app tag, the Haproxy backend).
+		* The "Time to wait before deployment"(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
+		  (If the Load Balancer is an ELB, this value will be add to the connection draining value of the ELB)
+		* The "Time to wait after deployment"(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
+		  in their Load Balancer.
+
+		Only if the Load Balancer type is HAproxy:
+
+		* The "HAproxy app tag" is the tag value set for the HAproxy instance which you want to associate to this application.
+		  (The search will be performed against instances with the tags: app(this value), env(auto retrieve. Same as the application), role(fixed: 'loadbalancer'))
+		* The "HAProxy backend name" is the name of the backend where the instances are defined in the Haproxy configuration.
+		* The "HAproxy API port" is the HAproxy API listening port.
+
+ To activate it for a deployment, it's on the commands side. You can used it when you "deploy" or "redeploy" a module.
+
+ Commands Parameters:
+		* There is check box, "Deploy with Safe Deployment", to activate it.
+		* The parameter "Safe Deployment Strategy" will appear when the check box is checked. It shows the safe deployment possibilities(dynamically identify by the number of currently running instances).
+
+ The process safe deployment process is:
+
+		* Check that every instances in the Load Balancer(ELB or HAproxy) are in service and are enough to perform the safe deployment and check also, when there are multiple Load Balancers, that they have the same configuration.
+		* Split the instances list in groups according the deployment type choosen(1by1-1/3-25%-50%).
+		* Before begin to deploy on the instances group, remove them from their Load Balancer(Haproxy or ELB)
+		* Wait a moment(depends on the connection draining value for the ELB and/or the custom value defines in Ghost)
+		* Launch the standard deployment process
+		* Wait a moment(depends on the custom value defines in Ghost)
+		* Add the updated instances in their Load Balancer.
+		* Wait until instances become healthly(checked every 10s).
+		* Do the same process for the next instance groups.
+
+Example of safe deployment output:
+
+		* Suspending auto-scaling group processes ['Terminate', 'Launch']
+		* Instances [u'i-87bc5b05', u'i-87bcei97'] well deregistered in the ELB test
+		* Waiting 15s: The connection draining time more the custom value set for wait_before_deploy
+		* Updating current instances in serial: [u'10.10.12.80', u'10.10.11.50']
+		* Waiting 10s: The value set for wait_after_deploy
+		* Instances [u'i-87bc5b05', u'i-87bcei97'] well registered in the ELB test
+		* Waiting 10s because the instance is not in service in the ELB
+		* Waiting 10s because the instance is not in service in the ELB
+		* Instances: [u'10.10.10.189', u'10.10.11.50'] have been deployed and are registered in their ELB
+		* ...
+		* ... (same process for the others safe deployment groups)
+		* ...
+		* Resuming auto-scaling group processes ['Terminate', 'Launch']
+
+ In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complet deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.
+
+
+
+Run | redeploy
+--------------

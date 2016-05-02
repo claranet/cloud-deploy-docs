@@ -8,7 +8,8 @@ Table of Contents:
 
     rst/quick-start
     rst/ressources
+    rst/api
+    rst/commands
     rst/ui
     rst/cli
-    rst/api
     rst/workflow
