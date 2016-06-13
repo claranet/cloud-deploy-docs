@@ -18,3 +18,6 @@ Job
 ---
 
 .. figure:: /images/job_workflow.png
+
+`REST Documentation </docs/api>`_
+----------------------------
