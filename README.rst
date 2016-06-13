@@ -20,7 +20,7 @@ Install *sphinx*::
 
     virtualenv sphinx
     source sphinx/bin/activate
-    pip install sphinx sphinx_rtd_theme
+    pip install -r requirements.txt
 
 Edit the targeted file from ``source/rst/``::
 
