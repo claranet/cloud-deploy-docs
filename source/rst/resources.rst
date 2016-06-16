@@ -1,4 +1,4 @@
-.. _ressources:
+.. _resources:
 
 .. title:: Resources
 

@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; Morea Ghost 16.06 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Morea Ghost 16.06 documentation" href="../index.html"/>
+        <link rel="prev" title="Casper: CLI client" href="cli.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Morea Ghost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                16.06
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-2">Ghost 16.05.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-1">Ghost 16.05.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-05">Ghost 16.05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-04">Ghost 16.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-03">Ghost 16.03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-02">Ghost 16.02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-01">Ghost 16.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-15-12">Ghost 15.12</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Morea Ghost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/rst/changelog.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ghost-changelog">
+<span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="ghost-16-05-2">
+<h2>Ghost 16.05.2<a class="headerlink" href="#ghost-16-05-2" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Global</dt>
+<dd><ul class="first last simple">
+<li>Gestion du multi compte AWS (utilisation du AWS STS Assume Role pour gérer les ressources sur le compte distant) [GHOST-208]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Le header et son menu sont maintenant responsives (compatibilité Mobile) [GHOST-254]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Possibilité d&#8217;utiliser multiples clé SSH dans Ghost pour les déploiements (par région, par compte, par env, par app, etc.) [GHOST-225]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-05-1">
+<h2>Ghost 16.05.1<a class="headerlink" href="#ghost-16-05-1" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Nouveaux environnements disponibles: int, uat, oat [GHOST-247]</li>
+<li>Ajout de l&#8217;IP privé des instances démarrées par Ghost dans le Hotname (et par extension dans le PROMPT PS1) [GHOST-250]</li>
+<li>Spécification d&#8217;un AWS IAM Instance Profile spécifique au lancement de Packer. Permet d&#8217;avoir des policy AWS qui pourraient être nécessaire au <cite>buildimage</cite> [GHOST-245]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Améliorations &amp; Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Ajout de l&#8217;option <cite>ssh_pty</cite> à l&#8217;appel Packer (nécessaire sur RedHat/CentOS) [GHOST-246]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-05">
+<h2>Ghost 16.05<a class="headerlink" href="#ghost-16-05" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Ajout de descriptions sur l&#8217;ensemble des champs lors de l&#8217;édition d&#8217;application [GHOST-236]</li>
+<li>Better Job Log view (Possibilité de collapse/expand les commandes, coloration, ajout du temps d&#8217;exécution de chaque commande) [GHOST-199]</li>
+<li>Améliorations du footer (meilleure gestion de la version Ghost à afficher) [GHOST-218]</li>
+<li>Boutton de refresh pour les listes de Subnet et de SecurityGroups [GHOST-167]</li>
+<li>Possibilité de déployer plusieurs ou tous les modules avec la commande <cite>deploy</cite> [GHOST-240]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>La commande <cite>updatelifecyclehooks</cite> doit aussi mettre à jour l&#8217;AutoScale (LaunchConfig userdata) [GHOST-168]</li>
+<li>La commande <cite>buildimage</cite> ne clone que la branche SALT nécessaire au provisionning [GHOST-206]</li>
+<li>Les scripts <cite>stage1</cite> et <cite>stage2</cite> utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]</li>
+<li>Nouveau role disponible: &#8216;webcache&#8217; [GHOST-222]</li>
+<li>Possibilité d&#8217;utiliser la nouvelle option <cite>Safe Deployment</cite> avec la commande deploy [GHOST-142]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div>&gt; Plus d&#8217;informations sur la documentation: <a class="reference external" href="https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy">https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy</a></div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt>Améliorations &amp; Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Packer provisionne curl uniquement si il faut installer SALT (Skip Salt Bootstrap option) [GHOST-234]</li>
+<li>Possibilité d&#8217;utiliser <cite>ec2-user</cite> à la place d&#8217;<cite>admin</cite> [GHOST-231]</li>
+<li>Meilleure gestion des erreurs d&#8217;API AWS dans la WebUI [GHOST-233]</li>
+<li>Ajout des nouveaux types de Volume EBS AWS [GHOST-238]</li>
+<li>Meilleure gestion des erreurs sur le nettoyage des scripts au stage2 (pre-deploy, post-deploy, buildpack) [GHOST-232]</li>
+<li>Suppression des fichiers temporaires sur Ghost (Manifest tempon) [GHOST-230]</li>
+<li>Plus besoin de chown dans le script stage2 les dossiers des modules avant déploiements (les modules ont pour UID et GID les valeurs spécifiées dans l&#8217;app) [GHOST-237]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-04">
+<h2>Ghost 16.04<a class="headerlink" href="#ghost-16-04" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Ajout des types d&#8217;instances EC2 sur la région Chine (cn-north-1) [GHOST-219]</li>
+<li>Désactivation de l&#8217;auto-scroll sur la vue log d&#8217;un job quand l&#8217;utilisateur utilise sa molette [GHOST-223]</li>
+<li>Refonte du header et ajout d&#8217;un footer avec la version courante de Ghost [GHOST-218]</li>
+<li>Ajout des descriptions des commandes [GHOST-217]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Le nombre de LaunchConfig à conserver sur l&#8217;AutoScaling pour pouvoir Rollback est maintenant configurable [GHOST-195]</li>
+<li>Configuration automatique du Hostname des instances démarrées par l&#8217;AutoScaling [GHOST-226]</li>
+<li>Mise à jour des dépendances Python (requirements.txt) [GHOST-220]</li>
+<li>A la suppression d&#8217;un module, nettoyage des dossiers locaux liés au module supprimé [GHOST-177]</li>
+<li>Possibilité de choisir si Packer doit installer Salt avant de provisionner l&#8217;AMI [GHOST-171]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Améliorations &amp; Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Correctifs sur le script de sauvegarde Ghost, permet l&#8217;automatisation de sa mise en place [GHOST-224]</li>
+<li>Déplacement de la valeur PAGINATION_DEFAULT de settings.py vers config.yml [GHOST-175]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-03">
+<h2>Ghost 16.03<a class="headerlink" href="#ghost-16-03" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Possibilité de ré-ordonner les modules d&#8217;une application Ghost via drag&#8217;n drop sur le menu de gauche [GHOST-113]</li>
+<li>Commande &#8220;deploy&#8221; par défaut [GHOST-205]</li>
+<li>Nouveau style pour les boutons d&#8217;actions sur les listes [GHOST-207]</li>
+<li>Bouton pour rafraîchir les Select (peuplés depuis AWS) sur l&#8217;édition d&#8217;application [GHOST-167]</li>
+<li>Coloration syntaxique shell/bash pour les Textarea, avec numérotation de ligne et police à taille fixe  (pre-deploy, post-deploy, buildpack) [GHOST-215]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last">
+<li><p class="first">Création du dossier de destination lors du déploiement d&#8217;un module si celui-ci n&#8217;existe pas (script stage2) [GHOST-212]</p>
+</li>
+<li><p class="first">Lors d&#8217;un Deploy/Re-Deploy, le manifest est re-ordonné suivant l&#8217;ordre des modules définis dans l&#8217;application Ghost [GHOST-113]</p>
+</li>
+<li><dl class="first docutils">
+<dt>Nouvelles variables d&#8217;environnement disponibles pour les scripts de pre-deploy &amp; post-deploy [GHOST-210]. Pour rappel, voici la liste des variables disponibles :</dt>
+<dd><ul class="first last simple">
+<li>GHOST_APP</li>
+<li>GHOST_ENV</li>
+<li>GHOST_ROLE</li>
+<li>GHOST_MODULE_NAME</li>
+<li>GHOST_MODULE_PATH</li>
+<li>GHOST_MODULE_USER</li>
+<li>GHOST_MODULE_REPO</li>
+<li>GHOST_MODULE_REV</li>
+<li>GHOST_MODULE_COMMIT</li>
+<li>GHOST_MODULE_COMMIT_MESSAGE</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Nouvelle commande &#8220;Update auto scaling group&#8221; disponible [GHOST-48]</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Améliorations &amp; Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Amélioration du nettoyage des anciennes révisions de modules sur les instances (libération d&#8217;espace disque) [GHOST-211]</li>
+<li>Utilisation de noms explicites pour les fichiers de logs Packer [GHOST-214]</li>
+<li>Refactoring de la commande Create Instance [GHOST-169]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-02">
+<h2>Ghost 16.02<a class="headerlink" href="#ghost-16-02" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Vue sur les Ressources AWS d&#8217;une application (AS, ELB, Instances EC2) [GHOST-102]</li>
+<li>Thème Material Design (guidelines Google) [GHOST-143]</li>
+<li>Auto-complétion sur les listes [GHOST-170]</li>
+<li>Button pour mettre la console de log (vue Job) en mode théâtre [GHOST-188]</li>
+<li>Protection du double clic sur les boutons de validation (évite de lancer 2 jobs) [GHOST-180]</li>
+<li>Récupération des KeyPairs &amp; Instances Profiles depuis API AWS [GHOST-178]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>3 Stratégies de Worker possibles pour une instance Ghost : 1 par app, 1 par env, 1 pour l&#8217;instance [GHOST-193]</li>
+<li>Possibilité de définir les UID &amp; GID des fichiers déployés par un module [GHOST-187]</li>
+<li>Renommage de la commande &#8220;Rollback&#8221; en &#8220;Redeploy&#8221; [GHOST-173]</li>
+<li>Renommage de la commande &#8220;Destroy instance&#8221; en &#8220;Destroy all instances&#8221; [GHOST-186]</li>
+<li>Stratégies de déploiements : Séquentiel ou parallèle sur les instances (config + option de deploy) [GHOST-82]</li>
+<li>Suppression des scripts de Predeploy &amp; Postdeploy après exécution [GHOST-189]</li>
+<li>Suppression du script de Buildpack après exécution [GHOST-190]</li>
+<li>Déploiement cross-region AWS [GHOST-158]</li>
+<li>Dépôt SALT configurable [GHOST-157]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Améliorations &amp; Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Optimisations sur la récupération des derniers déploiements réussis pour chaque module d&#8217;une application [GHOST-172]</li>
+<li>Refactoring de code [GHOST-163/164/181]</li>
+<li>Commandes découvertes à la volée [GHOST-30]</li>
+<li>Attente de la disponibilité des tags sur les instances EC2 avant de continuer les déploiements [GHOST-185]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-16-01">
+<h2>Ghost 16.01<a class="headerlink" href="#ghost-16-01" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI [GHOST-150, GHOST-155, GHOST-152, GHOST-160, GHOST-138, GHOST-139, GHOST-128, GHOST-55, GHOST-174]</dt>
+<dd><ul class="first last simple">
+<li>Correctif sur la fonction Cloner une Application : rafraichissement des selects</li>
+<li>Changement des couleurs de fonds sur les listes (retrait du rouge et du vert trop vif remonté par les utilisateurs)</li>
+<li>Vue liste d&#8217;application : recherche et filtres</li>
+<li>Vue liste des jobs : recherche et filtres</li>
+<li>La vue Job (détail) se rafraichit automatiquement lors d&#8217;un changement d&#8217;état</li>
+<li>Une popover de warning sur le champs Module Path lors de l&#8217;édition d&#8217;une application si le champ contient une mauvaise valeur : /, /tmp, /etc, /var</li>
+<li>Défilement infini sur les pages de listes (récupération des données en asynchrones)</li>
+<li>Logo Ghost &amp; Favicon</li>
+<li>Fix et correctifs CSS</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Possibilité d&#8217;avoir un dépôt Git spécifique pour les formulas SALT d&#8217;une instance Ghost [GHOST-156]</li>
+<li>Nouvelle commande updatelifecyclehooks : permet d&#8217;avoir des scripts de pre_bootstrap et post_bootstrap [GHOST-159]</li>
+<li>MAX_DEPLOY_HISTORY devient configurable (nombre de révisions de déploiement à conserver) [GHOST-147]</li>
+<li>Autorisation du caractère &#8220;+&#8221; dans le champ version des Features [GHOST-145]</li>
+<li>La variable TMPDIR est définie pour Packer : permet d&#8217;avoir les fichiers de logs et temporaires de Packer dans /var/log/ghost/packer [GHOST-166]</li>
+<li>Nouvelle de stratégie de git clone/pull/mirror sur l&#8217;instance Ghost : permet des déploiements beaucoup plus rapides [GHOST-104]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Script</dt>
+<dd><ul class="first last simple">
+<li>Ghost Backup : possibilité de passer en argument la région S3 de backup (ou spécifiée dans la config de Ghost) [GHOST-146]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Correctifs de bogues</dt>
+<dd><ul class="first last simple">
+<li>Meilleure prise en compte du code de retour du script pre-deploy [GHOST-151]</li>
+<li>Meilleur affichage des modules dans les mails de notifications [GHOST-148]</li>
+<li>Correctif sur le status Auto-scaling (ne doit pas rester en Suspended quand un déploiement échoue) [GHOST-136]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="ghost-15-12">
+<h2>Ghost 15.12<a class="headerlink" href="#ghost-15-12" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Nouvelle interface graphique du client Web [GHOST-44, GHOST-45, GHOST-79, GHOST-93, GHOST-94, GHOST-109, GHOST-115, GHOST-119, GHOST-132, GHOST-134, GHOST-135, GHOST-137]</dt>
+<dd><ul class="first last simple">
+<li>Couleurs pour identifier les environnements _&gt;&gt;&gt; À noter, nous avons déjà eu plusieurs retours négatifs concernant le code couleur utilisé pour distinguer les environnements. Nous allons rectifier le tir dans la version <a href="#id1"><span class="problematic" id="id2">15.12_</span></a></li>
+<li>Picto sur les boutons d’actions (identification plus rapide)</li>
+<li>Menu flottant sur les vues d’application</li>
+<li>Header flottant pour mieux voir quel objet est en cours de traitement</li>
+<li>Plusieurs champs texte remplacés par des Selects pour une saisie plus rapide</li>
+<li>Revue des valeurs par défaut des champs</li>
+<li>Amélioration sur la vue « console » (log d’un job)</li>
+<li>Ajout de RegExp sur le modèle, permet d’éviter des erreurs de caractères non supportés</li>
+<li>Lien d’accès au dernier déploiement réussi dans la vue Application, tableau de module</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Déploiement parallèle [GHOST-89, GHOST-121]</dt>
+<dd><ul class="first last simple">
+<li>Chaque application possède sa file d’attente de Job</li>
+<li>Chaque application possède son Worker pour dépiler sa file</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Nettoyage de vieux reliquats [GHOST-36]</p>
+</li>
+<li><p class="first">Variable de contexte pour les scripts de Buildpack, Pre-Deploy, Post-Deploy [GHOST-61]</p>
+</li>
+<li><p class="first">Possibilité d’annuler un Job qui est en attente (ne peut pas être annulé si déjà démarré) [GHOST-87]</p>
+</li>
+<li><p class="first">Meilleure gestion des états d’instances lié aux Auto-Scaling Groups [GHOST-110, GHOST-117]</p>
+</li>
+<li><p class="first">Possibilité de choisir le type d’instance EC2 lors du buildimage (peut être différent du type d’instance par défaut de l’application) [GHOST-130]</p>
+</li>
+<li><p class="first">Bug fixes [GHOST-108, GHOST-127, GHOST-129, GHOST-131, GHOST-140]</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cli.html" class="btn btn-neutral" title="Casper: CLI client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Morea Team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'16.06',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
