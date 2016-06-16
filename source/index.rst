@@ -12,4 +12,5 @@ Table of Contents:
     rst/commands
     rst/ui
     rst/cli
+    rst/bluegreen
     rst/changelog
