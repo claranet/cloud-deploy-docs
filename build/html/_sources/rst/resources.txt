@@ -1,9 +1,9 @@
 .. _ressources:
 
-.. title:: Ressources
+.. title:: Resources
 
-Ghost Ressources
-================
+Ghost Resources
+===============
 
 .. toctree::
     :maxdepth: 1
