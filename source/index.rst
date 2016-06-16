@@ -12,3 +12,4 @@ Table of Contents:
     rst/commands
     rst/ui
     rst/cli
+    rst/changelog
