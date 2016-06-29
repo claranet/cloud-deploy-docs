@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build-buildimage">Build | buildimage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-updatelifecyclehooks">Build | updatelifecyclehooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-deploy">Run | deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-redeploy">Run | redeploy</a></li>
@@ -146,6 +147,39 @@
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
+</div>
+<div class="section" id="build-buildimage">
+<h2>Build | buildimage<a class="headerlink" href="#build-buildimage" title="Permalink to this headline">¶</a></h2>
+<p>This command should be the first one triggered after a Ghost Application creation.
+It bakes a new AMI with every feature specified in the application on top of the source AMI choosen. (Generally a Morea Debian AMI)
+Morea uses SaltStack to provision all the choosen features and uses Packer (from HashiCorp) to bake the new AMI.</p>
+<p><strong>Command Options</strong></p>
+<dl class="docutils">
+<dt><em>Instance Type</em> :</dt>
+<dd><blockquote class="first">
+<div><cite>string</cite></div></blockquote>
+<p class="last">Choose the instance type of the temporary instance created by Packer for provisionning.</p>
+</dd>
+<dt><em>Skip SALT bootstrap</em> :</dt>
+<dd><blockquote class="first">
+<div><cite>true | false</cite></div></blockquote>
+<p class="last">This option permits to choose if Packer should install the Salt agent (minion) before applying all feature formulas.</p>
+</dd>
+</dl>
+<p><strong>Life cycle hooks</strong></p>
+<blockquote>
+<div><p>There are two Hooks available and configurable in the application.
+Thoose hooks are scripts:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>pre_buildimage</cite> : Script executed on the temporary instance <em>before</em> the SALT provisionning</li>
+<li><cite>post_buildimage</cite> : Script executed on the temporary instance <em>after</em> the SALT provisionning</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<div class="figure">
+<img alt="../_images/ghost_buildimage.png" src="../_images/ghost_buildimage.png" />
+</div>
 </div>
 <div class="section" id="build-updatelifecyclehooks">
 <h2>Build | updatelifecyclehooks<a class="headerlink" href="#build-updatelifecyclehooks" title="Permalink to this headline">¶</a></h2>
