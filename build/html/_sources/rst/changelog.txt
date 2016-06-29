@@ -49,7 +49,7 @@ Ghost 16.05
     - Les scripts `stage1` et `stage2` utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]
     - Nouveau role disponible: 'webcache' [GHOST-222]
     - Possibilité d'utiliser la nouvelle option `Safe Deployment` avec la commande deploy [GHOST-142]
- > Plus d'informations sur la documentation: https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy
+      Plus d'informations sur la documentation: https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy
 
 * Améliorations & Correctifs de bogues
     - Packer provisionne curl uniquement si il faut installer SALT (Skip Salt Bootstrap option) [GHOST-234]
@@ -174,7 +174,7 @@ Ghost 15.12
 -----------
 
 * Nouvelle interface graphique du client Web [GHOST-44, GHOST-45, GHOST-79, GHOST-93, GHOST-94, GHOST-109, GHOST-115, GHOST-119, GHOST-132, GHOST-134, GHOST-135, GHOST-137]
-    - Couleurs pour identifier les environnements _>>> À noter, nous avons déjà eu plusieurs retours négatifs concernant le code couleur utilisé pour distinguer les environnements. Nous allons rectifier le tir dans la version 15.12_
+    - Couleurs pour identifier les environnements _>>> À noter, nous avons déjà eu plusieurs retours négatifs concernant le code couleur utilisé pour distinguer les environnements. Nous allons rectifier le tir dans la version 15.12
     - Picto sur les boutons d’actions (identification plus rapide)
     - Menu flottant sur les vues d’application
     - Header flottant pour mieux voir quel objet est en cours de traitement

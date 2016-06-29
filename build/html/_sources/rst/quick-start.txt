@@ -63,9 +63,11 @@ For more information, please refer to :ref:`application` page.
 Jobs
 ----
 
-Applications has several available job commands. A ``command`` will be operated 
-against an application already created. For each commands you can view the logs 
+Applications has several available job commands. A ``command`` will be operated
+against an application already created. For each commands you can view the logs
 in real time.
+
+For more information, please refer to :ref:`job` page.
 
 Commands
 _________
@@ -85,4 +87,4 @@ _________
   * ``DestroyInstance``: Terminate the EC2 instance linked to the application.
 
 
-For more information, please refer to :ref:`job` page.
+For more information, please refer to :ref:`commands` page.
