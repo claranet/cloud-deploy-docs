@@ -6,6 +6,35 @@ Ghost Commands
 .. toctree::
     :maxdepth: 2
 
+Build | buildimage
+------------------
+
+This command should be the first one triggered after a Ghost Application creation.
+It bakes a new AMI with every feature specified in the application on top of the source AMI choosen. (Generally a Morea Debian AMI)
+Morea uses SaltStack to provision all the choosen features and uses Packer (from HashiCorp) to bake the new AMI.
+
+**Command Options**
+
+*Instance Type* :
+  `string`
+
+ Choose the instance type of the temporary instance created by Packer for provisionning.
+
+*Skip SALT bootstrap* :
+  `true | false`
+
+ This option permits to choose if Packer should install the Salt agent (minion) before applying all feature formulas.
+
+**Life cycle hooks**
+
+    There are two Hooks available and configurable in the application.
+    Thoose hooks are scripts:
+
+        * `pre_buildimage` : Script executed on the temporary instance *before* the SALT provisionning
+        * `post_buildimage` : Script executed on the temporary instance *after* the SALT provisionning
+
+.. figure:: /images/ghost_buildimage.png
+
 
 Build | updatelifecyclehooks
 ----------------------------
