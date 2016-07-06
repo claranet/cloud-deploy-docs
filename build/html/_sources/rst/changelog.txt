@@ -8,6 +8,31 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.06
+-----------
+
+* WebUI
+    - [UI] Quick access boutons on "Completed view" [GHOST-252]
+    - JS Fix for CrossAccount credential check [GHOST-267]
+
+* Core/API
+    - Add generated hostname to /etc/hosts for private IP resolution [GHOST-251]
+    - Add private IP option and Subnet option in `createinstance` command [GHOST-248]
+    - AMI retention purge is now configurable [GHOST-259]
+    - Handle fabric errors, Job will be marked as failed if one `predeloy` or `postdeploy` script fails [GHOST-265]
+    - ghost-doc repo as Submodule [GHOST-183]
+    - Add the 'After all deploy' script available, triggered on Ghost after the deployment on every instances [GHOST-255]
+    - Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]
+    - Features with multiple pillar parameter values, allow us to be more flexible on SALT formulas [GHOST-270]
+    - Handle UTF-8 characters in base64 encoded scripts (pre-bootstrap, post-bootstrap, buildpack, pre-deploy, post-deploy, after-all-deploy, pre-buildimage, post-buildimage) [GHOST-264]
+
+* Improvements & Bug fixes
+    - Fix safe deployment with cross account and spaces issue [GHOST-142]
+    - getconf HOST_NAME_MAX to truncate hostname [GHOST-263]
+    - Allow installation of arbitrary gems [GHOST-258]
+    - Hotfix to handle buttons when creating/cloning an app [GHOST-252]
+    - Update subnets in `updateautoscale` command [GHOST-260]
+    - use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]
 
 Ghost 16.05.2
 -------------

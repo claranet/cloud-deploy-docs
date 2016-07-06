@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-06">Ghost 16.06</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-2">Ghost 16.05.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-1">Ghost 16.05.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-05">Ghost 16.05</a></li>
@@ -149,6 +150,49 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
+</ul>
+</div>
+<div class="section" id="ghost-16-06">
+<h2>Ghost 16.06<a class="headerlink" href="#ghost-16-06" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>[UI] Quick access boutons on &#8220;Completed view&#8221; [GHOST-252]</li>
+<li>JS Fix for CrossAccount credential check [GHOST-267]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Add generated hostname to /etc/hosts for private IP resolution [GHOST-251]</li>
+<li>Add private IP option and Subnet option in <cite>createinstance</cite> command [GHOST-248]</li>
+<li>AMI retention purge is now configurable [GHOST-259]</li>
+<li>Handle fabric errors, Job will be marked as failed if one <cite>predeloy</cite> or <cite>postdeploy</cite> script fails [GHOST-265]</li>
+<li>ghost-doc repo as Submodule [GHOST-183]</li>
+<li>Add the &#8216;After all deploy&#8217; script available, triggered on Ghost after the deployment on every instances [GHOST-255]</li>
+<li>Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]</li>
+<li>Features with multiple pillar parameter values, allow us to be more flexible on SALT formulas [GHOST-270]</li>
+<li>Handle UTF-8 characters in base64 encoded scripts (pre-bootstrap, post-bootstrap, buildpack, pre-deploy, post-deploy, after-all-deploy, pre-buildimage, post-buildimage) [GHOST-264]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Fix safe deployment with cross account and spaces issue [GHOST-142]</li>
+<li>getconf HOST_NAME_MAX to truncate hostname [GHOST-263]</li>
+<li>Allow installation of arbitrary gems [GHOST-258]</li>
+<li>Hotfix to handle buttons when creating/cloning an app [GHOST-252]</li>
+<li>Update subnets in <cite>updateautoscale</cite> command [GHOST-260]</li>
+<li>use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 <div class="section" id="ghost-16-05-2">
