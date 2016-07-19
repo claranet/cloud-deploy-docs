@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Web User Interface &mdash; Morea Ghost 16.06 documentation</title>
+  <title>Blue/Green Deployment &mdash; Morea Ghost 16.06 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="Morea Ghost 16.06 documentation" href="../index.html"/>
-        <link rel="next" title="Casper: CLI client" href="cli.html"/>
-        <link rel="prev" title="Ghost Commands" href="commands.html"/> 
+        <link rel="next" title="Ghost Changelog" href="changelog.html"/>
+        <link rel="prev" title="Casper: CLI client" href="cli.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,16 +89,12 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Web User Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#main-page">Main page</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#jobs">Jobs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deployments">Deployments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#screenshots">Screenshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blue/Green Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-blue-green-in-ghost">How to Blue/green in GHOST</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Ghost Changelog</a></li>
 </ul>
 
@@ -130,11 +126,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Web User Interface</li>
+    <li>Blue/Green Deployment</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/rst/ui.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/rst/bluegreen.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -144,26 +140,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="web-user-interface">
-<span id="ui"></span><h1>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="blue-green-deployment">
+<span id="bluegreen"></span><h1>Blue/Green Deployment<a class="headerlink" href="#blue-green-deployment" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
 </div>
-<div class="section" id="main-page">
-<h2>Main page<a class="headerlink" href="#main-page" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="jobs">
-<h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="deployments">
-<h2>Deployments<a class="headerlink" href="#deployments" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="screenshots">
-<h2>Screenshots<a class="headerlink" href="#screenshots" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-blue-green-in-ghost">
+<h2>How to Blue/green in GHOST<a class="headerlink" href="#how-to-blue-green-in-ghost" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Prepare your env resources : <em>2 ASG, 1 main ELB attached to the first &#8216;blue&#8217; ASG</em>. Plus if necessary 2 SGs and 2 IAM Instance Profiles.</p>
+</li>
+<li><p class="first">Build and deploy your main Ghost App (future <cite>blue</cite> one)</p>
+</li>
+<li><p class="first">Edit your App and check <cite>Enable Blue/Green deployment</cite> on it. Ghost will clone your app to generate the <cite>green</cite> one. At this point the original app becomes <cite>blue</cite> and is marked as <cite>online</cite>.</p>
+</li>
+<li><p class="first">Edit the green app and attach needed green resources (a different ASG is <em>mandatory</em>)</p>
+</li>
+<li><p class="first">Trigger the <cite>preparebluegreen</cite> command in order to creates a temporary warmup ELB and start some new instances in the <cite>offline (green)</cite> pool.</p>
+</li>
+<li><p class="first">Use classical <cite>buildimage</cite> and <cite>deploy</cite> to prepare your N+1 version in the <cite>offline (green)</cite> pool. You can validate your <cite>green</cite> env with the temporary ELB generated by the <cite>prepare</cite> command.</p>
+</li>
+<li><p class="first">When ready for <cite>blue/green</cite> deploy, trigger the <cite>swapbluegreen</cite> command to make the swap ! There will be two strategies available:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>isolated</em>: instances from the online pool are detached from the ELB, waiting for connection draining and then attach instances from the new pool to the ELB. /!A downtime will occur with this strategy, but it insures that the N version and N+1 version are never online together.</li>
+<li><em>overlap</em>:  a contrario, this strategy will first detach online instances(they stay <cite>healthy</cite> until the Unhealthy threshold is reached and they continue to receive the trafic), then attach the instances form the new pool (N+1 version), wait for them to be <cite>healthy</cite> in the ELB. There is no downtime with this strategy but the two versions can be online at the same time during few seconds.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">If there is any problem with <cite>swap</cite> deploy, it&#8217;s possible to run swap again in order to <cite>rollback</cite></p>
+</li>
+<li><p class="first">When everything is fully tested and online, you can run <cite>purgebluegreen</cite> to destroy the old pool of instances and destroy the temporary ELB.</p>
+</li>
+<li><p class="first">Back to step 5 in order to deploy another version of your app !</p>
+</li>
+</ol>
 </div>
 </div>
 
@@ -174,10 +186,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cli.html" class="btn btn-neutral float-right" title="Casper: CLI client" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Ghost Changelog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="commands.html" class="btn btn-neutral" title="Ghost Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral" title="Casper: CLI client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

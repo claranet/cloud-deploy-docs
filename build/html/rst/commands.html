@@ -91,12 +91,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#build-buildimage">Build | buildimage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-updatelifecyclehooks">Build | updatelifecyclehooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-deploy">Run | deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-deploy">Run | deploy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#safe-deploy-documentation">Safe deploy documentation:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#run-redeploy">Run | redeploy</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Ghost Changelog</a></li>
 </ul>
 
@@ -206,18 +210,20 @@ You can choose the revision you want to deploy (git branch, tag, or hash commit)
 <p class="last">This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.</p>
 </dd>
 <dt><em>Safe Deploy</em> :</dt>
-<dd><blockquote class="first">
-<div><cite>boolean and parameters</cite></div></blockquote>
-<p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
+<dd><cite>boolean and parameters</cite></dd>
+</dl>
+<div class="section" id="safe-deploy-documentation">
+<h3>Safe deploy documentation:<a class="headerlink" href="#safe-deploy-documentation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
 the instances stay in the Load Balancer&#8217;s pool during the operation even if the deployment process reload or restart a service. It&#8217;s not a really efficient and safe
 because it can break user sessions and create a bad user experience.</p>
 <p>It&#8217;s to tackle this problem that the safe deployment feature as been created. The vision is, for an Autoscaling Group, split the instances in multiple groups.
 The feature gives the possibility to choose the split strategy of the whole AutoScaling instances and so create multiple instance groups. Each instance groups will be remove from their Load Balancer  before to
 be deployed in a standard way and then registered.</p>
 <p>The safe deployment feature can be used with the commands &#8220;deploy&#8221; and &#8220;redeploy&#8221; and can be used with the fabric strategy.</p>
-<p class="last">For AutoScaling Group with one or more Haproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
-</dd>
-</dl>
+<p>For AutoScaling Group with one or more Haproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
+</div></blockquote>
 <p><em>The safe deployment possiblities are:</em></p>
 <blockquote>
 <div><blockquote>
@@ -298,6 +304,7 @@ in their Load Balancer.</li>
 </div></blockquote>
 <p>In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complet deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.</p>
 </div></blockquote>
+</div>
 </div>
 <div class="section" id="run-redeploy">
 <h2>Run | redeploy<a class="headerlink" href="#run-redeploy" title="Permalink to this headline">¶</a></h2>

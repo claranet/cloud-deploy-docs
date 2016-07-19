@@ -68,6 +68,9 @@ Here is a workflow diagram for more details :
 *Safe Deploy* :
   `boolean and parameters`
 
+Safe deploy documentation:
+**************************
+
  The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
  the instances stay in the Load Balancer's pool during the operation even if the deployment process reload or restart a service. It's not a really efficient and safe
  because it can break user sessions and create a bad user experience.
