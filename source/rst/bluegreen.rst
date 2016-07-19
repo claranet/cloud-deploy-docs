@@ -8,7 +8,8 @@ Blue/Green Deployment
 .. toctree::
     :maxdepth: 2
 
-## How to Blue/green in GHOST: ##
+How to Blue/green in GHOST
+**************************
 
 1. Prepare your env resources : *2 ASG, 1 main ELB attached to the first 'blue' ASG*. Plus if necessary 2 SGs and 2 IAM Instance Profiles.
 2. Build and deploy your main Ghost App (future `blue` one)
