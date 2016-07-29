@@ -35,6 +35,8 @@ Morea uses SaltStack to provision all the choosen features and uses Packer (from
 
 .. figure:: /images/ghost_buildimage.png
 
+.. figure:: /images/buildimage_workflow.png
+
 
 Build | updatelifecyclehooks
 ----------------------------
