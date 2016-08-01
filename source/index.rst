@@ -10,6 +10,7 @@ Table of Contents:
     rst/resources
     rst/api
     rst/commands
+    rst/env
     rst/ui
     rst/cli
     rst/bluegreen
