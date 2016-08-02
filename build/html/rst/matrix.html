@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Scripts &mdash; Morea Ghost 16.07 documentation</title>
+  <title>Feature matrix comparison &mdash; Morea Ghost 16.07 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="Morea Ghost 16.07 documentation" href="../index.html"/>
-        <link rel="next" title="Web User Interface" href="ui.html"/>
-        <link rel="prev" title="Ghost Commands" href="commands.html"/> 
+        <link rel="next" title="Ghost Changelog" href="changelog.html"/>
+        <link rel="prev" title="Blue/Green Deployment" href="bluegreen.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,15 +89,13 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feature matrix comparison</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Ghost Changelog</a></li>
 </ul>
 
@@ -129,11 +127,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Ghost Scripts</li>
+    <li>Feature matrix comparison</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/rst/scripts.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/rst/matrix.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -143,74 +141,263 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ghost-scripts">
-<span id="scripts"></span><h1>Ghost Scripts<a class="headerlink" href="#ghost-scripts" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="feature-matrix-comparison">
+<span id="matrix"></span><h1>Feature matrix comparison<a class="headerlink" href="#feature-matrix-comparison" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>Scripts<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>It&#8217;s possible in Ghost to launch some custom scripts at every steps of the deployment process and the build process (bake image template).
-Here is an overview and a description of thoses scripts.</p>
-<blockquote>
-<div><ul class="simple">
-<li><strong>pre_buildimage</strong>: Script executed in the <cite>buildimage</cite> command before formulas provisioning. It allows you to prepare the source AMI before the execution of all your app feature formulas. It can be usefull in order to change package mirrors location for example.</li>
-<li><strong>post_buildimage</strong>: Script executed in the <cite>buildimage</cite> command after formulas provisioning. You can tweak and install custom system packages after the features provisioning.</li>
-</ul>
-<div class="figure">
-<img alt="../_images/buildimage_workflow.png" src="../_images/buildimage_workflow.png" />
-</div>
-<ul class="simple">
-<li><strong>pre_bootstrap</strong>: Script executed when a new instance starts, before the deployment of modules packages.</li>
-<li><strong>post_bootstrap</strong>: Script executed when a new instance starts, after the deployment of modules packages. It can be used to verify and validate the whole instance deployment.</li>
-</ul>
-<div class="figure">
-<img alt="../_images/bootstrap_workflow.png" src="../_images/bootstrap_workflow.png" />
-</div>
-<ul class="simple">
-<li><strong>buildpack</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependences required by the application <strong>must</strong> be resolved in this script.</li>
-<li><strong>pre_deploy</strong>: Script executed on every instance when deploying a module package. This script will prepare the target instance <em>before</em> symbolic link swap. This script <strong>must not</strong> depend on external resources (no internet call, no package install, no downloads).</li>
-<li><strong>post_deploy</strong>: Script executed on every instance when deploying a module package. This script will prepare the target instance <em>after</em> symbolic link swap. This script <strong>must not</strong> depend on external resources (no internet call, no package install, no downloads).</li>
-<li><strong>after_all_deploy</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script is executed after the package deployment on every instances of the current application.</li>
-</ul>
-<div class="figure">
-<img alt="../_images/deploy_workflow.png" src="../_images/deploy_workflow.png" />
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
-<p>When custom scripts and binaries are triggered in the Ghost deployment workflow, many variables are available in the environment to help you making generic scripts.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="22%" />
-<col width="8%" />
-<col width="9%" />
-<col width="8%" />
-<col width="8%" />
-<col width="6%" />
-<col width="6%" />
+<col width="26%" />
+<col width="5%" />
 <col width="7%" />
+<col width="7%" />
+<col width="10%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
 <col width="9%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Variables</th>
-<th class="head">Purpose</th>
-<th class="head">pre_buildimage</th>
-<th class="head">post_buildimage</th>
-<th class="head">pre_bootstrap</th>
-<th class="head">post_bootstrap</th>
-<th class="head">buildpack</th>
-<th class="head">pre_deploy</th>
-<th class="head">post_deplooy</th>
-<th class="head">after_all_deploy</th>
+<tr class="row-odd"><th class="head">Features</th>
+<th class="head">Ghost
+(Morea)</th>
+<th class="head">Otto
+(Hashicorp)</th>
+<th class="head">Atlas
+(Hashicorp)</th>
+<th class="head">Harrow.io
+(Capistrano SaaS)</th>
+<th class="head">CodeShip</th>
+<th class="head">Deploy Bot</th>
+<th class="head">CodeDeploy
+(AWS)</th>
+<th class="head">Spinnaker
+(Netflix)</th>
+<th class="head">Capistrano</th>
+<th class="head">OpsWorks
+(AWS)</th>
+<th class="head">ElasticBeanStalk
+(AWS)</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>GHOST_APP</td>
-<td>Application name</td>
+<tr class="row-even"><td>Live deployment</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Blue Green deployment</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>Parallel deployment</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Sequential deployment</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>From application to infrastructure view</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Deploy app code revision on instances</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>Deploy system module configurations</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>~</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Buildpack / Artefact generation from clean source</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Web API, CLI</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>CLI only</td>
+<td>✔</td>
+<td>CLI only</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Easy Web UI Management</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>User Auth</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Right management (application grain)</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Auto-scaling management</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Baked image (Configuration Manager integration)</td>
+<td>✔ SALT</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔ (only Chef)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Cloud compliant</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-odd"><td>Cloud Technology agnostic</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Rollback</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>✔</td>
@@ -220,119 +407,34 @@ Here is an overview and a description of thoses scripts.</p>
 <td>✔</td>
 <td>✔</td>
 </tr>
-<tr class="row-odd"><td>GHOST_ENV</td>
-<td>Application environment</td>
+<tr class="row-odd"><td>Realtime rich logs</td>
+<td>✔</td>
+<td>&nbsp;</td>
+<td>✔</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 <td>✔</td>
 </tr>
-<tr class="row-even"><td>GHOST_ENV_COLOR</td>
-<td>Application color if Blue/Green enabled</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<tr class="row-even"><td>Life cycle hooks (on boot, on deploy, etc.)</td>
 <td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-odd"><td>GHOST_ROLE</td>
-<td>Application role</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-even"><td>GHOST_MODULE_NAME</td>
-<td>Module name</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-odd"><td>GHOST_MODULE_PATH</td>
-<td>Module destination path</td>
 <td>&nbsp;</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
+<td>~</td>
 <td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-even"><td>GHOST_MODULE_REPO</td>
-<td>Module git repository</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-odd"><td>GHOST_MODULE_REV</td>
-<td>Module git revision deployed</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-even"><td>GHOST_MODULE_COMMIT</td>
-<td>Module git commit hash deployed</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-odd"><td>GHOST_MODULE_COMMIT_MESSAGE</td>
-<td>Module git commit message</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr class="row-even"><td>GHOST_MODULE_USER</td>
-<td>User who triggered the deployment</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 
 
@@ -342,10 +444,10 @@ Here is an overview and a description of thoses scripts.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Ghost Changelog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="commands.html" class="btn btn-neutral" title="Ghost Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bluegreen.html" class="btn btn-neutral" title="Blue/Green Deployment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

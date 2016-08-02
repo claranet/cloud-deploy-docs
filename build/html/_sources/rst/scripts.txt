@@ -9,7 +9,7 @@ Ghost Scripts
 Scripts
 -------
 
-It's possible in Ghost to launch some custom scripts at avery step of the deployment process and the build process (bake image template).
+It's possible in Ghost to launch some custom scripts at every steps of the deployment process and the build process (bake image template).
 Here is an overview and a description of thoses scripts.
 
     - **pre_buildimage**: Script executed in the `buildimage` command before formulas provisioning. It allows you to prepare the source AMI before the execution of all your app feature formulas. It can be usefull in order to change package mirrors location for example.
