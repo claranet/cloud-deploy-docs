@@ -151,11 +151,11 @@
 </div>
 <div class="section" id="id1">
 <h2>Scripts<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>It&#8217;s possible in Ghost to launch some custom scripts at every steps of the deployment process and the build process (bake image template).
+<p>In Ghost, it is possible to launch custom scripts at every steps of the deployment and build process (bake image template).
 Here is an overview and a description of thoses scripts.</p>
 <blockquote>
 <div><ul class="simple">
-<li><strong>pre_buildimage</strong>: Script executed in the <cite>buildimage</cite> command before formulas provisioning. It allows you to prepare the source AMI before the execution of all your app feature formulas. It can be usefull in order to change package mirrors location for example.</li>
+<li><strong>pre_buildimage</strong>: Script executed in the <cite>buildimage</cite> command before formulas provisioning. It allows you to prepare the source AMI before the execution of all of your application&#8217;s features formulas. It can be usefull in order to change package&#8217;s mirrors location for example.</li>
 <li><strong>post_buildimage</strong>: Script executed in the <cite>buildimage</cite> command after formulas provisioning. You can tweak and install custom system packages after the features provisioning.</li>
 </ul>
 <div class="figure">
@@ -169,10 +169,10 @@ Here is an overview and a description of thoses scripts.</p>
 <img alt="../_images/bootstrap_workflow.png" src="../_images/bootstrap_workflow.png" />
 </div>
 <ul class="simple">
-<li><strong>buildpack</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependences required by the application <strong>must</strong> be resolved in this script.</li>
+<li><strong>buildpack</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependencies required by the application <strong>must</strong> be resolved in this script.</li>
 <li><strong>pre_deploy</strong>: Script executed on every instance when deploying a module package. This script will prepare the target instance <em>before</em> symbolic link swap. This script <strong>must not</strong> depend on external resources (no internet call, no package install, no downloads).</li>
 <li><strong>post_deploy</strong>: Script executed on every instance when deploying a module package. This script will prepare the target instance <em>after</em> symbolic link swap. This script <strong>must not</strong> depend on external resources (no internet call, no package install, no downloads).</li>
-<li><strong>after_all_deploy</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script is executed after the package deployment on every instances of the current application.</li>
+<li><strong>after_all_deploy</strong>: Script executed on Ghost when deploying a new version of a module (new package). This script is executed after the package deployment on every instance of the current application.</li>
 </ul>
 <div class="figure">
 <img alt="../_images/deploy_workflow.png" src="../_images/deploy_workflow.png" />
