@@ -1,13 +1,41 @@
-.. _env:
+.. _scripts:
 
-Ghost environment variables
-===========================
+Ghost Scripts
+=============
 
 .. toctree::
     :maxdepth: 2
 
-Variables
----------
+Scripts
+-------
+
+It's possible in Ghost to launch some custom scripts at every steps of the deployment process and the build process (bake image template).
+Here is an overview and a description of thoses scripts.
+
+    - **pre_buildimage**: Script executed in the `buildimage` command before formulas provisioning. It allows you to prepare the source AMI before the execution of all your app feature formulas. It can be usefull in order to change package mirrors location for example.
+
+    - **post_buildimage**: Script executed in the `buildimage` command after formulas provisioning. You can tweak and install custom system packages after the features provisioning.
+
+    .. figure:: /images/buildimage_workflow.png
+
+    - **pre_bootstrap**: Script executed when a new instance starts, before the deployment of modules packages.
+
+    - **post_bootstrap**: Script executed when a new instance starts, after the deployment of modules packages. It can be used to verify and validate the whole instance deployment.
+
+    .. figure:: /images/bootstrap_workflow.png
+
+    - **buildpack**: Script executed on Ghost when deploying a new version of a module (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependences required by the application **must** be resolved in this script.
+
+    - **pre_deploy**: Script executed on every instance when deploying a module package. This script will prepare the target instance *before* symbolic link swap. This script **must not** depend on external resources (no internet call, no package install, no downloads).
+
+    - **post_deploy**: Script executed on every instance when deploying a module package. This script will prepare the target instance *after* symbolic link swap. This script **must not** depend on external resources (no internet call, no package install, no downloads).
+
+    - **after_all_deploy**: Script executed on Ghost when deploying a new version of a module (new package). This script is executed after the package deployment on every instances of the current application.
+
+    .. figure:: /images/deploy_workflow.png
+
+Environment variables
+---------------------
 
 When custom scripts and binaries are triggered in the Ghost deployment workflow, many variables are available in the environment to help you making generic scripts.
 
