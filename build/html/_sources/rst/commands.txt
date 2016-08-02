@@ -74,6 +74,13 @@ This command allows you to destroy every instances mapped to the current applica
 Both *standalone* and *in AutoScale* instances are destroyed.
 
 
+Run/Build | updateautoscaling
+-----------------------------
+
+This command allow you to create a new *LaunchConfiguration* with every parameter taken from the Ghost application and attach it to the AutoScale Group.
+It will also update the AutoScale Group parameters (update *min*, *max*, *desired*) and tags (set needed Ghost's tags)
+
+
 Run | deploy
 ------------
 
