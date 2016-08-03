@@ -12,7 +12,7 @@ Ghost 16.07
 -----------
 
 * WebUI
-    - Add `Documentation` link in footer [GHOST-183]
+    - Add ``Documentation`` link in footer [GHOST-183]
     - WTForm SelectField override to handle no available selected data [GHOST-278]
     - Show S3 link to module package in Deployment view [GHOST-277]
     - Also display AMIs from specific third party AWS accounts [GHOST-276]
@@ -25,7 +25,7 @@ Ghost 16.07
 
 * Improvements & Bug fixes
     - Clean Error for empty boostrap during stage2 execution [GHOST-249]
-    - Refactor `destroyallinstances` command [GHOST-273]
+    - Refactor ``destroyallinstances`` command [GHOST-273]
     - Hotfix [GHOST-102] show Ghost tag instances bug
 
 Ghost 16.06
@@ -37,9 +37,9 @@ Ghost 16.06
 
 * Core/API
     - Add generated hostname to /etc/hosts for private IP resolution [GHOST-251]
-    - Add private IP option and Subnet option in `createinstance` command [GHOST-248]
+    - Add private IP option and Subnet option in ``createinstance`` command [GHOST-248]
     - AMI retention purge is now configurable [GHOST-259]
-    - Handle fabric errors, Job will be marked as failed if one `predeloy` or `postdeploy` script fails [GHOST-265]
+    - Handle fabric errors, Job will be marked as failed if one ``predeloy`` or ``postdeploy`` script fails [GHOST-265]
     - ghost-doc repo as Submodule [GHOST-183]
     - Add the 'After all deploy' script available, triggered on Ghost after the deployment on every instances [GHOST-255]
     - Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]
@@ -51,7 +51,7 @@ Ghost 16.06
     - getconf HOST_NAME_MAX to truncate hostname [GHOST-263]
     - Allow installation of arbitrary gems [GHOST-258]
     - Hotfix to handle buttons when creating/cloning an app [GHOST-252]
-    - Update subnets in `updateautoscale` command [GHOST-260]
+    - Update subnets in ``updateautoscale`` command [GHOST-260]
     - use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]
 
 Ghost 16.05.2
@@ -72,10 +72,10 @@ Ghost 16.05.1
 * Core/API
     - Nouveaux environnements disponibles: int, uat, oat [GHOST-247]
     - Ajout de l'IP privé des instances démarrées par Ghost dans le Hotname (et par extension dans le PROMPT PS1) [GHOST-250]
-    - Spécification d'un AWS IAM Instance Profile spécifique au lancement de Packer. Permet d'avoir des policy AWS qui pourraient être nécessaire au `buildimage` [GHOST-245]
+    - Spécification d'un AWS IAM Instance Profile spécifique au lancement de Packer. Permet d'avoir des policy AWS qui pourraient être nécessaire au ``buildimage`` [GHOST-245]
 
 * Améliorations & Correctifs de bogues
-    - Ajout de l'option `ssh_pty` à l'appel Packer (nécessaire sur RedHat/CentOS) [GHOST-246]
+    - Ajout de l'option ``ssh_pty`` à l'appel Packer (nécessaire sur RedHat/CentOS) [GHOST-246]
 
 
 Ghost 16.05
@@ -86,14 +86,14 @@ Ghost 16.05
     - Better Job Log view (Possibilité de collapse/expand les commandes, coloration, ajout du temps d'exécution de chaque commande) [GHOST-199]
     - Améliorations du footer (meilleure gestion de la version Ghost à afficher) [GHOST-218]
     - Boutton de refresh pour les listes de Subnet et de SecurityGroups [GHOST-167]
-    - Possibilité de déployer plusieurs ou tous les modules avec la commande `deploy` [GHOST-240]
+    - Possibilité de déployer plusieurs ou tous les modules avec la commande ``deploy`` [GHOST-240]
 
 * Core/API
-    - La commande `updatelifecyclehooks` doit aussi mettre à jour l'AutoScale (LaunchConfig userdata) [GHOST-168]
-    - La commande `buildimage` ne clone que la branche SALT nécessaire au provisionning [GHOST-206]
-    - Les scripts `stage1` et `stage2` utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]
+    - La commande ``updatelifecyclehooks`` doit aussi mettre à jour l'AutoScale (LaunchConfig userdata) [GHOST-168]
+    - La commande ``buildimage`` ne clone que la branche SALT nécessaire au provisionning [GHOST-206]
+    - Les scripts ``stage1`` et ``stage2`` utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]
     - Nouveau role disponible: 'webcache' [GHOST-222]
-    - Possibilité d'utiliser la nouvelle option `Safe Deployment` avec la commande deploy [GHOST-142]
+    - Possibilité d'utiliser la nouvelle option ``Safe Deployment`` avec la commande deploy [GHOST-142]
       Plus d'informations sur la documentation: https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy
 
 * Améliorations & Correctifs de bogues

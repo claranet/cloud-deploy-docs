@@ -162,7 +162,7 @@
 <li><dl class="first docutils">
 <dt>WebUI</dt>
 <dd><ul class="first last simple">
-<li>Add <cite>Documentation</cite> link in footer [GHOST-183]</li>
+<li>Add <code class="docutils literal"><span class="pre">Documentation</span></code> link in footer [GHOST-183]</li>
 <li>WTForm SelectField override to handle no available selected data [GHOST-278]</li>
 <li>Show S3 link to module package in Deployment view [GHOST-277]</li>
 <li>Also display AMIs from specific third party AWS accounts [GHOST-276]</li>
@@ -185,7 +185,7 @@
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
 <li>Clean Error for empty boostrap during stage2 execution [GHOST-249]</li>
-<li>Refactor <cite>destroyallinstances</cite> command [GHOST-273]</li>
+<li>Refactor <code class="docutils literal"><span class="pre">destroyallinstances</span></code> command [GHOST-273]</li>
 <li>Hotfix [GHOST-102] show Ghost tag instances bug</li>
 </ul>
 </dd>
@@ -209,9 +209,9 @@
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
 <li>Add generated hostname to /etc/hosts for private IP resolution [GHOST-251]</li>
-<li>Add private IP option and Subnet option in <cite>createinstance</cite> command [GHOST-248]</li>
+<li>Add private IP option and Subnet option in <code class="docutils literal"><span class="pre">createinstance</span></code> command [GHOST-248]</li>
 <li>AMI retention purge is now configurable [GHOST-259]</li>
-<li>Handle fabric errors, Job will be marked as failed if one <cite>predeloy</cite> or <cite>postdeploy</cite> script fails [GHOST-265]</li>
+<li>Handle fabric errors, Job will be marked as failed if one <code class="docutils literal"><span class="pre">predeloy</span></code> or <code class="docutils literal"><span class="pre">postdeploy</span></code> script fails [GHOST-265]</li>
 <li>ghost-doc repo as Submodule [GHOST-183]</li>
 <li>Add the &#8216;After all deploy&#8217; script available, triggered on Ghost after the deployment on every instances [GHOST-255]</li>
 <li>Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]</li>
@@ -228,7 +228,7 @@
 <li>getconf HOST_NAME_MAX to truncate hostname [GHOST-263]</li>
 <li>Allow installation of arbitrary gems [GHOST-258]</li>
 <li>Hotfix to handle buttons when creating/cloning an app [GHOST-252]</li>
-<li>Update subnets in <cite>updateautoscale</cite> command [GHOST-260]</li>
+<li>Update subnets in <code class="docutils literal"><span class="pre">updateautoscale</span></code> command [GHOST-260]</li>
 <li>use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]</li>
 </ul>
 </dd>
@@ -273,7 +273,7 @@
 <dd><ul class="first last simple">
 <li>Nouveaux environnements disponibles: int, uat, oat [GHOST-247]</li>
 <li>Ajout de l&#8217;IP privé des instances démarrées par Ghost dans le Hotname (et par extension dans le PROMPT PS1) [GHOST-250]</li>
-<li>Spécification d&#8217;un AWS IAM Instance Profile spécifique au lancement de Packer. Permet d&#8217;avoir des policy AWS qui pourraient être nécessaire au <cite>buildimage</cite> [GHOST-245]</li>
+<li>Spécification d&#8217;un AWS IAM Instance Profile spécifique au lancement de Packer. Permet d&#8217;avoir des policy AWS qui pourraient être nécessaire au <code class="docutils literal"><span class="pre">buildimage</span></code> [GHOST-245]</li>
 </ul>
 </dd>
 </dl>
@@ -281,7 +281,7 @@
 <li><dl class="first docutils">
 <dt>Améliorations &amp; Correctifs de bogues</dt>
 <dd><ul class="first last simple">
-<li>Ajout de l&#8217;option <cite>ssh_pty</cite> à l&#8217;appel Packer (nécessaire sur RedHat/CentOS) [GHOST-246]</li>
+<li>Ajout de l&#8217;option <code class="docutils literal"><span class="pre">ssh_pty</span></code> à l&#8217;appel Packer (nécessaire sur RedHat/CentOS) [GHOST-246]</li>
 </ul>
 </dd>
 </dl>
@@ -298,7 +298,7 @@
 <li>Better Job Log view (Possibilité de collapse/expand les commandes, coloration, ajout du temps d&#8217;exécution de chaque commande) [GHOST-199]</li>
 <li>Améliorations du footer (meilleure gestion de la version Ghost à afficher) [GHOST-218]</li>
 <li>Boutton de refresh pour les listes de Subnet et de SecurityGroups [GHOST-167]</li>
-<li>Possibilité de déployer plusieurs ou tous les modules avec la commande <cite>deploy</cite> [GHOST-240]</li>
+<li>Possibilité de déployer plusieurs ou tous les modules avec la commande <code class="docutils literal"><span class="pre">deploy</span></code> [GHOST-240]</li>
 </ul>
 </dd>
 </dl>
@@ -306,11 +306,11 @@
 <li><dl class="first docutils">
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
-<li>La commande <cite>updatelifecyclehooks</cite> doit aussi mettre à jour l&#8217;AutoScale (LaunchConfig userdata) [GHOST-168]</li>
-<li>La commande <cite>buildimage</cite> ne clone que la branche SALT nécessaire au provisionning [GHOST-206]</li>
-<li>Les scripts <cite>stage1</cite> et <cite>stage2</cite> utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]</li>
+<li>La commande <code class="docutils literal"><span class="pre">updatelifecyclehooks</span></code> doit aussi mettre à jour l&#8217;AutoScale (LaunchConfig userdata) [GHOST-168]</li>
+<li>La commande <code class="docutils literal"><span class="pre">buildimage</span></code> ne clone que la branche SALT nécessaire au provisionning [GHOST-206]</li>
+<li>Les scripts <code class="docutils literal"><span class="pre">stage1</span></code> et <code class="docutils literal"><span class="pre">stage2</span></code> utilise le binaire AWS (cli) depuis le $PATH [GHOST-235]</li>
 <li>Nouveau role disponible: &#8216;webcache&#8217; [GHOST-222]</li>
-<li>Possibilité d&#8217;utiliser la nouvelle option <cite>Safe Deployment</cite> avec la commande deploy [GHOST-142]
+<li>Possibilité d&#8217;utiliser la nouvelle option <code class="docutils literal"><span class="pre">Safe</span> <span class="pre">Deployment</span></code> avec la commande deploy [GHOST-142]
 Plus d&#8217;informations sur la documentation: <a class="reference external" href="https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy">https://demo.ghost.morea.fr/doc/rst/commands.html#run-deploy</a></li>
 </ul>
 </dd>
