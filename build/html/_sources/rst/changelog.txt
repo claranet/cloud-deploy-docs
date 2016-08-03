@@ -8,6 +8,26 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.07
+-----------
+
+* WebUI
+    - Add `Documentation` link in footer [GHOST-183]
+    - WTForm SelectField override to handle no available selected data [GHOST-278]
+    - Show S3 link to module package in Deployment view [GHOST-277]
+    - Also display AMIs from specific third party AWS accounts [GHOST-276]
+    - [UI] Drag'n'drop Features order [GHOST-274]
+
+* Core/API
+    - Blue/Green deployment strategy [GHOST-229] (more info here: :ref:`bluegreen`)
+    - Add ami-base role for base AMI building [GHOST-275]
+    - Role field now generic (a specific role can be created) [GHOST-241]
+
+* Improvements & Bug fixes
+    - Clean Error for empty boostrap during stage2 execution [GHOST-249]
+    - Refactor `destroyallinstances` command [GHOST-273]
+    - Hotfix [GHOST-102] show Ghost tag instances bug
+
 Ghost 16.06
 -----------
 

@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-07">Ghost 16.07</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-06">Ghost 16.06</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-2">Ghost 16.05.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-05-1">Ghost 16.05.1</a></li>
@@ -153,6 +154,43 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
+</ul>
+</div>
+<div class="section" id="ghost-16-07">
+<h2>Ghost 16.07<a class="headerlink" href="#ghost-16-07" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Add <cite>Documentation</cite> link in footer [GHOST-183]</li>
+<li>WTForm SelectField override to handle no available selected data [GHOST-278]</li>
+<li>Show S3 link to module package in Deployment view [GHOST-277]</li>
+<li>Also display AMIs from specific third party AWS accounts [GHOST-276]</li>
+<li>[UI] Drag&#8217;n&#8217;drop Features order [GHOST-274]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Blue/Green deployment strategy [GHOST-229] (more info here: <a class="reference internal" href="bluegreen.html#bluegreen"><span class="std std-ref">Blue/Green Deployment</span></a>)</li>
+<li>Add ami-base role for base AMI building [GHOST-275]</li>
+<li>Role field now generic (a specific role can be created) [GHOST-241]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Clean Error for empty boostrap during stage2 execution [GHOST-249]</li>
+<li>Refactor <cite>destroyallinstances</cite> command [GHOST-273]</li>
+<li>Hotfix [GHOST-102] show Ghost tag instances bug</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 <div class="section" id="ghost-16-06">
