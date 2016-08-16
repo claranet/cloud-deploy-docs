@@ -41,7 +41,7 @@ When custom scripts and binaries are triggered in the Ghost deployment workflow,
 And it's now possible to define custom variables which will be available in the environment.
 
 +-----------------------------+------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+
-| Variables                   | Purpose                                  | pre_buildimage | post_buildimage | pre_bootstrap | post_bootstrap | buildpack | pre_deploy | post_deplooy | after_all_deploy |
+| Variables                   | Purpose                                  | pre_buildimage | post_buildimage | pre_bootstrap | post_bootstrap | buildpack | pre_deploy | post_deploy  | after_all_deploy |
 +=============================+==========================================+================+=================+===============+================+===========+============+==============+==================+
 | GHOST_APP                   | Application name                         | ✔              | ✔               | ✔             | ✔              | ✔         | ✔          | ✔            | ✔                |
 +-----------------------------+------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+
