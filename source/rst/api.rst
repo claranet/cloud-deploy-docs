@@ -9,15 +9,7 @@
 Ghost API
 =========
 
-Application
------------
-
-.. figure:: /images/Application_schema.png
-
-Job
----
-
-.. figure:: /images/job_workflow.png
+.. figure:: /images/ghost_rest_api.png
 
 `REST Documentation </docs/api>`_
 ---------------------------------
