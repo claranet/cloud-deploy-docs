@@ -8,6 +8,14 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+
+Ghost 16.07.1
+-------------
+
+* Improvements & Bug fixes
+    - Hotfix [GHOST-229]: fix redeploy command broken by refactoring
+    - Hotfix [GHOST-229]: boto3 addition upgrades botocore which breaks awscli 1.4 (from wheezy) so also update awscli
+
 Ghost 16.07
 -----------
 
