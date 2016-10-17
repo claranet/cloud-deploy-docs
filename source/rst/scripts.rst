@@ -34,6 +34,8 @@ Here is an overview and a description of thoses scripts.
 
     .. figure:: /images/deploy_workflow.png
 
+.. _scripts_vars:
+
 Environment variables
 ---------------------
 
