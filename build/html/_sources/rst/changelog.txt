@@ -8,6 +8,29 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.09
+-----------
+
+* WebUI
+    - Hotfix [GHOST-229] Don't show ``blue`` bubble when BG is not enabled
+    - CodeMirror scripts upgrade - better script area in UI [GHOST-215]
+    - Show Opional volumes in ``app_view`` [GHOST-306]
+    - Replace Packer output placeholders in logs by HTML one [GHOST-298]
+
+* Core/API
+    - Docker compose file and and Redis/Mongo endpoints configurable [GHOST-153]
+    - Allowing custom EC2 Tags per application, auto applying Ghost specific Tags [GHOST-243/GHOST-244]
+    - Rollback application manifest if a ``deploy`` or ``redeploy`` command fails [GHOST-286]
+    - Feature preset import, permits to bulk import some features in an application based on ready-to-use preset [GHOST-133]
+    - Handle per application custom environment variables. Thoses variables will be available in many scripts from the ``deploy`` and ``build`` workflow. (more details here: :ref:`scripts_vars`) [GHOST-216]
+    - Adding seconds when generating LaunchConfig name to avoid name collision [GHOST-301]
+
+* Improvements & Bug fixes
+    - An AutoScale Group is now mandatory to use Safe Deploy [GHOST-280]
+    - Stage2 script now follow symlinks when updating Zabbix config [GHOST-285]
+    - Version field in feature can be empty/null [GHOST-270]
+    - AWS EC2 instance type updated
+    - Python modules upgraded (boto*)
 
 Ghost 16.07.1
 -------------

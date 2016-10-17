@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-09">Ghost 16.09</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-07-1">Ghost 16.07.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-07">Ghost 16.07</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-06">Ghost 16.06</a></li>
@@ -155,6 +156,47 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul class="simple">
+</ul>
+</div>
+<div class="section" id="ghost-16-09">
+<h2>Ghost 16.09<a class="headerlink" href="#ghost-16-09" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Hotfix [GHOST-229] Don&#8217;t show <code class="docutils literal"><span class="pre">blue</span></code> bubble when BG is not enabled</li>
+<li>CodeMirror scripts upgrade - better script area in UI [GHOST-215]</li>
+<li>Show Opional volumes in <code class="docutils literal"><span class="pre">app_view</span></code> [GHOST-306]</li>
+<li>Replace Packer output placeholders in logs by HTML one [GHOST-298]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Docker compose file and and Redis/Mongo endpoints configurable [GHOST-153]</li>
+<li>Allowing custom EC2 Tags per application, auto applying Ghost specific Tags [GHOST-243/GHOST-244]</li>
+<li>Rollback application manifest if a <code class="docutils literal"><span class="pre">deploy</span></code> or <code class="docutils literal"><span class="pre">redeploy</span></code> command fails [GHOST-286]</li>
+<li>Feature preset import, permits to bulk import some features in an application based on ready-to-use preset [GHOST-133]</li>
+<li>Handle per application custom environment variables. Thoses variables will be available in many scripts from the <code class="docutils literal"><span class="pre">deploy</span></code> and <code class="docutils literal"><span class="pre">build</span></code> workflow. (more details here: <a class="reference internal" href="scripts.html#scripts-vars"><span class="std std-ref">Environment variables</span></a>) [GHOST-216]</li>
+<li>Adding seconds when generating LaunchConfig name to avoid name collision [GHOST-301]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>An AutoScale Group is now mandatory to use Safe Deploy [GHOST-280]</li>
+<li>Stage2 script now follow symlinks when updating Zabbix config [GHOST-285]</li>
+<li>Version field in feature can be empty/null [GHOST-270]</li>
+<li>AWS EC2 instance type updated</li>
+<li>Python modules upgraded (boto*)</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div>
 <div class="section" id="ghost-16-07-1">
