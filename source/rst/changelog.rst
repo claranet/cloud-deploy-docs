@@ -8,6 +8,15 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.09.1
+-------------
+
+* Improvements & Bug fixes
+    - Update boto3, botocore and awscli pip dependencies [GHOST-311]
+    - Fix ``prepare`` command option [GHOST-229]
+    - Hotfix - use custom app tags only if setted [GHOST-243]
+    - Fix ASG listing when ALB are assotiated by using boto3 [GHOST-309]
+
 Ghost 16.09
 -----------
 

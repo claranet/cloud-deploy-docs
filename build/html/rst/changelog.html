@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Morea Ghost 16.09 documentation</title>
+  <title>Changelog &mdash; Morea Ghost 16.09.1 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Morea Ghost 16.09 documentation" href="../index.html"/>
+    <link rel="top" title="Morea Ghost 16.09.1 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/> 
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                16.09
+                16.09.1
               </div>
             
           
@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-09-1">Ghost 16.09.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-09">Ghost 16.09</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-07-1">Ghost 16.07.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-07">Ghost 16.07</a></li>
@@ -158,6 +159,22 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-16-09-1">
+<h2>Ghost 16.09.1<a class="headerlink" href="#ghost-16-09-1" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Update boto3, botocore and awscli pip dependencies [GHOST-311]</li>
+<li>Fix <code class="docutils literal"><span class="pre">prepare</span></code> command option [GHOST-229]</li>
+<li>Hotfix - use custom app tags only if setted [GHOST-243]</li>
+<li>Fix ASG listing when ALB are assotiated by using boto3 [GHOST-309]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-16-09">
 <h2>Ghost 16.09<a class="headerlink" href="#ghost-16-09" title="Permalink to this headline">¶</a></h2>
@@ -664,7 +681,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'16.09',
+            VERSION:'16.09.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
