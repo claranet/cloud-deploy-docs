@@ -4,13 +4,15 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+
 alabaster==0.7.9          # via sphinx
 babel==2.3.4              # via sphinx
 click==6.6
 docutils==0.12            # via sphinx
 first==2.0.1              # via pip-tools
 gitdb==0.6.4              # via gitpython
-GitPython==2.0.8          # via sphinx-git
+gitdb2==2.0.0             # via gitpython
+GitPython==2.1.0          # via sphinx-git
 imagesize==0.7.1          # via sphinx
 Jinja2==2.8               # via sphinx
 MarkupSafe==0.23          # via jinja2
@@ -22,4 +24,4 @@ smmap==0.9.0              # via gitdb
 snowballstemmer==1.2.1    # via sphinx
 sphinx-git==10.0.0
 sphinx-rtd-theme==0.1.9
-sphinx==1.4.6
+sphinx==1.4.8
