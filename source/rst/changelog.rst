@@ -8,6 +8,27 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.10
+-----------
+
+* WebUI
+    - Handle ``createinstance`` job in ``Run more like this`` action [GHOST-291]
+    - Using / to check auth rather than /apps which could hurt performance [GHOST-322]
+    - Move get_envs call to specific template that need it [GHOST-322]
+    - Use tabs per env for app list [GHOST-307]
+    - Init provider JS param when cross account activated [GHOST-295]
+    - Replace Morea references in the webUI and in the config file by Claranet [GHOST-308]
+
+* Core/API
+    - Passing mongo and Redis config in Command class [GHOST-318]
+    - Add ssh config to backup [GHOST-314]
+
+* Improvements & Bug fixes
+    - Command ``swapbluegreen`` should stop when the offline ELB is not correctly configured [GHOST-292]
+    - Add suspend and resume AutoScaling process in ``preparebluegreen`` command [GHOST-327]
+    - Docker-compose update to version 2 [GHOST-320]
+    - Adding jetbrains clauses to gitignore [GHOST-315]
+
 Ghost 16.09.1
 -------------
 
