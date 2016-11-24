@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Morea Ghost 16.09.1 documentation</title>
+  <title>Changelog &mdash; Claranet Ghost 16.10 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Morea Ghost 16.09.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Ghost 16.10 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/> 
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Morea Ghost
+            <a href="../index.html" class="icon icon-home"> Claranet Ghost
           
 
           
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                16.09.1
+                16.10
               </div>
             
           
@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-10">Ghost 16.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-09-1">Ghost 16.09.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-09">Ghost 16.09</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-07-1">Ghost 16.07.1</a></li>
@@ -125,7 +126,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Morea Ghost</a>
+        <a href="../index.html">Claranet Ghost</a>
       </nav>
 
 
@@ -159,6 +160,44 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-16-10">
+<h2>Ghost 16.10<a class="headerlink" href="#ghost-16-10" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Handle <code class="docutils literal"><span class="pre">createinstance</span></code> job in <code class="docutils literal"><span class="pre">Run</span> <span class="pre">more</span> <span class="pre">like</span> <span class="pre">this</span></code> action [GHOST-291]</li>
+<li>Using / to check auth rather than /apps which could hurt performance [GHOST-322]</li>
+<li>Move get_envs call to specific template that need it [GHOST-322]</li>
+<li>Use tabs per env for app list [GHOST-307]</li>
+<li>Init provider JS param when cross account activated [GHOST-295]</li>
+<li>Replace Morea references in the webUI and in the config file by Claranet [GHOST-308]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Passing mongo and Redis config in Command class [GHOST-318]</li>
+<li>Add ssh config to backup [GHOST-314]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Command <code class="docutils literal"><span class="pre">swapbluegreen</span></code> should stop when the offline ELB is not correctly configured [GHOST-292]</li>
+<li>Add suspend and resume AutoScaling process in <code class="docutils literal"><span class="pre">preparebluegreen</span></code> command [GHOST-327]</li>
+<li>Docker-compose update to version 2 [GHOST-320]</li>
+<li>Adding jetbrains clauses to gitignore [GHOST-315]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-16-09-1">
 <h2>Ghost 16.09.1<a class="headerlink" href="#ghost-16-09-1" title="Permalink to this headline">¶</a></h2>
@@ -659,7 +698,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Morea Team.
+        &copy; Copyright 2016, Morea Team - Claranet.
 
     </p>
   </div>
@@ -681,7 +720,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'16.09.1',
+            VERSION:'16.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
