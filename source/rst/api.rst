@@ -9,7 +9,14 @@
 Ghost API
 =========
 
+Ghost's API is RESTful:
+
 .. figure:: /images/ghost_rest_api.png
 
-`REST Documentation </docs/api>`_
----------------------------------
+OpenAPI Specification
+---------------------
+
+`JSON representation </docs/api>`_
+
+.. rst-class:: swagger-ui-link
+`View in Swagger UI <#>`_

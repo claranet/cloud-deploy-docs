@@ -1,0 +1,15 @@
+{% extends "!layout.html" %}
+
+{%- block extrahead %}
+ <script type="text/javascript">
+  window.addEventListener("load", function load() {
+    window.removeEventListener("load", load, false);
+    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
+    if (links) {
+      for (var i = 0; i < links.length; ++i) {
+        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
+      }
+    }
+  });
+ </script>
+{% endblock %}
