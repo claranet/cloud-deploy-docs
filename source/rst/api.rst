@@ -19,4 +19,5 @@ OpenAPI Specification
 `JSON representation </docs/api>`_
 
 .. rst-class:: swagger-ui-link
+
 `View in Swagger UI <#>`_
