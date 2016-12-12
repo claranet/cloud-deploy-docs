@@ -1,7 +1,7 @@
-.. _scripting:
+.. _bestpratices:
 
-Scripting - best practices
-==========================
+Ghost Best Practices
+====================
 
 .. toctree::
     :maxdepth: 2
