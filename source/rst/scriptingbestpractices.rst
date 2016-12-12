@@ -1,7 +1,7 @@
-.. _cli:
+.. _scripting:
 
-Scripting in your Ghost apps : best practices 
-=============================================
+Scripting - best practices
+==========================
 
 .. toctree::
     :maxdepth: 2
@@ -16,16 +16,16 @@ In complement, please refer to the :ref:`commands` documentation.
 Buildpack overview
 ------------------
 
-The first buildpack step is to clone the git repository in a local directory before upload it on each host. 
+The first buildpack step is to clone the git repository in a local directory before upload it on each host.
 Please note that "git clone" step is totally transparent so you don't have to add this step in your script.
 Your buildpack script begins just after the "git clone" step.
-Your current directory has been change to the root directory of your git repository code.  
+Your current directory has been change to the root directory of your git repository code.
 
 Buildpack script overview
 -------------------------
 
-The buildpack script is used to add all your externals dependencies in your source code. 
-After the buildpack script execution, we will compress your contents, at this step the local directory have to be as close as possible to the target directory. 
+The buildpack script is used to add all your externals dependencies in your source code.
+After the buildpack script execution, we will compress your contents, at this step the local directory have to be as close as possible to the target directory.
 
 Buildpack script prerequisites
 ------------------------------
@@ -48,8 +48,8 @@ Pre-Deploy script overview
 --------------------------
 
 The predeploy script is used to do every mandatory operations before the symbolic link creation.
-It will be execute locally on each hosts. 
-On the predeploy step, the path configured in your application is not altered, so your previous code continue to work as expected. 
+It will be execute locally on each hosts.
+On the predeploy step, the path configured in your application is not altered, so your previous code continue to work as expected.
 After the predeploy script execution, we will symlink the current directory to the target directory.
 At this step, your previous code will be replaced by the new one.
 
