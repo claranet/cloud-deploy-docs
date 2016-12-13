@@ -10,7 +10,7 @@ Ghost Best Practices
 Introduction
 ------------
 
-This documentation is here to give you all informations you need to know what you can do with Ghost scripts.
+This documentation is here to give you all informations you need to know about what you can do with Ghost scripts.
 In complement, please refer to the :ref:`commands` documentation.
 
 Buildpack
@@ -19,10 +19,10 @@ Buildpack
 Buildpack overview
 ******************
 
-The first buildpack step is to clone the git repository in a local directory before upload it on each host.
-Please note that "git clone" step is totally transparent so you don't have to add this step in your script.
+The first buildpack step is to clone the git repository in a local directory before you upload it on each host.
+Please note that the "git clone" step is totally transparent so you don't have to add this step in your script.
 Your buildpack script begins just after the "git clone" step.
-Your current directory has been change to the root directory of your git repository code.
+Your current directory has been changed to the root directory of your git repository code.
 
 Buildpack script overview
 *************************
@@ -45,16 +45,16 @@ Pre-Deploy overview
 *******************
 
 The role of Pre-Deploy step is to download your archive in a local directory of each hosts.
-At this step, the directory of your script is in /ghost/<folders>. At the end of this script, the current directory will be symlink to the target directory.
+At this step, the directory of your script is in /ghost/<folders>. At the end of this script, the current directory will be the symlink to the target directory.
 Please note that "download" and "decompress" step are totally transparent so you don't have to add these steps in your script.
 Your pre-deploy script begins just after the "download" and "decompress" step.
-Your current directory has been change to the root directory of your code.
+Your current directory has been changed to the root directory of your code.
 
 Pre-Deploy script overview
 **************************
 
 The predeploy script is used to do every mandatory operations before the symbolic link creation.
-It will be execute locally on each hosts.
+It will be executed locally on each hosts.
 On the predeploy step, the path configured in your application is not altered, so your previous code continue to work as expected.
 After the predeploy script execution, we will symlink the current directory to the target directory.
 At this step, your previous code will be replaced by the new one.
@@ -80,7 +80,7 @@ Post-Deploy script overview
 ***************************
 
 The postdeploy script is used to do final operations to have an available service.
-It will be execute locally on each hosts.
+It will be executed locally on each hosts.
 It's often the step where you will implement your service reload or restart.
 Your current directory is the path of your current Ghost application.
 
