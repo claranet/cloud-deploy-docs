@@ -35,7 +35,19 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Claranet Ghost 16.10 documentation" href="../index.html"/>
         <link rel="next" title="Feature matrix comparison" href="matrix.html"/>
-        <link rel="prev" title="Casper: CLI client" href="cli.html"/> 
+        <link rel="prev" title="Casper: CLI client" href="cli.html"/>
+ <script type="text/javascript">
+  window.addEventListener("load", function load() {
+    window.removeEventListener("load", load, false);
+    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
+    if (links) {
+      for (var i = 0; i < links.length; ++i) {
+        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
+      }
+    }
+  });
+ </script>
+
 
   
   <script src="../_static/js/modernizr.min.js"></script>

@@ -34,7 +34,19 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Claranet Ghost 16.10 documentation" href="#"/>
-        <link rel="next" title="Quick Start" href="rst/quick-start.html"/> 
+        <link rel="next" title="Quick Start" href="rst/quick-start.html"/>
+ <script type="text/javascript">
+  window.addEventListener("load", function load() {
+    window.removeEventListener("load", load, false);
+    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
+    if (links) {
+      for (var i = 0; i < links.length; ++i) {
+        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
+      }
+    }
+  });
+ </script>
+
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -158,7 +170,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/api.html">Ghost API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/api.html#id1">REST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/api.html#openapi-specification">OpenAPI Specification</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/commands.html">Ghost Commands</a><ul>

@@ -35,7 +35,19 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Claranet Ghost 16.10 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Commands" href="commands.html"/>
-        <link rel="prev" title="Job" href="job.html"/> 
+        <link rel="prev" title="Job" href="job.html"/>
+ <script type="text/javascript">
+  window.addEventListener("load", function load() {
+    window.removeEventListener("load", load, false);
+    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
+    if (links) {
+      for (var i = 0; i < links.length; ++i) {
+        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
+      }
+    }
+  });
+ </script>
+
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">REST Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openapi-specification">OpenAPI Specification</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
@@ -149,11 +161,14 @@
 </div>
 <div class="section" id="ghost-api">
 <span id="api"></span><h1>Ghost API<a class="headerlink" href="#ghost-api" title="Permalink to this headline">¶</a></h1>
+<p>Ghost&#8217;s API is RESTful:</p>
 <div class="figure">
 <img alt="../_images/ghost_rest_api.png" src="../_images/ghost_rest_api.png" />
 </div>
-<div class="section" id="id1">
-<h2><a class="reference external" href="/docs/api">REST Documentation</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="openapi-specification">
+<h2>OpenAPI Specification<a class="headerlink" href="#openapi-specification" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="/docs/api">JSON representation</a></p>
+<p class="swagger-ui-link"><a class="reference external" href="#">View in Swagger UI</a></p>
 </div>
 </div>
 
