@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Ghost 16.10 documentation</title>
+  <title>Changelog &mdash; Claranet Ghost 16.12 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Ghost 16.10 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Ghost 16.12 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
  <script type="text/javascript">
   window.addEventListener("load", function load() {
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                16.10
+                16.12
               </div>
             
           
@@ -109,6 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-16-12">Ghost 16.12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-10">Ghost 16.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-09-1">Ghost 16.09.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-09">Ghost 16.09</a></li>
@@ -172,6 +173,44 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-16-12">
+<h2>Ghost 16.12<a class="headerlink" href="#ghost-16-12" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Handle ALB/TargetGroups in UI (app infos) [GHOST-310]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Handle Application Load Balancer in SafeDeployment [GHOST-310]</li>
+<li>Correct ASG boto2 errors when ALB is used by upgrading to boto3 [GHOST-309]</li>
+<li>Keep a local mirror of morea-salt-formulas &amp; zabbix GIT repos [GHOST-271]</li>
+<li>Allow creating Launch Configurations with Detailed EC2 Instance Monitoring enabled, on a per app basis [GHOST-162]</li>
+<li>Move to EVE swagger for API documentation [GHOST-329]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Hotfix &#8220;Run more like this (caused by GHOST-291) [GHOST-330]</li>
+<li>Docker-compose: add nginx container for better local tests [GHOST-331]</li>
+<li>Upgrade to boto v2.45.0: handle new AWS regions (eu-west-2,ca-central-1,us-east-2,ap-south-1) [GHOST-339]</li>
+<li>Colorized error messages in stage2 [GHOST-340]</li>
+<li>Create empty MANIFEST if nonexistent upon successful buildimage to allow instance bootstrapping [GHOST-341]</li>
+<li>Ensure Ghost tags are properly set when using <code class="docutils literal"><span class="pre">updateautoscaling</span></code>, <code class="docutils literal"><span class="pre">createinstance</span></code> and <code class="docutils literal"><span class="pre">preparebluegreen</span></code> commands [GHOST-336]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-16-10">
 <h2>Ghost 16.10<a class="headerlink" href="#ghost-16-10" title="Permalink to this headline">¶</a></h2>
@@ -732,7 +771,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'16.10',
+            VERSION:'16.12',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
