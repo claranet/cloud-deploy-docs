@@ -8,6 +8,27 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 16.12
+-----------
+
+* WebUI
+    - Handle ALB/TargetGroups in UI (app infos) [GHOST-310]
+
+* Core/API
+    - Handle Application Load Balancer in SafeDeployment [GHOST-310]
+    - Correct ASG boto2 errors when ALB is used by upgrading to boto3 [GHOST-309]
+    - Keep a local mirror of morea-salt-formulas & zabbix GIT repos [GHOST-271]
+    - Allow creating Launch Configurations with Detailed EC2 Instance Monitoring enabled, on a per app basis [GHOST-162]
+    - Move to EVE swagger for API documentation [GHOST-329]
+
+* Improvements & Bug fixes
+    - Hotfix "Run more like this (caused by GHOST-291) [GHOST-330]
+    - Docker-compose: add nginx container for better local tests [GHOST-331]
+    - Upgrade to boto v2.45.0: handle new AWS regions (eu-west-2,ca-central-1,us-east-2,ap-south-1) [GHOST-339]
+    - Colorized error messages in stage2 [GHOST-340]
+    - Create empty MANIFEST if nonexistent upon successful buildimage to allow instance bootstrapping [GHOST-341]
+    - Ensure Ghost tags are properly set when using ``updateautoscaling``, ``createinstance`` and ``preparebluegreen`` commands [GHOST-336]
+
 Ghost 16.10
 -----------
 
