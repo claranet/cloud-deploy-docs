@@ -10,7 +10,7 @@ Ghost Best Practices
 Introduction
 ------------
 
-This documentation is here to give you all informations you need to know about what you can do with Ghost scripts.
+This documentation aims to provide data about what can be done with Ghost scripts.
 In complement, please refer to the :ref:`commands` documentation.
 
 Buildpack
@@ -19,45 +19,43 @@ Buildpack
 Buildpack overview
 ******************
 
-The first buildpack step is to clone the git repository in a local directory before you upload it on each host.
-Please note that the "git clone" step is totally transparent so you don't have to add this step in your script.
-Your buildpack script begins just after the "git clone" step.
-Your current directory has been changed to the root directory of your git repository code.
+The first buildpack step is to clone the git repository in a local directory before any upload on each host.
+Please note that the "git clone" step is programmatically executed by Ghost, no need to write it in any user script.
+The buildpack user script begins just after the "git clone" step.
+The current directory will be set to the root of the git cloned repository.
 
 Buildpack script overview
 *************************
 
-The buildpack script is used to add all your externals dependencies in your source code.
-After the buildpack script execution, we will compress your contents, at this step the local directory have to be as close as possible to the target directory.
+The buildpack script is used to install all external dependencies in the application directory.
+After the buildpack script execution, the application directory will be compressed to be copied to each host, it should be as close as the target application filesystem.
 
 Buildpack script prerequisites
 ******************************
 
-This script have to execute all commands that have an high execution time cost and every calls to externals dependencies.
-System packages install like apt-get or yum are forbidden.
-Applicative packages install like composer (php), pip (python), npm (nodeJS), gem (ruby) are allowed.
-These tools will work only if you use it locally. Global installs are restricted.
+This script is executed once on the Ghost instance during each deployment so any non local installation will be lost by the compression operation.
+For example, global packages installation, like apt or yum packages won't be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
+Use this script to execute all commands that have a high execution cost and any external calls.
 
-Pre-Deploy
+Pre-deploy
 ----------
 
-Pre-Deploy overview
+Pre-deploy overview
 *******************
 
-The role of Pre-Deploy step is to download your archive in a local directory of each hosts.
-At this step, the directory of your script is in /ghost/<folders>. At the end of this script, the current directory will be the symlink to the target directory.
-Please note that "download" and "decompress" step are totally transparent so you don't have to add these steps in your script.
-Your pre-deploy script begins just after the "download" and "decompress" step.
-Your current directory has been changed to the root directory of your code.
+The pre-deploy step copies the application directory modified by the buildpack script on each deployed hosts.
+Copy and extraction step are programmatically executed by Ghost, no need to write them in any user script.
+The pre-deploy user script begins just after the extraction step.
+During pre-deploy, the soon-to-be-deployed sources are in a /ghost/ subdirectory which will be symlinked to the target directory at the deploy step.
+The current directory will be set to the the root directory of the extracted copied directory.
 
-Pre-Deploy script overview
+Pre-deploy script overview
 **************************
 
-The predeploy script is used to do every mandatory operations before the symbolic link creation.
+The pre-deploy script is used to do every mandatory operations before the symbolic link creation.
 It will be executed locally on each hosts.
-On the predeploy step, the path configured in your application is not altered, so your previous code continue to work as expected.
-After the predeploy script execution, we will symlink the current directory to the target directory.
-At this step, your previous code will be replaced by the new one.
+During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
+After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.
 
 Pre-Deploy script prerequisites
 *******************************
@@ -67,22 +65,22 @@ This script must not depend on external resources :
  - no package install (apt-get, npm, pip, yum, gem, composer)
  - no downloads except from AWS S3
 
-Post-Deploy
+Post-deploy
 -----------
 
-Post-Deploy overview
+Post-deploy overview
 ********************
 
-The role of Post-Deploy step is to create a symbolic link between the current repository and the path specified in your Ghost application.
-Be careful, at this step, your code has changed in your application path directory.
+The post-deploy step is executed right after the target symlink change.
+At this step, the new sources are ready to run.
 
-Post-Deploy script overview
+Post-deploy script overview
 ***************************
 
-The postdeploy script is used to do final operations to have an available service.
+The post-deploy script aims to activate the new sources.
 It will be executed locally on each hosts.
-It's often the step where you will implement your service reload or restart.
-Your current directory is the path of your current Ghost application.
+Most scripts consist in service reloading/restarting.
+The post-deploy execution current directory is the Ghost application target directory.
 
 Post-Deploy Requirements
 ************************
@@ -95,6 +93,6 @@ This script must not depend on external resources :
 Keep in mind
 ------------
 
-When you use an autoscaling, some instances will start then execute all your modules pre-deploy and post-deploy.
-Your buildpack script is execute only once, that's why you have to do the most operations in it then your service will be shortly available in the case of a new instance creation.
-We cannot control repository updates and the availability of Internet and externals networks so to have a consistent application, you cannot use install and external calls on your predeploy and postdeploy.
+When autoscaling up, starting instances will only execute pre and post-deploy scripts.
+Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance creation on autoscale up.
+As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.
