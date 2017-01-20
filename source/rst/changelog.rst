@@ -8,6 +8,24 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.01
+-----------
+
+* WebUI
+    - Ghost instance health status (footer button) [GHOST-204]
+    - Orange warning color when choosing a big instance type [GHOST-338]
+    - Adding z-index for footer, updating left bar height dynamically [GHOST-325]
+    - Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHPST-302]
+    - Setting static path for command page JS get last revision route [GHOST-332]
+
+* Core/API
+    - Do not install curl before bootstrapping SaltStack (requires Packer v0.12.1+) [GHOST-334]
+    - Option "Destroy temporary ELB" for ``purgebluegreen`` command [GHOST-303]
+    - Verify deployed module name too when using ``preparebluegreen`` [GHOST-287]
+
+* Improvements & Bug fixes
+    - Ensure Ghost tags are properly set (on AutoScale and standalone instances) [GHOST-336]
+
 Ghost 16.12
 -----------
 
