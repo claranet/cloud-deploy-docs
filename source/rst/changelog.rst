@@ -15,16 +15,23 @@ Ghost 17.01
     - Ghost instance health status (footer button) [GHOST-204]
     - Orange warning color when choosing a big instance type [GHOST-338]
     - Adding z-index for footer, updating left bar height dynamically [GHOST-325]
-    - Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHPST-302]
+    - Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHOST-302]
     - Setting static path for command page JS get last revision route [GHOST-332]
+    - Keep UI app_list view mode (tabbed) in a cookie [GHOST-321]
+    - List git available branches and tags on ``deploy`` command [GHOST-296]
 
 * Core/API
     - Do not install curl before bootstrapping SaltStack (requires Packer v0.12.1+) [GHOST-334]
-    - Option "Destroy temporary ELB" for ``purgebluegreen`` command [GHOST-303]
+    - Option "Destroy temporary CLB" for ``purgebluegreen`` command [GHOST-303]
     - Verify deployed module name too when using ``preparebluegreen`` [GHOST-287]
+    - A dedicated queue and worker is now available per app color when Blue-green is enabled [GHOST-288]
 
 * Improvements & Bug fixes
     - Ensure Ghost tags are properly set (on AutoScale and standalone instances) [GHOST-336]
+
+* Documentation
+    - Upgrade to eve-swagger 0.0.6 [GHOST-349]
+    - New documentation page - Ghost best pratices [GHOST-337]
 
 Ghost 16.12
 -----------
