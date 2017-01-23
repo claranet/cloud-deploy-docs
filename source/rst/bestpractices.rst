@@ -47,13 +47,13 @@ The pre-deploy step copies the application directory modified by the buildpack s
 Copy and extraction step are programmatically executed by Ghost, no need to write them in any user script.
 The pre-deploy user script begins just after the extraction step.
 During pre-deploy, the soon-to-be-deployed sources are in a /ghost/ subdirectory which will be symlinked to the target directory at the deploy step.
-The current directory will be set to the the root directory of the extracted copied directory.
+The current directory will be set to the root directory of the extracted copied directory.
 
 Pre-deploy script overview
 **************************
 
 The pre-deploy script is used to do every mandatory operations before the symbolic link creation.
-It will be executed locally on each hosts.
+It will be executed locally on each host.
 During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
 After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.
 
@@ -80,7 +80,7 @@ Post-deploy script overview
 The post-deploy script aims to activate the new sources.
 It will be executed locally on each hosts.
 Most scripts consist in service reloading/restarting.
-The post-deploy execution current directory is the Ghost application target directory.
+The post-deploy execution working directory is the Ghost application target directory.
 
 Post-Deploy Requirements
 ************************
@@ -94,5 +94,5 @@ Keep in mind
 ------------
 
 When autoscaling up, starting instances will only execute pre and post-deploy scripts.
-Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance creation on autoscale up.
+Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
 As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.
