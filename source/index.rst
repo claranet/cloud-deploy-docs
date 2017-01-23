@@ -11,6 +11,7 @@ Table of Contents:
     rst/api
     rst/commands
     rst/scripts
+    rst/bestpractices
     rst/ui
     rst/cli
     rst/bluegreen
