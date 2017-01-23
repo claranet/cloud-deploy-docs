@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ghost Best Practices &mdash; Claranet Ghost 17.01 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/ghost-doc.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Claranet Ghost 17.01 documentation" href="../index.html"/>
+        <link rel="next" title="Web User Interface" href="ui.html"/>
+        <link rel="prev" title="Ghost Scripts" href="scripts.html"/>
+ <script type="text/javascript">
+  window.addEventListener("load", function load() {
+    window.removeEventListener("load", load, false);
+    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
+    if (links) {
+      for (var i = 0; i < links.length; ++i) {
+        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
+      }
+    }
+  });
+ </script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Claranet Ghost
+          
+
+          
+            
+            <img src="../_static/logo_ghost.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                17.01
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buildpack">Buildpack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buildpack-overview">Buildpack overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buildpack-script-overview">Buildpack script overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buildpack-script-prerequisites">Buildpack script prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-deploy">Pre-deploy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-overview">Pre-deploy overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-script-overview">Pre-deploy script overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-script-prerequisites">Pre-Deploy script prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#post-deploy">Post-deploy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-deploy-overview">Post-deploy overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-deploy-script-overview">Post-deploy script overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-deploy-requirements">Post-Deploy Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keep-in-mind">Keep in mind</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Ghost Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Claranet Ghost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Ghost Best Practices</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/rst/bestpractices.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ghost-best-practices">
+<span id="bestpratices"></span><h1>Ghost Best Practices<a class="headerlink" href="#ghost-best-practices" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This documentation aims to provide data about what can be done with Ghost scripts.
+In complement, please refer to the <a class="reference internal" href="commands.html#commands"><span class="std std-ref">Ghost Commands</span></a> documentation.</p>
+</div>
+<div class="section" id="buildpack">
+<h2>Buildpack<a class="headerlink" href="#buildpack" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildpack-overview">
+<h3>Buildpack overview<a class="headerlink" href="#buildpack-overview" title="Permalink to this headline">¶</a></h3>
+<p>The first buildpack step is to clone the git repository in a local directory before any upload on each host.
+Please note that the &#8220;git clone&#8221; step is programmatically executed by Ghost, no need to write it in any user script.
+The buildpack user script begins just after the &#8220;git clone&#8221; step.
+The current directory will be set to the root of the git cloned repository.</p>
+</div>
+<div class="section" id="buildpack-script-overview">
+<h3>Buildpack script overview<a class="headerlink" href="#buildpack-script-overview" title="Permalink to this headline">¶</a></h3>
+<p>The buildpack script is used to install all external dependencies in the application directory.
+After the buildpack script execution, the application directory will be compressed to be copied to each host, it should be as close as the target application filesystem.</p>
+</div>
+<div class="section" id="buildpack-script-prerequisites">
+<h3>Buildpack script prerequisites<a class="headerlink" href="#buildpack-script-prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>This script is executed once on the Ghost instance during each deployment so any non local installation will be lost by the compression operation.
+For example, global packages installation, like apt or yum packages won&#8217;t be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
+Use this script to execute all commands that have a high execution cost and any external calls.</p>
+</div>
+</div>
+<div class="section" id="pre-deploy">
+<h2>Pre-deploy<a class="headerlink" href="#pre-deploy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-deploy-overview">
+<h3>Pre-deploy overview<a class="headerlink" href="#pre-deploy-overview" title="Permalink to this headline">¶</a></h3>
+<p>The pre-deploy step copies the application directory modified by the buildpack script on each deployed hosts.
+Copy and extraction step are programmatically executed by Ghost, no need to write them in any user script.
+The pre-deploy user script begins just after the extraction step.
+During pre-deploy, the soon-to-be-deployed sources are in a /ghost/ subdirectory which will be symlinked to the target directory at the deploy step.
+The current directory will be set to the root directory of the extracted copied directory.</p>
+</div>
+<div class="section" id="pre-deploy-script-overview">
+<h3>Pre-deploy script overview<a class="headerlink" href="#pre-deploy-script-overview" title="Permalink to this headline">¶</a></h3>
+<p>The pre-deploy script is used to do every mandatory operations before the symbolic link creation.
+It will be executed locally on each host.
+During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
+After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.</p>
+</div>
+<div class="section" id="pre-deploy-script-prerequisites">
+<h3>Pre-Deploy script prerequisites<a class="headerlink" href="#pre-deploy-script-prerequisites" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>This script must not depend on external resources :</dt>
+<dd><ul class="first last simple">
+<li>no internet call</li>
+<li>no package install (apt-get, npm, pip, yum, gem, composer)</li>
+<li>no downloads except from AWS S3</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="post-deploy">
+<h2>Post-deploy<a class="headerlink" href="#post-deploy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="post-deploy-overview">
+<h3>Post-deploy overview<a class="headerlink" href="#post-deploy-overview" title="Permalink to this headline">¶</a></h3>
+<p>The post-deploy step is executed right after the target symlink change.
+At this step, the new sources are ready to run.</p>
+</div>
+<div class="section" id="post-deploy-script-overview">
+<h3>Post-deploy script overview<a class="headerlink" href="#post-deploy-script-overview" title="Permalink to this headline">¶</a></h3>
+<p>The post-deploy script aims to activate the new sources.
+It will be executed locally on each hosts.
+Most scripts consist in service reloading/restarting.
+The post-deploy execution working directory is the Ghost application target directory.</p>
+</div>
+<div class="section" id="post-deploy-requirements">
+<h3>Post-Deploy Requirements<a class="headerlink" href="#post-deploy-requirements" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>This script must not depend on external resources :</dt>
+<dd><ul class="first last simple">
+<li>no internet call</li>
+<li>no package install (apt-get, npm, pip, yum, gem, composer)</li>
+<li>no downloads except from AWS S3</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="keep-in-mind">
+<h2>Keep in mind<a class="headerlink" href="#keep-in-mind" title="Permalink to this headline">¶</a></h2>
+<p>When autoscaling up, starting instances will only execute pre and post-deploy scripts.
+Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
+As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scripts.html" class="btn btn-neutral" title="Ghost Scripts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Morea Team - Claranet.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'17.01',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -104,6 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bestpractices.html">Ghost Best Practices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
@@ -184,8 +185,10 @@
 <li>Ghost instance health status (footer button) [GHOST-204]</li>
 <li>Orange warning color when choosing a big instance type [GHOST-338]</li>
 <li>Adding z-index for footer, updating left bar height dynamically [GHOST-325]</li>
-<li>Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHPST-302]</li>
+<li>Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHOST-302]</li>
 <li>Setting static path for command page JS get last revision route [GHOST-332]</li>
+<li>Keep UI app_list view mode (tabbed) in a cookie [GHOST-321]</li>
+<li>List git available branches and tags on <code class="docutils literal"><span class="pre">deploy</span></code> command [GHOST-296]</li>
 </ul>
 </dd>
 </dl>
@@ -194,8 +197,9 @@
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
 <li>Do not install curl before bootstrapping SaltStack (requires Packer v0.12.1+) [GHOST-334]</li>
-<li>Option &#8220;Destroy temporary ELB&#8221; for <code class="docutils literal"><span class="pre">purgebluegreen</span></code> command [GHOST-303]</li>
+<li>Option &#8220;Destroy temporary CLB&#8221; for <code class="docutils literal"><span class="pre">purgebluegreen</span></code> command [GHOST-303]</li>
 <li>Verify deployed module name too when using <code class="docutils literal"><span class="pre">preparebluegreen</span></code> [GHOST-287]</li>
+<li>A dedicated queue and worker is now available per app color when Blue-green is enabled [GHOST-288]</li>
 </ul>
 </dd>
 </dl>
@@ -204,6 +208,15 @@
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
 <li>Ensure Ghost tags are properly set (on AutoScale and standalone instances) [GHOST-336]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last simple">
+<li>Upgrade to eve-swagger 0.0.6 [GHOST-349]</li>
+<li>New documentation page - Ghost best pratices [GHOST-337]</li>
 </ul>
 </dd>
 </dl>
