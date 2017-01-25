@@ -28,6 +28,7 @@ Ghost 17.01
 
 * Improvements & Bug fixes
     - Ensure Ghost tags are properly set (on AutoScale and standalone instances) [GHOST-336]
+    - Fetch SaltStack formulas git submodule only if needed [GHOST-351]
 
 * Documentation
     - Upgrade to eve-swagger 0.0.6 [GHOST-349]
