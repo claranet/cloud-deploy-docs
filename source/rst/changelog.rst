@@ -8,6 +8,25 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.02
+-----------
+
+* WebUI
+    - Make ``env`` field generic, creation possible in the UI [GHOST-360]
+
+* Core/API
+    - Update python dependencies [GHOST-357]
+    - Make ``env`` field generic [GHOST-360]
+    - Slack notifications available [GHOST-7]
+    - HTML Mail template for job notifications (replaces the simple text mail notification) [GHOST-345]
+    - AutoScale `current/DesiredCapacity` value should not be handle in Ghost [GHOST-356]
+
+* Improvements & Bug fixes
+    - Hotfix for ``preparebluegreen`` command, by replacing "as_conn" variable [GHOST-361]
+    - Hotfix remove the first character (/) of legacy MANIFEST path when using blue-green deployment [GHOST-364]
+    - Refactor LaunchConfiguration creation and ASG update functions [GHOST-355]
+    - Strip git repo url to avoid errors [GHOST-346]
+
 Ghost 17.01
 -----------
 
