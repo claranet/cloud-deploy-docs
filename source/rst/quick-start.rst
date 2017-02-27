@@ -4,15 +4,15 @@ Quick Start
 Introduction
 ------------
 
-Ghost aims to deploy, in a secure and reliable way, applications in the Cloud.
-Actual version support only AWS .
+Ghost aims to deploy applications in the Cloud, in a secure and reliable way. 
+Actual version support only AWS.
 
 Ghost Features
 ______________
 
   * Developed in Python.
 
-  * For continuous deployment.
+  * Designed for continuous deployment.
 
   * Create, configure and update AWS EC2 instances.
 
@@ -31,8 +31,8 @@ Application
 -----------
 
 Its the client code and all the requirements to set up on the instance.
-Working is separate environment is one of major feature. Each ``application``
-is identified with it's **name**, **env** and **role**.
+Working in separate environments is one of major feature. Each ``application``
+is identified by it's **name**, **env** and **role**.
 
 
 Parameters
@@ -63,9 +63,8 @@ For more information, please refer to :ref:`application` page.
 Jobs
 ----
 
-Applications has several available job commands. A ``command`` will be operated
-against an application already created. For each commands you can view the logs
-in real time.
+Applications has several available job commands. A command can be operated on any existing application.
+For each commands you can view the logs in real time.
 
 For more information, please refer to :ref:`job` page.
 
@@ -78,8 +77,8 @@ _________
     application menu (Example: Launch a new instance and set up Apache and
     finally create a new AMI)
 
-  * ``ReDeploy``: aka **rollback** To make a deployment of a previous version
-    of an application module.
+  * ``ReDeploy``: aka **rollback** To redeploy a previous version of an 
+	application module.
 
   * ``CreateInstance``: create a new EC2 instance based on the AMI create by the
     ``BuildImage`` command.
