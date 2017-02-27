@@ -63,8 +63,8 @@ For more information, please refer to :ref:`application` page.
 Jobs
 ----
 
-Applications has several available job commands. A command can be operated on any existing application.
-For each commands you can view the logs in real time.
+Applications have several available job commands. A ``command`` can be operated on any existing application.
+For each command, you can view the logs in real time.
 
 For more information, please refer to :ref:`job` page.
 
@@ -77,8 +77,7 @@ _________
     application menu (Example: Launch a new instance and set up Apache and
     finally create a new AMI)
 
-  * ``ReDeploy``: aka **rollback** To redeploy a previous version of an 
-	application module.
+  * ``ReDeploy``: aka **rollback** To redeploy a previous version of an application module.
 
   * ``CreateInstance``: create a new EC2 instance based on the AMI create by the
     ``BuildImage`` command.
