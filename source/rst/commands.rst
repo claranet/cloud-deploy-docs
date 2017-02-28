@@ -182,6 +182,28 @@ Example of safe deployment output:
  In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complet deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.
 
 
+Here is a workflow diagram for more details :
+
+.. figure:: /images/safe_deploy_workflow_1.png
+Step 1)
+ Split instances into Groups (25%, 33%, 50% or 1 instance in the group) and handle each group
+
+.. figure:: /images/safe_deploy_workflow_2.png
+Step 2)
+ Remove the current group's instances from the Load Balancer - no more traffic on thoses instances
+
+.. figure:: /images/safe_deploy_workflow_3.png
+Step 3)
+ Standard module deploy on every detached instances of the group (serial or parallel deploy)
+
+.. figure:: /images/safe_deploy_workflow_4.png
+Step 4)
+ Put back instances online in the Load Balancer, wait for HealthCheck becoming green/OK
+
+.. figure:: /images/safe_deploy_workflow_5.png
+Step 5-1)
+ Go on next group, and repeat the workflow
+
 
 Run | redeploy
 --------------
