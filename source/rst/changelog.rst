@@ -12,18 +12,18 @@ Ghost 17.02
 -----------
 
 * WebUI
-    - Make ``env`` field generic, creation possible in the UI [GHOST-360]
+    - Adding new ``env`` field values is possible from the web UI [GHOST-360]
 
 * Core/API
     - Update python dependencies [GHOST-357]
-    - Make ``env`` field generic [GHOST-360]
+    - The ``env`` attribute is now generic [GHOST-360]
     - Slack notifications available [GHOST-7]
-    - HTML Mail template for job notifications (replaces the simple text mail notification) [GHOST-345]
-    - AutoScale `current/DesiredCapacity` value should not be handle in Ghost [GHOST-356]
+    - HTML Mail template for job notifications (replaces the raw text format) [GHOST-345]
+    - AutoScale ``current/DesiredCapacity`` value should not be handle in Ghost [GHOST-356]
 
 * Improvements & Bug fixes
-    - Hotfix for ``preparebluegreen`` command, by replacing "as_conn" variable [GHOST-361]
-    - Hotfix remove the first character (/) of legacy MANIFEST path when using blue-green deployment [GHOST-364]
+    - Fix: ``preparebluegreen`` command was broken (``as_conn`` variable missing) [GHOST-361]
+    - Fix: remove the first character (/) of legacy MANIFEST path when using blue-green deployment [GHOST-364]
     - Refactor LaunchConfiguration creation and ASG update functions [GHOST-355]
     - Strip git repo url to avoid errors [GHOST-346]
 
@@ -31,17 +31,17 @@ Ghost 17.01
 -----------
 
 * WebUI
-    - Ghost instance health status (footer button) [GHOST-204]
+    - Ghost instance health status (footer link) [GHOST-204]
     - Orange warning color when choosing a big instance type [GHOST-338]
     - Adding z-index for footer, updating left bar height dynamically [GHOST-325]
-    - Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHOST-302]
-    - Setting static path for command page JS get last revision route [GHOST-332]
+    - Fix infinite scrolling to work with zoomed in or out view [GHOST-302]
+    - Fix getting last deployed revision in Run More Like This context [GHOST-332]
     - Keep UI app_list view mode (tabbed) in a cookie [GHOST-321]
     - List git available branches and tags on ``deploy`` command [GHOST-296]
 
 * Core/API
     - Do not install curl before bootstrapping SaltStack (requires Packer v0.12.1+) [GHOST-334]
-    - Option "Destroy temporary CLB" for ``purgebluegreen`` command [GHOST-303]
+    - Option “Destroy temporary CLB” for ``purgebluegreen`` command [GHOST-303]
     - Verify deployed module name too when using ``preparebluegreen`` [GHOST-287]
     - A dedicated queue and worker is now available per app color when Blue-green is enabled [GHOST-288]
 
@@ -51,7 +51,7 @@ Ghost 17.01
 
 * Documentation
     - Upgrade to eve-swagger 0.0.6 [GHOST-349]
-    - New documentation page - Ghost best pratices [GHOST-337]
+    - New documentation page - Ghost best practices [GHOST-337]
 
 Ghost 16.12
 -----------
@@ -62,47 +62,47 @@ Ghost 16.12
 * Core/API
     - Handle Application Load Balancer in SafeDeployment [GHOST-310]
     - Correct ASG boto2 errors when ALB is used by upgrading to boto3 [GHOST-309]
-    - Keep a local mirror of morea-salt-formulas & zabbix GIT repos [GHOST-271]
+    - Keep a local mirror of morea-salt-formulas & zabbix Git repos [GHOST-271]
     - Allow creating Launch Configurations with Detailed EC2 Instance Monitoring enabled, on a per app basis [GHOST-162]
-    - Move to EVE swagger for API documentation [GHOST-329]
+    - Move to eve-swagger for API documentation [GHOST-329]
 
 * Improvements & Bug fixes
-    - Hotfix "Run more like this (caused by GHOST-291) [GHOST-330]
+    - Hotfix "Run more like this" (caused by GHOST-291) [GHOST-330]
     - Docker-compose: add nginx container for better local tests [GHOST-331]
-    - Upgrade to boto v2.45.0: handle new AWS regions (eu-west-2,ca-central-1,us-east-2,ap-south-1) [GHOST-339]
+    - Upgrade to boto v2.45.0 (handle new AWS regions: eu-west-2, ca-central-1, us-east-2, ap-south-1) [GHOST-339]
     - Colorized error messages in stage2 [GHOST-340]
     - Create empty MANIFEST if nonexistent upon successful buildimage to allow instance bootstrapping [GHOST-341]
-    - Ensure Ghost tags are properly set when using ``updateautoscaling``, ``createinstance`` and ``preparebluegreen`` commands [GHOST-336]
+    - Ensure app/env/role Ghost tags are properly set when using ``updateautoscaling``, ``createinstance`` and ``preparebluegreen`` commands [GHOST-336]
 
 Ghost 16.10
 -----------
 
 * WebUI
+    - Replace Morea by Claranet in the webUI [GHOST-308]
     - Handle ``createinstance`` job in ``Run more like this`` action [GHOST-291]
-    - Using / to check auth rather than /apps which could hurt performance [GHOST-322]
-    - Move get_envs call to specific template that need it [GHOST-322]
     - Use tabs per env for app list [GHOST-307]
-    - Init provider JS param when cross account activated [GHOST-295]
-    - Replace Morea references in the webUI and in the config file by Claranet [GHOST-308]
 
 * Core/API
-    - Passing mongo and Redis config in Command class [GHOST-318]
     - Add ssh config to backup [GHOST-314]
 
 * Improvements & Bug fixes
+    - Init provider JS param when cross account activated [GHOST-295]
+    - Using / instead of /apps to check auth  which could hurt performance [GHOST-322]
+    - Move get_envs call to specific template that need it [GHOST-322]
     - Command ``swapbluegreen`` should stop when the offline ELB is not correctly configured [GHOST-292]
     - Add suspend and resume AutoScaling process in ``preparebluegreen`` command [GHOST-327]
     - Docker-compose update to version 2 [GHOST-320]
+    - Use mongo and Redis endpoints config in commands [GHOST-318]
     - Adding jetbrains clauses to gitignore [GHOST-315]
 
 Ghost 16.09.1
 -------------
 
 * Improvements & Bug fixes
-    - Update boto3, botocore and awscli pip dependencies [GHOST-311]
-    - Fix ``prepare`` command option [GHOST-229]
-    - Hotfix - use custom app tags only if setted [GHOST-243]
-    - Fix ASG listing when ALB are assotiated by using boto3 [GHOST-309]
+    - Update boto3, botocore and awscli dependencies [GHOST-311]
+    - Fix ``preparebluegreen`` command options [GHOST-229]
+    - Hotfix - use custom app tags only if set [GHOST-243]
+    - Fix ASG listing when ALB are associated by using boto3 [GHOST-309]
 
 Ghost 16.09
 -----------
@@ -110,8 +110,7 @@ Ghost 16.09
 * WebUI
     - CodeMirror scripts upgrade - better script area in UI [GHOST-215]
     - Show Optional volumes in ``app_view`` [GHOST-306]
-    - Replace Packer output placeholders in logs by HTML one [GHOST-298]
-    - Hotfix [GHOST-229] Don't show ``blue`` bubble when BG is not enabled
+    - Format Packer output with HTML [GHOST-298]
 
 * Core/API
     - Allow custom EC2 Tags per application, auto applying Ghost specific Tags [GHOST-243/GHOST-244]
@@ -119,14 +118,15 @@ Ghost 16.09
     - Rollback application manifest if a ``deploy`` or ``redeploy`` command fails [GHOST-286]
     - Feature preset import, permits to bulk import some features in an application based on ready-to-use preset [GHOST-133]
     - Add seconds when generating LaunchConfig name to avoid naming collisions [GHOST-301]
-    - Docker compose file and and Redis/Mongo endpoints configurable [GHOST-153]
+    - Docker compose file and Redis/Mongo endpoints configurable [GHOST-153]
 
 * Improvements & Bug fixes
     - An AutoScale Group is now mandatory to use Safe Deploy [GHOST-280]
     - Stage2 script now follows symlinks when updating Zabbix config [GHOST-285]
     - Version field in feature can be empty/null [GHOST-270]
-    - AWS EC2 instance type updated
+    - Available AWS EC2 instance types updated
     - Python modules upgraded (boto*)
+    - Hotfix GHOST-229: don't show ``blue`` bubble when BG is not enabled
 
 Ghost 16.07.1
 -------------
@@ -160,7 +160,7 @@ Ghost 16.06
 
 * WebUI
     - [UI] Quick access boutons on "Completed view" [GHOST-252]
-    - JS Fix for CrossAccount credential check [GHOST-267]
+    - JS Fix for Cross Account credential check [GHOST-267]
 
 * Core/API
     - Add generated hostname to /etc/hosts for private IP resolution [GHOST-251]
@@ -170,14 +170,14 @@ Ghost 16.06
     - ghost-doc repo as Submodule [GHOST-183]
     - Add the 'After all deploy' script available, triggered on Ghost after the deployment on every instances [GHOST-255]
     - Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]
-    - Features with multiple pillar parameter values, allow us to be more flexible on SALT formulas [GHOST-270]
+    - Features with multiple pillar parameter values, allow us to be more flexible on SaltStack formulas [GHOST-270]
     - Handle UTF-8 characters in base64 encoded scripts (pre-bootstrap, post-bootstrap, buildpack, pre-deploy, post-deploy, after-all-deploy, pre-buildimage, post-buildimage) [GHOST-264]
 
 * Improvements & Bug fixes
-    - Fix safe deployment with cross account and spaces issue [GHOST-142]
+    - Fix Safe Deployment with cross account and spaces issue [GHOST-142]
     - getconf HOST_NAME_MAX to truncate hostname [GHOST-263]
     - Allow installation of arbitrary gems [GHOST-258]
-    - Hotfix to handle buttons when creating/cloning an app [GHOST-252]
+    - Fix to handle buttons when creating/cloning an app [GHOST-252]
     - Update subnets in ``updateautoscale`` command [GHOST-260]
     - use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]
 
