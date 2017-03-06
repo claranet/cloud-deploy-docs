@@ -15,5 +15,6 @@ Table of Contents:
     rst/ui
     rst/cli
     rst/bluegreen
+    rst/container
     rst/matrix
     rst/changelog
