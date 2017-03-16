@@ -1,9 +1,9 @@
 .. _container:
 
-.. title:: BuildPack Deployment With Container
+.. title:: Deployment With Buildpack Execution in Container
 
-BuildPack Deployment With Container
-===================================
+Deployment With Buildpack Execution in Container
+================================================
 
 .. toctree::
     :maxdepth: 2
@@ -12,51 +12,50 @@ BuildPack Deployment With Container
 Concept
 *******
 
-Before to introduice this concept, you need to know the buildpack concept in deployment workflow : cf :ref:`scripts` page.
+Before introducing this concept, the understanding of the buildpack step of the deployment workflow is required: cf :ref:`scripts` page.
 
-The buildpack deployment in a container makes possible to isolate the build of sources arfifact during a module deployment.
+The buildpack deployment in a container makes possible to isolate the build of source arfifacts during a module's deployment.
 
-Why we need to isolate that build ?
-***********************************
+Why do we need to isolate that build?
+*************************************
 
-An application contains some packages dépencies: for exemple Ghost needs a list of python modules who are store in requirements.txt.
+Applications have thirdparty dependencies requirements: for example Ghost depends on a list of python modules which are defined in ``requirements.txt``.
 
-To be sure that packages didn't create conflicts with the Ghost instance, we need to execute this installation in a container.
+To be sure that packages do not create conflicts with the Ghost instance, we need to execute this installation in a container.
 
-To do that, we have added steps in the initial workflow deployment.
+To do that, we have added steps in the initial deployment workflow.
 
 
-**Ghost additional Wordflow steps**
+**Ghost additional workflow steps**
 
 **Build image**
 
+1. When the ``buildimage`` of an AWS AMI is completed, an LXC container is launched, selected by its ``OS type`` and ``OS family``.
+2. In that container, the ``features`` formulas and ``post/pre buildimage`` lifecycle hooks are applied.
+3. When those steps are completed in the container, an image is taken and is stored in the local registry, aliased with the corresponding job ID.
+4. This alias is then stored in the Ghost application to use it as a reference container for future deployments.
+5. The container is destroyed.
 
-1. When the build images of an aws AMI is terminated, we launch a container who are referenced by ``OS type`` and ``OS family``.
-2. In that container we execute the ``features`` installation and hooks ``post/pre buildimage``
-3. When the build of container is finished, we store it as image in the local registry with an alias who is the ``job id``.
-4. Last step, store the alias image in MongoDB to use it as a référence container for future deployment .
-5. The container will be destroy
-
-Note: Image retention is based form ami-retention, because a amazon ami always have his container image sources.
+Note: Container image retention is matched to AMI retention, i.e. each AWS AMI has its corresponding LXC image.
 
 **Deployment**
 
-1. Have a buildpack script set in your module
-2. If the buildpack is set, so a container will be launch from the image in the local registry who have the alias of the last buildimage job
-3. A container profile is create, and set a mount module directory path directly inside it
-4. The buildpack script is executed inside the container
-5. The container will be destroy
+1. Set a buildpack script in the Ghost application's module.
+2. If the buildpack is set, a container is launched from the image in the local registry selected by its alias (i.e. the last successful buildimage job ID).
+3. A container profile is created, and the module's path is mounted inside it.
+4. The buildpack script is executed inside the container.
+5. The container is destroyed.
 
 How to enable buildpack in container
 ************************************
 
-**requirements**
+**System requirements**
 
-1. Lxd installed from src compilation
-2. Lxd daemon run with group lxd
-3. Ghost user added to lxd group
+1. LXD installed.
+2. LXD daemon run with ``lxd`` group.
+3. ``ghost`` user added to the ``lxd`` group.
 
-**configuration**
+**Configuration**
 
-1. You just need to select a container in the build infos section
-2. Enable debug in config.yml didn't stop the container in buildimage and déployment steps
+1. A container needs to be selected in the Build Infos section of the Ghost application.
+2. ``container_debug`` can be enabled in ``config.yml`` to understand what's happening under the hood during ``buildimage`` and ``deployment`` steps (containers are not terminated).
