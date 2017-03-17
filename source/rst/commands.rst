@@ -9,9 +9,11 @@ Ghost Commands
 Build | buildimage
 ------------------
 
-This command should be the first one triggered after a Ghost Application creation.
-It bakes a new AMI with every feature specified in the application on top of the source AMI choosen. (Generally a Morea Debian AMI)
-Morea uses SaltStack to provision all the choosen features and uses Packer (from HashiCorp) to bake the new AMI.
+| This command should be the first one triggered after a Ghost Application creation.
+| It bakes a new AMI with every feature specified in the application on top of the source AMI choosen. (Generally a Morea Debian AMI)
+| Morea uses SaltStack to provision all the choosen features and uses Packer (from HashiCorp) to bake the new AMI.
+| Ghost can also uses some other feature provisioner like Ansible.
+| 
 
 **Command Options**
 
@@ -30,8 +32,8 @@ Morea uses SaltStack to provision all the choosen features and uses Packer (from
     There are two Hooks available and configurable in the application.
     Thoose hooks are scripts:
 
-        * ``pre_buildimage`` : Script executed on the temporary instance *before* the SALT provisionning
-        * ``post_buildimage`` : Script executed on the temporary instance *after* the SALT provisionning
+        * ``pre_buildimage`` : Script executed on the temporary instance *before* the features provisioning
+        * ``post_buildimage`` : Script executed on the temporary instance *after* the features provisioning
 
 .. figure:: /images/ghost_buildimage.png
 
