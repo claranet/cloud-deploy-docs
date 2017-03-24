@@ -13,7 +13,7 @@ Build | buildimage
 | It bakes a new AMI with every feature specified in the application on top of the source AMI choosen. (Generally a Morea Debian AMI)
 | Morea uses SaltStack to provision all the choosen features and uses Packer (from HashiCorp) to bake the new AMI.
 | Ghost can also uses some other feature provisioner like Ansible.
-| 
+|
 
 **Command Options**
 
@@ -75,11 +75,56 @@ Build | destroyallinstances
 This command allows you to destroy every instances mapped to the current application (based on EC2 Tags: ``app``, ``env``, ``role``, ``color``).
 Both *standalone* and *in AutoScale* instances are destroyed.
 
+Build | recreateinstances
+-------------------------
+
+This command allows you to renew all the instances associated to a Ghost application.
+It's very usefull when you have updated the AMI used by the application or any parameter which changed in the LaunchConfiguration object.
+It handles both application with or without an AutoScale Group associated. Here are the cases:
+
+Application without AutoScale Group
+***********************************
+
+		* Ghost will destroy all standalone instances
+		* Wait until they're really destroyed and their private IP available again
+		* Create some new instances using the same subnet and private IP as older ones.
+
+Application with an AutoScale Group and one or many LoadBalancers
+*****************************************************************
+
+*Without Rolling update strategy option* :
+
+                * Ghost will suspend processes of the ASG
+		* It will double the target and max value of the ASG
+                * Resume the ``Launch`` process, let the ASG creates new instances
+		* Wait until all new instances are up, Healthy and InService in the Load Balancer
+                * Detach oldest instances from the Load Balancer, wait for the connection draining
+		* Destroy oldest instances, set back ASG original target and max values, and resume ``Terminate`` process
+		* Wait until all old instances are destroyed and detached from the ASG.
+		* Resume all ASG processes
+
+*With a Rolling update strategy option* :
+
+		* Split the instances into groups (see next chapter for details), and apply the main workflow on each group.
+
+**Command Options**
+
+*Rolling update strategy* :
+  ``1by1 | 50% | 1/3 | 25%``
+
+ This option permits to choose if Ghost should use a strategy to perform a rolling instance update in the AutoScale Group
+
+*The rolling update possiblities are:*
+
+		* 1by1: Instances will be processed one after the other.
+		* 50%:  The whole instances will be split in 2 groups(the more equals) .
+		* 1/3:  The whole instances will be split in 3 groups(the more equals).
+		* 25%:  The whole instances will be split in 4 groups(the more equals).
 
 Run/Build | updateautoscaling
 -----------------------------
 
-This command allow you to create a new ``LaunchConfiguration`` with every parameter taken from the Ghost application and attach it to the AutoScale Group.
+This command allows you to create a new ``LaunchConfiguration`` with every parameters taken from the Ghost application and attach it to the AutoScale Group.
 It will also update the AutoScale Group parameters (update ``min``, ``max``, ``desired``) and tags (set needed Ghost's tags)
 
 
@@ -187,22 +232,27 @@ Example of safe deployment output:
 Here is a workflow diagram for more details :
 
 .. figure:: /images/safe_deploy_workflow_1.png
+
 Step 1)
  Split instances into Groups (25%, 33%, 50% or 1 instance in the group) and handle each group
 
 .. figure:: /images/safe_deploy_workflow_2.png
+
 Step 2)
- Remove the current group's instances from the Load Balancer - no more traffic on thoses instances
+ Remove the current group's instances from the Load Balancer - no more traffic on those instances
 
 .. figure:: /images/safe_deploy_workflow_3.png
+
 Step 3)
  Standard module deploy on every detached instances of the group (serial or parallel deploy)
 
 .. figure:: /images/safe_deploy_workflow_4.png
+
 Step 4)
  Put back instances online in the Load Balancer, wait for HealthCheck becoming green/OK
 
 .. figure:: /images/safe_deploy_workflow_5.png
+
 Step 5-1)
  Go on next group, and repeat the workflow
 
