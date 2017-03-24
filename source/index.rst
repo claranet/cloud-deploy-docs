@@ -1,5 +1,5 @@
-Welcome to Morea Ghost's documentation!
-=======================================
+Welcome to Claranet Cloud Deploy (Ghost project) documentation!
+===============================================================
 
 Table of Contents:
 
