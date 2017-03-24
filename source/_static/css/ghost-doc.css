@@ -3,3 +3,6 @@
 .wy-nav-content {
     max-width: none;
 }
+.wy-side-nav-search {
+    background: transparent;
+}
