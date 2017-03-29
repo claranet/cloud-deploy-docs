@@ -78,19 +78,19 @@ Both *standalone* and *in AutoScale* instances are destroyed.
 Build | recreateinstances
 -------------------------
 
-This command allows you to renew all the instances associated to a Ghost application. 
-It is useful when you have made changes in the baking or bootstrapping steps of your application instances and want to apply them with automation. 
+This command allows you to renew all the instances associated to a Ghost application.
+It is useful when you have made changes in the baking or bootstrapping steps of your application instances and want to apply them with automation.
 The command works for any application in any context, with or without Auto Scaling Group. Here are the cases:
 
 Application without an Auto Scaling Group
-***********************************
+*****************************************
 
 		* Ghost will destroy all standalone instances
 		* Wait until the instances release their private IPs
 		* Create new instances using subnet and private IP matching the old destroyed ones.
 
 Application with an Auto Scaling Group and one or many LoadBalancers
-*****************************************************************
+********************************************************************
 
 *Without Rolling update strategy option* :
 
@@ -312,4 +312,3 @@ Blue/Green | purgebluegreen
 
 This commands is the last step in the ``Blue/Green`` deployment process.
 It will purge the **stand by** env by deleting the temporary ELB, updating the **stand by** Auto Scaling Group and destroying all instances for this env. (Please see **Build | destroyallinstances** for more details.)
-
