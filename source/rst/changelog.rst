@@ -8,6 +8,36 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.03
+-----------
+
+* WebUI
+    - Product renamed to ``Claranet Cloud Deploy`` in WebUI [GHOST-372]
+    - Fix UI filter per env when it contains dashes [GHOST-352]
+
+* Core/API
+    - Update python dependencies [GHOST-357][GHOST-220]
+    - New command ``recreateinstances`` that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy) [GHOST-293]
+    - New option to purge old Ghost packages in S3 Bucket [GHOST-38]
+    - Refactoring of Feature provisioner class (SaltStack), ready to handle Ansible as new provisioner [GHOST-353]
+    - Refactoring on ``find_ec2_instances`` function [GHOST-368]
+    - Generic Ghost restore script [GHOST-362]
+
+* Improvements & Bug fixes
+    - Introduce py.test unit testing [GHOST-342]
+    - Keep ELB attributes when making the ELB copy [GHOST-343]
+    - Default ``subnet_id`` value is not set for ``createinstance`` command [GHOST-358]
+    - Handle missing module errors in ``auth.py`` script [GHOST-370]
+    - Instance has to be in running state in order to be tagged with the ``createinstance`` command [GHOST-229]
+    - ``gzip -k`` is not available on Debian 7 Wheezy [GHOST-369]
+
+* Documentation
+    - Using ``Claranet Cloud Deploy`` name [GHOST-372]
+    - Detailed workflow diagrams for ``Safe deploy option`` [GHOST-142]
+    - ``buildimage`` workflow updated, multiple provisioner supported [GHOST-353]
+    - Global changelog, home and quick-start page fixes [GHOST-183][GHOST-367]
+    - New documentation page about general guidance for scripting in Ghost [GHOST-337]
+
 Ghost 17.02
 -----------
 
