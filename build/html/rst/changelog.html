@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Ghost 17.02 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.03 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Ghost 17.02 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.03 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
  <script type="text/javascript">
   window.addEventListener("load", function load() {
@@ -64,12 +64,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Claranet Ghost
+            <a href="../index.html" class="icon icon-home"> Claranet Cloud Deploy
           
 
           
             
-            <img src="../_static/logo_ghost.png" class="logo" />
+            <img src="../_static/logo_cloud_deploy.png" class="logo" />
           
           </a>
 
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                17.02
+                17.03
               </div>
             
           
@@ -110,6 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-03">Ghost 17.03</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-02">Ghost 17.02</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-01">Ghost 17.01</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-16-12">Ghost 16.12</a></li>
@@ -142,7 +143,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Ghost</a>
+        <a href="../index.html">Claranet Cloud Deploy</a>
       </nav>
 
 
@@ -177,13 +178,65 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="ghost-17-03">
+<h2>Ghost 17.03<a class="headerlink" href="#ghost-17-03" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>Product renamed to <code class="docutils literal"><span class="pre">Claranet</span> <span class="pre">Cloud</span> <span class="pre">Deploy</span></code> in WebUI [GHOST-372]</li>
+<li>Fix UI filter per env when it contains dashes [GHOST-352]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>Update python dependencies [GHOST-357][GHOST-220]</li>
+<li>New command <code class="docutils literal"><span class="pre">recreateinstances</span></code> that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy) [GHOST-293]</li>
+<li>New option to purge old Ghost packages in S3 Bucket [GHOST-38]</li>
+<li>Refactoring of Feature provisioner class (SaltStack), ready to handle Ansible as new provisioner [GHOST-353]</li>
+<li>Refactoring on <code class="docutils literal"><span class="pre">find_ec2_instances</span></code> function [GHOST-368]</li>
+<li>Generic Ghost restore script [GHOST-362]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Introduce py.test unit testing [GHOST-342]</li>
+<li>Keep ELB attributes when making the ELB copy [GHOST-343]</li>
+<li>Default <code class="docutils literal"><span class="pre">subnet_id</span></code> value is not set for <code class="docutils literal"><span class="pre">createinstance</span></code> command [GHOST-358]</li>
+<li>Handle missing module errors in <code class="docutils literal"><span class="pre">auth.py</span></code> script [GHOST-370]</li>
+<li>Instance has to be in running state in order to be tagged with the <code class="docutils literal"><span class="pre">createinstance</span></code> command [GHOST-229]</li>
+<li><code class="docutils literal"><span class="pre">gzip</span> <span class="pre">-k</span></code> is not available on Debian 7 Wheezy [GHOST-369]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last simple">
+<li>Using <code class="docutils literal"><span class="pre">Claranet</span> <span class="pre">Cloud</span> <span class="pre">Deploy</span></code> name [GHOST-372]</li>
+<li>Detailed workflow diagrams for <code class="docutils literal"><span class="pre">Safe</span> <span class="pre">deploy</span> <span class="pre">option</span></code> [GHOST-142]</li>
+<li><code class="docutils literal"><span class="pre">buildimage</span></code> workflow updated, multiple provisioner supported [GHOST-353]</li>
+<li>Global changelog, home and quick-start page fixes [GHOST-183][GHOST-367]</li>
+<li>New documentation page about general guidance for scripting in Ghost [GHOST-337]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="ghost-17-02">
 <h2>Ghost 17.02<a class="headerlink" href="#ghost-17-02" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><dl class="first docutils">
 <dt>WebUI</dt>
 <dd><ul class="first last simple">
-<li>Make <code class="docutils literal"><span class="pre">env</span></code> field generic, creation possible in the UI [GHOST-360]</li>
+<li>Adding new <code class="docutils literal"><span class="pre">env</span></code> field values is possible from the web UI [GHOST-360]</li>
 </ul>
 </dd>
 </dl>
@@ -192,10 +245,10 @@
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
 <li>Update python dependencies [GHOST-357]</li>
-<li>Make <code class="docutils literal"><span class="pre">env</span></code> field generic [GHOST-360]</li>
+<li>The <code class="docutils literal"><span class="pre">env</span></code> attribute is now generic [GHOST-360]</li>
 <li>Slack notifications available [GHOST-7]</li>
-<li>HTML Mail template for job notifications (replaces the simple text mail notification) [GHOST-345]</li>
-<li>AutoScale <cite>current/DesiredCapacity</cite> value should not be handle in Ghost [GHOST-356]</li>
+<li>HTML Mail template for job notifications (replaces the raw text format) [GHOST-345]</li>
+<li>AutoScale <code class="docutils literal"><span class="pre">current/DesiredCapacity</span></code> value should not be handle in Ghost [GHOST-356]</li>
 </ul>
 </dd>
 </dl>
@@ -203,8 +256,8 @@
 <li><dl class="first docutils">
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
-<li>Hotfix for <code class="docutils literal"><span class="pre">preparebluegreen</span></code> command, by replacing &#8220;as_conn&#8221; variable [GHOST-361]</li>
-<li>Hotfix remove the first character (/) of legacy MANIFEST path when using blue-green deployment [GHOST-364]</li>
+<li>Fix: <code class="docutils literal"><span class="pre">preparebluegreen</span></code> command was broken (<code class="docutils literal"><span class="pre">as_conn</span></code> variable missing) [GHOST-361]</li>
+<li>Fix: remove the first character (/) of legacy MANIFEST path when using blue-green deployment [GHOST-364]</li>
 <li>Refactor LaunchConfiguration creation and ASG update functions [GHOST-355]</li>
 <li>Strip git repo url to avoid errors [GHOST-346]</li>
 </ul>
@@ -219,11 +272,11 @@
 <li><dl class="first docutils">
 <dt>WebUI</dt>
 <dd><ul class="first last simple">
-<li>Ghost instance health status (footer button) [GHOST-204]</li>
+<li>Ghost instance health status (footer link) [GHOST-204]</li>
 <li>Orange warning color when choosing a big instance type [GHOST-338]</li>
 <li>Adding z-index for footer, updating left bar height dynamically [GHOST-325]</li>
-<li>Setting infinite scrolling limit to work with size rounding in zoomed in or out window (float sizes) [GHOST-302]</li>
-<li>Setting static path for command page JS get last revision route [GHOST-332]</li>
+<li>Fix infinite scrolling to work with zoomed in or out view [GHOST-302]</li>
+<li>Fix getting last deployed revision in Run More Like This context [GHOST-332]</li>
 <li>Keep UI app_list view mode (tabbed) in a cookie [GHOST-321]</li>
 <li>List git available branches and tags on <code class="docutils literal"><span class="pre">deploy</span></code> command [GHOST-296]</li>
 </ul>
@@ -234,7 +287,7 @@
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
 <li>Do not install curl before bootstrapping SaltStack (requires Packer v0.12.1+) [GHOST-334]</li>
-<li>Option &#8220;Destroy temporary CLB&#8221; for <code class="docutils literal"><span class="pre">purgebluegreen</span></code> command [GHOST-303]</li>
+<li>Option “Destroy temporary CLB” for <code class="docutils literal"><span class="pre">purgebluegreen</span></code> command [GHOST-303]</li>
 <li>Verify deployed module name too when using <code class="docutils literal"><span class="pre">preparebluegreen</span></code> [GHOST-287]</li>
 <li>A dedicated queue and worker is now available per app color when Blue-green is enabled [GHOST-288]</li>
 </ul>
@@ -254,7 +307,7 @@
 <dt>Documentation</dt>
 <dd><ul class="first last simple">
 <li>Upgrade to eve-swagger 0.0.6 [GHOST-349]</li>
-<li>New documentation page - Ghost best pratices [GHOST-337]</li>
+<li>New documentation page - Ghost best practices [GHOST-337]</li>
 </ul>
 </dd>
 </dl>
@@ -277,9 +330,9 @@
 <dd><ul class="first last simple">
 <li>Handle Application Load Balancer in SafeDeployment [GHOST-310]</li>
 <li>Correct ASG boto2 errors when ALB is used by upgrading to boto3 [GHOST-309]</li>
-<li>Keep a local mirror of morea-salt-formulas &amp; zabbix GIT repos [GHOST-271]</li>
+<li>Keep a local mirror of morea-salt-formulas &amp; zabbix Git repos [GHOST-271]</li>
 <li>Allow creating Launch Configurations with Detailed EC2 Instance Monitoring enabled, on a per app basis [GHOST-162]</li>
-<li>Move to EVE swagger for API documentation [GHOST-329]</li>
+<li>Move to eve-swagger for API documentation [GHOST-329]</li>
 </ul>
 </dd>
 </dl>
@@ -287,12 +340,12 @@
 <li><dl class="first docutils">
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
-<li>Hotfix &#8220;Run more like this (caused by GHOST-291) [GHOST-330]</li>
+<li>Hotfix &#8220;Run more like this&#8221; (caused by GHOST-291) [GHOST-330]</li>
 <li>Docker-compose: add nginx container for better local tests [GHOST-331]</li>
-<li>Upgrade to boto v2.45.0: handle new AWS regions (eu-west-2,ca-central-1,us-east-2,ap-south-1) [GHOST-339]</li>
+<li>Upgrade to boto v2.45.0 (handle new AWS regions: eu-west-2, ca-central-1, us-east-2, ap-south-1) [GHOST-339]</li>
 <li>Colorized error messages in stage2 [GHOST-340]</li>
 <li>Create empty MANIFEST if nonexistent upon successful buildimage to allow instance bootstrapping [GHOST-341]</li>
-<li>Ensure Ghost tags are properly set when using <code class="docutils literal"><span class="pre">updateautoscaling</span></code>, <code class="docutils literal"><span class="pre">createinstance</span></code> and <code class="docutils literal"><span class="pre">preparebluegreen</span></code> commands [GHOST-336]</li>
+<li>Ensure app/env/role Ghost tags are properly set when using <code class="docutils literal"><span class="pre">updateautoscaling</span></code>, <code class="docutils literal"><span class="pre">createinstance</span></code> and <code class="docutils literal"><span class="pre">preparebluegreen</span></code> commands [GHOST-336]</li>
 </ul>
 </dd>
 </dl>
@@ -305,12 +358,9 @@
 <li><dl class="first docutils">
 <dt>WebUI</dt>
 <dd><ul class="first last simple">
+<li>Replace Morea by Claranet in the webUI [GHOST-308]</li>
 <li>Handle <code class="docutils literal"><span class="pre">createinstance</span></code> job in <code class="docutils literal"><span class="pre">Run</span> <span class="pre">more</span> <span class="pre">like</span> <span class="pre">this</span></code> action [GHOST-291]</li>
-<li>Using / to check auth rather than /apps which could hurt performance [GHOST-322]</li>
-<li>Move get_envs call to specific template that need it [GHOST-322]</li>
 <li>Use tabs per env for app list [GHOST-307]</li>
-<li>Init provider JS param when cross account activated [GHOST-295]</li>
-<li>Replace Morea references in the webUI and in the config file by Claranet [GHOST-308]</li>
 </ul>
 </dd>
 </dl>
@@ -318,7 +368,6 @@
 <li><dl class="first docutils">
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
-<li>Passing mongo and Redis config in Command class [GHOST-318]</li>
 <li>Add ssh config to backup [GHOST-314]</li>
 </ul>
 </dd>
@@ -327,9 +376,13 @@
 <li><dl class="first docutils">
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
+<li>Init provider JS param when cross account activated [GHOST-295]</li>
+<li>Using / instead of /apps to check auth  which could hurt performance [GHOST-322]</li>
+<li>Move get_envs call to specific template that need it [GHOST-322]</li>
 <li>Command <code class="docutils literal"><span class="pre">swapbluegreen</span></code> should stop when the offline ELB is not correctly configured [GHOST-292]</li>
 <li>Add suspend and resume AutoScaling process in <code class="docutils literal"><span class="pre">preparebluegreen</span></code> command [GHOST-327]</li>
 <li>Docker-compose update to version 2 [GHOST-320]</li>
+<li>Use mongo and Redis endpoints config in commands [GHOST-318]</li>
 <li>Adding jetbrains clauses to gitignore [GHOST-315]</li>
 </ul>
 </dd>
@@ -343,10 +396,10 @@
 <li><dl class="first docutils">
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
-<li>Update boto3, botocore and awscli pip dependencies [GHOST-311]</li>
-<li>Fix <code class="docutils literal"><span class="pre">prepare</span></code> command option [GHOST-229]</li>
-<li>Hotfix - use custom app tags only if setted [GHOST-243]</li>
-<li>Fix ASG listing when ALB are assotiated by using boto3 [GHOST-309]</li>
+<li>Update boto3, botocore and awscli dependencies [GHOST-311]</li>
+<li>Fix <code class="docutils literal"><span class="pre">preparebluegreen</span></code> command options [GHOST-229]</li>
+<li>Hotfix - use custom app tags only if set [GHOST-243]</li>
+<li>Fix ASG listing when ALB are associated by using boto3 [GHOST-309]</li>
 </ul>
 </dd>
 </dl>
@@ -361,8 +414,7 @@
 <dd><ul class="first last simple">
 <li>CodeMirror scripts upgrade - better script area in UI [GHOST-215]</li>
 <li>Show Optional volumes in <code class="docutils literal"><span class="pre">app_view</span></code> [GHOST-306]</li>
-<li>Replace Packer output placeholders in logs by HTML one [GHOST-298]</li>
-<li>Hotfix [GHOST-229] Don&#8217;t show <code class="docutils literal"><span class="pre">blue</span></code> bubble when BG is not enabled</li>
+<li>Format Packer output with HTML [GHOST-298]</li>
 </ul>
 </dd>
 </dl>
@@ -375,7 +427,7 @@
 <li>Rollback application manifest if a <code class="docutils literal"><span class="pre">deploy</span></code> or <code class="docutils literal"><span class="pre">redeploy</span></code> command fails [GHOST-286]</li>
 <li>Feature preset import, permits to bulk import some features in an application based on ready-to-use preset [GHOST-133]</li>
 <li>Add seconds when generating LaunchConfig name to avoid naming collisions [GHOST-301]</li>
-<li>Docker compose file and and Redis/Mongo endpoints configurable [GHOST-153]</li>
+<li>Docker compose file and Redis/Mongo endpoints configurable [GHOST-153]</li>
 </ul>
 </dd>
 </dl>
@@ -386,8 +438,9 @@
 <li>An AutoScale Group is now mandatory to use Safe Deploy [GHOST-280]</li>
 <li>Stage2 script now follows symlinks when updating Zabbix config [GHOST-285]</li>
 <li>Version field in feature can be empty/null [GHOST-270]</li>
-<li>AWS EC2 instance type updated</li>
+<li>Available AWS EC2 instance types updated</li>
 <li>Python modules upgraded (boto*)</li>
+<li>Hotfix GHOST-229: don&#8217;t show <code class="docutils literal"><span class="pre">blue</span></code> bubble when BG is not enabled</li>
 </ul>
 </dd>
 </dl>
@@ -452,7 +505,7 @@
 <dt>WebUI</dt>
 <dd><ul class="first last simple">
 <li>[UI] Quick access boutons on &#8220;Completed view&#8221; [GHOST-252]</li>
-<li>JS Fix for CrossAccount credential check [GHOST-267]</li>
+<li>JS Fix for Cross Account credential check [GHOST-267]</li>
 </ul>
 </dd>
 </dl>
@@ -467,7 +520,7 @@
 <li>ghost-doc repo as Submodule [GHOST-183]</li>
 <li>Add the &#8216;After all deploy&#8217; script available, triggered on Ghost after the deployment on every instances [GHOST-255]</li>
 <li>Pre and Post Buildimage hooks, custom scripts to tweak AMI if needed [GHOST-253]</li>
-<li>Features with multiple pillar parameter values, allow us to be more flexible on SALT formulas [GHOST-270]</li>
+<li>Features with multiple pillar parameter values, allow us to be more flexible on SaltStack formulas [GHOST-270]</li>
 <li>Handle UTF-8 characters in base64 encoded scripts (pre-bootstrap, post-bootstrap, buildpack, pre-deploy, post-deploy, after-all-deploy, pre-buildimage, post-buildimage) [GHOST-264]</li>
 </ul>
 </dd>
@@ -476,10 +529,10 @@
 <li><dl class="first docutils">
 <dt>Improvements &amp; Bug fixes</dt>
 <dd><ul class="first last simple">
-<li>Fix safe deployment with cross account and spaces issue [GHOST-142]</li>
+<li>Fix Safe Deployment with cross account and spaces issue [GHOST-142]</li>
 <li>getconf HOST_NAME_MAX to truncate hostname [GHOST-263]</li>
 <li>Allow installation of arbitrary gems [GHOST-258]</li>
-<li>Hotfix to handle buttons when creating/cloning an app [GHOST-252]</li>
+<li>Fix to handle buttons when creating/cloning an app [GHOST-252]</li>
 <li>Update subnets in <code class="docutils literal"><span class="pre">updateautoscale</span></code> command [GHOST-260]</li>
 <li>use boto.s3.connection.OrdinaryCallingFormat() calling format to support bucket with dots in their name [GHOST-256]</li>
 </ul>
@@ -836,7 +889,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Morea Team - Claranet.
+        &copy; Copyright 2017, Claranet Cloud Practice.
 
     </p>
   </div>
@@ -858,7 +911,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'17.02',
+            VERSION:'Release 17.03',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Best Practices &mdash; Claranet Ghost 17.02 documentation</title>
+  <title>Ghost Best Practices &mdash; Claranet Cloud Deploy Release 17.03 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Ghost 17.02 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.03 documentation" href="../index.html"/>
         <link rel="next" title="Web User Interface" href="ui.html"/>
         <link rel="prev" title="Ghost Scripts" href="scripts.html"/>
  <script type="text/javascript">
@@ -65,12 +65,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Claranet Ghost
+            <a href="../index.html" class="icon icon-home"> Claranet Cloud Deploy
           
 
           
             
-            <img src="../_static/logo_ghost.png" class="logo" />
+            <img src="../_static/logo_cloud_deploy.png" class="logo" />
           
           </a>
 
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                17.02
+                17.03
               </div>
             
           
@@ -107,6 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Best Practices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-guidance">General guidance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#buildpack">Buildpack</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#buildpack-overview">Buildpack overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#buildpack-script-overview">Buildpack script overview</a></li>
@@ -123,6 +124,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#post-deploy-overview">Post-deploy overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-deploy-script-overview">Post-deploy script overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-deploy-requirements">Post-Deploy Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#after-all-deploy">After All Deploy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-overview">After all deploy overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-script-overview">After all deploy script overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-script-prerequisites">After all deploy script prerequisites</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#keep-in-mind">Keep in mind</a></li>
@@ -146,7 +153,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Ghost</a>
+        <a href="../index.html">Claranet Cloud Deploy</a>
       </nav>
 
 
@@ -185,6 +192,16 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This documentation aims to provide data about what can be done with Ghost scripts.
 In complement, please refer to the <a class="reference internal" href="commands.html#commands"><span class="std std-ref">Ghost Commands</span></a> documentation.</p>
+</div>
+<div class="section" id="general-guidance">
+<h2>General guidance<a class="headerlink" href="#general-guidance" title="Permalink to this headline">¶</a></h2>
+<p>Each script is running on Unix systems. If a shebang is present on the top of your script, it will be run with the specified interpreter program.
+By example, this shebang will run the script with python program (if python is installed) :</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>#!/bin/python
+</pre></div>
+</div>
+<p>By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is &#8220;success&#8221;. For others status, it will be &#8220;failed&#8221; status.
+If your script language is bash, it is recommended to add a &#8220;set -e&#8221; command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.</p>
 </div>
 <div class="section" id="buildpack">
 <h2>Buildpack<a class="headerlink" href="#buildpack" title="Permalink to this headline">¶</a></h2>
@@ -264,6 +281,22 @@ The post-deploy execution working directory is the Ghost application target dire
 </dl>
 </div>
 </div>
+<div class="section" id="after-all-deploy">
+<h2>After All Deploy<a class="headerlink" href="#after-all-deploy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="after-all-deploy-overview">
+<h3>After all deploy overview<a class="headerlink" href="#after-all-deploy-overview" title="Permalink to this headline">¶</a></h3>
+<p>The After All Deploy script step is executed on the Ghost instance after execution of all pre and post deploy scripts.</p>
+</div>
+<div class="section" id="after-all-deploy-script-overview">
+<h3>After all deploy script overview<a class="headerlink" href="#after-all-deploy-script-overview" title="Permalink to this headline">¶</a></h3>
+<p>The script is executed on the Ghost then you can add an action at the end of the module deployment that you have to execute once.
+Please keep in mind that your Ghost needs to have rights to do this action.</p>
+</div>
+<div class="section" id="after-all-deploy-script-prerequisites">
+<h3>After all deploy script prerequisites<a class="headerlink" href="#after-all-deploy-script-prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>No data will be sent to your application instances at this step.</p>
+</div>
+</div>
 <div class="section" id="keep-in-mind">
 <h2>Keep in mind<a class="headerlink" href="#keep-in-mind" title="Permalink to this headline">¶</a></h2>
 <p>When autoscaling up, starting instances will only execute pre and post-deploy scripts.
@@ -291,7 +324,7 @@ As external networking could be restricted or unavailable on deployed hosts, it 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Morea Team - Claranet.
+        &copy; Copyright 2017, Claranet Cloud Practice.
 
     </p>
   </div>
@@ -313,7 +346,7 @@ As external networking could be restricted or unavailable on deployed hosts, it 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'17.02',
+            VERSION:'Release 17.03',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; Claranet Ghost 17.02 documentation</title>
+  <title>Quick Start &mdash; Claranet Cloud Deploy Release 17.03 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Ghost 17.02 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.03 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Resources" href="resources.html"/>
-        <link rel="prev" title="Welcome to Morea Ghost’s documentation!" href="../index.html"/>
+        <link rel="prev" title="Welcome to Claranet Cloud Deploy (Ghost project) documentation!" href="../index.html"/>
  <script type="text/javascript">
   window.addEventListener("load", function load() {
     window.removeEventListener("load", load, false);
@@ -65,12 +65,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Claranet Ghost
+            <a href="../index.html" class="icon icon-home"> Claranet Cloud Deploy
           
 
           
             
-            <img src="../_static/logo_ghost.png" class="logo" />
+            <img src="../_static/logo_cloud_deploy.png" class="logo" />
           
           </a>
 
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                17.02
+                17.03
               </div>
             
           
@@ -138,7 +138,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Ghost</a>
+        <a href="../index.html">Claranet Cloud Deploy</a>
       </nav>
 
 
@@ -173,14 +173,14 @@
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Ghost aims to deploy, in a secure and reliable way, applications in the Cloud.
-Actual version support only AWS .</p>
+<p>Ghost aims to deploy applications in the Cloud, in a secure and reliable way.
+Actual version support only AWS.</p>
 <div class="section" id="ghost-features">
 <h3>Ghost Features<a class="headerlink" href="#ghost-features" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>Developed in Python.</li>
-<li>For continuous deployment.</li>
+<li>Designed for continuous deployment.</li>
 <li>Create, configure and update AWS EC2 instances.</li>
 <li>Used to deploy client application code</li>
 <li>Ghost core build within a REST API that any REST client could use it</li>
@@ -194,8 +194,8 @@ Actual version support only AWS .</p>
 <div class="section" id="application">
 <h2>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
 <p>Its the client code and all the requirements to set up on the instance.
-Working is separate environment is one of major feature. Each <code class="docutils literal"><span class="pre">application</span></code>
-is identified with it&#8217;s <strong>name</strong>, <strong>env</strong> and <strong>role</strong>.</p>
+Working in separate environments is one of major feature. Each <code class="docutils literal"><span class="pre">application</span></code>
+is identified by it&#8217;s <strong>name</strong>, <strong>env</strong> and <strong>role</strong>.</p>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
 <p>An application is define by:</p>
@@ -221,9 +221,8 @@ application code)).</li>
 </div>
 <div class="section" id="jobs">
 <h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
-<p>Applications has several available job commands. A <code class="docutils literal"><span class="pre">command</span></code> will be operated
-against an application already created. For each commands you can view the logs
-in real time.</p>
+<p>Applications have several available job commands. A <code class="docutils literal"><span class="pre">command</span></code> can be operated on any existing application.
+For each command, you can view the logs in real time.</p>
 <p>For more information, please refer to <a class="reference internal" href="job.html#job"><span class="std std-ref">Job</span></a> page.</p>
 <div class="section" id="commands">
 <h3>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
@@ -233,8 +232,7 @@ in real time.</p>
 <li><code class="docutils literal"><span class="pre">BuildImage</span></code>: create a new AMI with all the features defined in the
 application menu (Example: Launch a new instance and set up Apache and
 finally create a new AMI)</li>
-<li><code class="docutils literal"><span class="pre">ReDeploy</span></code>: aka <strong>rollback</strong> To make a deployment of a previous version
-of an application module.</li>
+<li><code class="docutils literal"><span class="pre">ReDeploy</span></code>: aka <strong>rollback</strong> To redeploy a previous version of an application module.</li>
 <li><code class="docutils literal"><span class="pre">CreateInstance</span></code>: create a new EC2 instance based on the AMI create by the
 <code class="docutils literal"><span class="pre">BuildImage</span></code> command.</li>
 <li><code class="docutils literal"><span class="pre">DestroyInstance</span></code>: Terminate the EC2 instance linked to the application.</li>
@@ -255,7 +253,7 @@ of an application module.</li>
         <a href="resources.html" class="btn btn-neutral float-right" title="Ghost Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Welcome to Morea Ghost’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to Claranet Cloud Deploy (Ghost project) documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -264,7 +262,7 @@ of an application module.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Morea Team - Claranet.
+        &copy; Copyright 2017, Claranet Cloud Practice.
 
     </p>
   </div>
@@ -286,7 +284,7 @@ of an application module.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'17.02',
+            VERSION:'Release 17.03',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

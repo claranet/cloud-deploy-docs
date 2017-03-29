@@ -13,6 +13,20 @@ Introduction
 This documentation aims to provide data about what can be done with Ghost scripts.
 In complement, please refer to the :ref:`commands` documentation.
 
+
+General guidance
+----------------
+
+Each script is running on Unix systems. If a shebang is present on the top of your script, it will be run with the specified interpreter program.
+By example, this shebang will run the script with python program (if python is installed) : 
+
+.. code-block:: none
+
+  #!/bin/python
+
+By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is "success". For others status, it will be "failed" status.
+If your script language is bash, it is recommended to add a "set -e" command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.
+
 Buildpack
 ---------
 
@@ -89,6 +103,25 @@ This script must not depend on external resources :
  - no internet call
  - no package install (apt-get, npm, pip, yum, gem, composer)
  - no downloads except from AWS S3
+
+After All Deploy
+----------------
+
+After all deploy overview
+*************************
+
+The After All Deploy script step is executed on the Ghost instance after execution of all pre and post deploy scripts.
+ 
+After all deploy script overview
+********************************
+
+The script is executed on the Ghost then you can add an action at the end of the module deployment that you have to execute once.
+Please keep in mind that your Ghost needs to have rights to do this action.
+
+After all deploy script prerequisites
+*************************************
+
+No data will be sent to your application instances at this step.
 
 Keep in mind
 ------------
