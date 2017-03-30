@@ -94,11 +94,11 @@ Application with an Auto Scaling Group and one or many LoadBalancers
 
 *Without Rolling update strategy option* :
 
-                * Ghost will suspend the ASG's processes
+		* Ghost will suspend the ASG's processes
 		* It will double the target and max value of the ASG
-                * Resume the ``Launch`` process, let the ASG creates new instances
+		* Resume the ``Launch`` process, let the ASG creates new instances
 		* Wait until all the new instances are up, Healthy and InService in the Load Balancer
-                * Detach the oldest instances from the Load Balancer, wait for the connection draining
+		* Detach the oldest instances from the Load Balancer, wait for the connection draining
 		* Destroy the oldest instances, set back ASG original target and max values, and resume ``Terminate`` process
 		* Wait until all the old instances are destroyed and detached from the ASG.
 		* Resume all ASG processes
