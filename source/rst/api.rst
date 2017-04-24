@@ -20,4 +20,4 @@ OpenAPI Specification
 
 .. rst-class:: swagger-ui-link
 
-`View in Swagger UI <#>`_
+`View in ReDoc UI </docs/_static/api.html>`_
