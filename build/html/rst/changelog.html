@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.03 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.04 documentation</title>
   
 
   
@@ -33,19 +33,8 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.03 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.04 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
- <script type="text/javascript">
-  window.addEventListener("load", function load() {
-    window.removeEventListener("load", load, false);
-    var links = document.querySelectorAll("#openapi-specification > p.swagger-ui-link > a");
-    if (links) {
-      for (var i = 0; i < links.length; ++i) {
-        links[i].href = "https://api.ghost.morea.fr/swagger-ui/index.html?url=" + window.location.origin + "/docs/api";
-      }
-    }
-  });
- </script>
 
 
   
@@ -77,7 +66,7 @@
             
             
               <div class="version">
-                17.03
+                17.04
               </div>
             
           
@@ -110,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-04">Ghost 17.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-03">Ghost 17.03</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-02">Ghost 17.02</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-01">Ghost 17.01</a></li>
@@ -177,6 +167,52 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-17-04">
+<h2>Ghost 17.04<a class="headerlink" href="#ghost-17-04" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>When <code class="docutils literal"><span class="pre">Use</span> <span class="pre">a</span> <span class="pre">custom</span> <span class="pre">identity</span></code> is unchecked, reset all identity params to default values [GHOST-366]</li>
+<li>Add logout link button [GHOST-381]</li>
+<li>Job status color background [GHOST-384]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>RQ Worker job timeout value should be configurable [GHOST-379]</li>
+<li>Setting min value for root block size (20GB) [GHOST-373]</li>
+<li>Option to enable AutoScaling metrics (option applied when using <code class="docutils literal"><span class="pre">updateautoscaling</span></code> command) [GHOST-382]</li>
+<li>Document and revamp <code class="docutils literal"><span class="pre">config.yml.sample</span></code> file [GHOST-380]</li>
+<li>Store Job logs into S3 bucket [GHOST-297]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>Refactor <code class="docutils literal"><span class="pre">buildimage</span></code> command with a generic builder interface [GHOST-376]</li>
+<li>Uses <code class="docutils literal"><span class="pre">Claranet</span> <span class="pre">Cloud</span> <span class="pre">Deploy</span></code> for Slack bot name [GHOST-372]</li>
+<li>Fix Safe Deploy option in <code class="docutils literal"><span class="pre">redeploy</span></code> command [GHOST-377]</li>
+<li>UI HTML structure improvements + CSS/JS fixes [GHOST-348]</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last simple">
+<li>OpenAPI/Swagger attributes adjustment for ReDoc and using ReDoc interface [GHOST-378]</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-17-03">
 <h2>Ghost 17.03<a class="headerlink" href="#ghost-17-03" title="Permalink to this headline">¶</a></h2>
@@ -911,7 +947,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.03',
+            VERSION:'Release 17.04',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
