@@ -8,6 +8,30 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.04
+-----------
+
+* WebUI
+    - When ``Use a custom identity`` is unchecked, reset all identity params to default values [GHOST-366]
+    - Add logout link button [GHOST-381]
+    - Job status color background [GHOST-384]
+
+* Core/API
+    - RQ Worker job timeout value should be configurable [GHOST-379]
+    - Setting min value for root block size (20GB) [GHOST-373]
+    - Option to enable AutoScaling metrics (option applied when using ``updateautoscaling`` command) [GHOST-382]
+    - Document and revamp ``config.yml.sample`` file [GHOST-380]
+    - Store Job logs into S3 bucket [GHOST-297]
+
+* Improvements & Bug fixes
+    - Refactor ``buildimage`` command with a generic builder interface [GHOST-376]
+    - Uses ``Claranet Cloud Deploy`` for Slack bot name [GHOST-372]
+    - Fix Safe Deploy option in ``redeploy`` command [GHOST-377]
+    - UI HTML structure improvements + CSS/JS fixes [GHOST-348]
+
+* Documentation
+    - OpenAPI/Swagger attributes adjustment for ReDoc and using ReDoc interface [GHOST-378]
+
 Ghost 17.03
 -----------
 
