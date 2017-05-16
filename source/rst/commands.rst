@@ -292,11 +292,22 @@ This commands allows you to run a custom shell script on every instance running 
 
  The module name to use if setted. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module's scripts.
 
+*Single Host IP* :
+  ``string: private IPv4, unset by default``
+
+ This option permits to specify a single instance and launch the command only on this instance. When this parameter is set (private IPv4 address), other parameters will be ignore (Strategy or Safe option).
+
 *Strategy* :
   ``string: serial | parallel``
 
  This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.
 
+*Safe Deploy* :
+  ``boolean and parameters``
+
+ This option permits to use the Safe Deploy workflow to execute the specific script on each pool of instances.
+
+Please see **Run | deploy** for more details.
 
 Blue/Green | preparebluegreen
 -----------------------------
