@@ -95,6 +95,7 @@ Application with an Auto Scaling Group and one or many LoadBalancers
 *Without Rolling update strategy option* :
 
 		* Ghost will suspend the ASG's processes
+		* Ghost will deregister the instances from the loadbalancer - *Without rolling update strategy this may produce a downtime*
 		* It will double the target and max value of the ASG
 		* Resume the ``Launch`` process, let the ASG creates new instances
 		* Wait until all the new instances are up, Healthy and InService in the Load Balancer
@@ -113,6 +114,8 @@ Application with an Auto Scaling Group and one or many LoadBalancers
   ``1by1 | 50% | 1/3 | 25%``
 
  This option permits to make Ghost use the selected strategy during the rolling update operation
+
+ *This option can't be used if there is only one instance to recreate*
 
 *The rolling update options are:*
 
