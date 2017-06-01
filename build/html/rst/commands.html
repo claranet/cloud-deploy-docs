@@ -261,6 +261,7 @@ The command works for any application in any context, with or without Auto Scali
 <blockquote>
 <div><ul class="simple">
 <li>Ghost will suspend the ASG&#8217;s processes</li>
+<li>Ghost will deregister the instances from the loadbalancer - <em>Without rolling update strategy this may produce a downtime</em></li>
 <li>It will double the target and max value of the ASG</li>
 <li>Resume the <code class="docutils literal"><span class="pre">Launch</span></code> process, let the ASG creates new instances</li>
 <li>Wait until all the new instances are up, Healthy and InService in the Load Balancer</li>
@@ -281,7 +282,8 @@ The command works for any application in any context, with or without Auto Scali
 <dt><em>Rolling update strategy</em> :</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">1by1</span> <span class="pre">|</span> <span class="pre">50%</span> <span class="pre">|</span> <span class="pre">1/3</span> <span class="pre">|</span> <span class="pre">25%</span></code></div></blockquote>
-<p class="last">This option permits to make Ghost use the selected strategy during the rolling update operation</p>
+<p>This option permits to make Ghost use the selected strategy during the rolling update operation</p>
+<p class="last"><em>This option can&#8217;t be used if there is only one instance to recreate</em></p>
 </dd>
 </dl>
 <p><em>The rolling update options are:</em></p>
