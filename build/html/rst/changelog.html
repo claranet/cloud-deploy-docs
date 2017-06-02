@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.04 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.05 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.04 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.05 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                17.04
+                17.05
               </div>
             
           
@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-05">Ghost 17.05</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-04">Ghost 17.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-03">Ghost 17.03</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-02">Ghost 17.02</a></li>
@@ -167,6 +168,56 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-17-05">
+<h2>Ghost 17.05<a class="headerlink" href="#ghost-17-05" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last simple">
+<li>[GHOST-345] - [UI] Revamp and unify <code class="docutils literal"><span class="pre">app_list</span></code> views + improvements and fixes</li>
+<li>[GHOST-388] - Better large logs loading behavior (less browser freezes, support very large logs)</li>
+<li>[GHOST-389] - [UI] Defer CodeMirror initialization to improve page rendering on <code class="docutils literal"><span class="pre">app_edit</span></code> view</li>
+<li>[GHOST-399] - [UI] Service <code class="docutils literal"><span class="pre">get_ghost_app_ec2_instances</span></code> must also filter on Ghost color tag if blue green is enabled</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last simple">
+<li>[GHOST-387] - Choose a provisioner per feature</li>
+<li>[GHOST-390] - Unify Ghost job status color on Slack and eMail notifications</li>
+<li>[GHOST-396] - Make EC2 public IP assignment optional</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last simple">
+<li>[GHOST-313] - Writing tests for blue/green commands and most of elb/alb functions</li>
+<li>[GHOST-345] - [UI] Fix pagination limit and env_list function</li>
+<li>[GHOST-385] - Use python gzip to compress mail attachment</li>
+<li>[GHOST-386] - Allow overriding endpoints configs using environment variables</li>
+<li>[GHOST-392] - HotFix BlueGreen AMI info copy</li>
+<li>[GHOST-397] - Error on salt repository clone raises an import error</li>
+<li>[GHOST-400] - Remove default mutable arguments</li>
+<li>[GHOST-402] - Fix apache/PHP feature preset</li>
+<li>[GHOST-405] - [UI] Avoid AWS API Throttling Rate exceeded errors</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last simple">
+<li>[GHOST-403] - [<code class="docutils literal"><span class="pre">recreatinstance</span></code>] Add LoadBalancer workflow information</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-17-04">
 <h2>Ghost 17.04<a class="headerlink" href="#ghost-17-04" title="Permalink to this headline">¶</a></h2>
@@ -947,7 +998,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.04',
+            VERSION:'Release 17.05',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
