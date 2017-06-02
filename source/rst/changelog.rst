@@ -8,6 +8,34 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.05
+-----------
+
+* WebUI
+    - [GHOST-345] - [UI] Revamp and unify ``app_list`` views + improvements and fixes
+    - [GHOST-388] - Better large logs loading behavior (less browser freezes, support very large logs)
+    - [GHOST-389] - [UI] Defer CodeMirror initialization to improve page rendering on ``app_edit`` view
+    - [GHOST-399] - [UI] Service ``get_ghost_app_ec2_instances`` must also filter on Ghost color tag if blue green is enabled
+
+* Core/API
+    - [GHOST-387] - Choose a provisioner per feature
+    - [GHOST-390] - Unify Ghost job status color on Slack and eMail notifications
+    - [GHOST-396] - Make EC2 public IP assignment optional
+
+* Improvements & Bug fixes
+    - [GHOST-313] - Writing tests for blue/green commands and most of elb/alb functions
+    - [GHOST-345] - [UI] Fix pagination limit and env_list function
+    - [GHOST-385] - Use python gzip to compress mail attachment
+    - [GHOST-386] - Allow overriding endpoints configs using environment variables
+    - [GHOST-392] - HotFix BlueGreen AMI info copy
+    - [GHOST-397] - Error on salt repository clone raises an import error
+    - [GHOST-400] - Remove default mutable arguments
+    - [GHOST-402] - Fix apache/PHP feature preset
+    - [GHOST-405] - [UI] Avoid AWS API Throttling Rate exceeded errors
+
+* Documentation
+    - [GHOST-403] - [``recreatinstance``] Add LoadBalancer workflow information
+
 Ghost 17.04
 -----------
 
