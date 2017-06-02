@@ -24,15 +24,17 @@ Ghost 17.05
 
 * Improvements & Bug fixes
     - [GHOST-313] - Writing tests for blue/green commands and most of elb/alb functions
+    - [GHOST-345] - [UI] Fix pagination limit and env_list function
     - [GHOST-385] - Use python gzip to compress mail attachment
     - [GHOST-386] - Allow overriding endpoints configs using environment variables
     - [GHOST-392] - HotFix BlueGreen AMI info copy
     - [GHOST-397] - Error on salt repository clone raises an import error
     - [GHOST-400] - Remove default mutable arguments
-    - [GHOST-402] - Fix apache/PHP preset
+    - [GHOST-402] - Fix apache/PHP feature preset
+    - [GHOST-405] - [UI] Avoid AWS API Throttling Rate exceeded errors
 
 * Documentation
-    - [GHOST-403] - [recreatinstance] Add LoadBalancer workflow information
+    - [GHOST-403] - [``recreatinstance``] Add LoadBalancer workflow information
 
 Ghost 17.04
 -----------
