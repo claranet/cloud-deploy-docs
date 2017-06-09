@@ -278,36 +278,36 @@ Please see **Run | deploy** for more details.
 Run | executescript
 -------------------
 
-This commands allows you to run a custom shell script on every instance running in the application.
+This commands allows you to run a custom shell script on running instance(s) in the application.
 
 **Command Options**
 
 *Script* :
   ``b64 content``
 
- The script file (base64 encoded) to run
+ The script file (base64 encoded at API level) to run
 
 *Module context* :
   ``string`` - can be empty or null
 
- The module name to use if setted. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module's scripts.
+ The module name to use if set. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module's scripts.
+ It will also execute the script with the UID/user configured in the module (or with **root** by default if no user UID is set).
 
-*Single Host IP* :
-  ``string: private IPv4, unset by default``
+*Execution Strategy* :
+  ``string: single | serial | parallel``
 
- This option permits to specify a single instance and launch the command only on this instance. When this parameter is set (private IPv4 address), other parameters will be ignore (Strategy or Safe option).
+ This option permits to choose if Ghost should connect to a unique instance, or to all instances in parallel/in serial via SSH.
 
-*Strategy* :
-  ``string: serial | parallel``
+*Strategy param: Single Host IP or Safe Deploy Group option* :
+  ``string: private IPv4`` - mandatory when using **single** in Execution Strategy
+ This option permits to specify a single instance and launch the command only on this instance. When this parameter is set (private IPv4 address), other parameters will be ignored (Safe option).
 
- This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.
-
-*Safe Deploy* :
-  ``boolean and parameters``
-
+  ``Parameters for Safe deployment strategy`` - can be null or empty (uses a unique group with every instance), or a grouping strategy (Please refer to **Safe deployment documentation**)
  This option permits to use the Safe Deploy workflow to execute the specific script on each pool of instances.
 
-Please see **Run | deploy** for more details.
+
+Please see **Run | deploy** for more details about **Safe deployment strategies and flow**.
+
 
 Blue/Green | preparebluegreen
 -----------------------------
