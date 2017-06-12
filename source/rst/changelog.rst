@@ -34,7 +34,7 @@ Ghost 17.05
     - [GHOST-405] - [UI] Avoid AWS API Throttling Rate exceeded errors
 
 * Documentation
-    - [GHOST-403] - [``recreatinstance``] Add LoadBalancer workflow information
+    - [GHOST-403] - [``recreateinstance``] Add LoadBalancer workflow information
 
 Ghost 17.04
 -----------
