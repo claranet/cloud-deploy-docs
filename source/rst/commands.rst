@@ -12,7 +12,6 @@ Build | buildimage
 | This command should be the first one triggered after a Ghost Application creation.
 | It bakes a new AMI with every feature specified in the application on top of the source AMI chosen. (Generally a Morea/Claranet Debian AMI)
 | Claranet uses SaltStack and Ansible to provision all the chosen features and uses Packer (from HashiCorp) to bake the new AMI.
-| Ghost can also uses some other feature provisioner like Ansible.
 |
 
 **Command Options**
@@ -169,7 +168,7 @@ Safe deploy documentation:
  The safe deployment feature can be used with the commands "deploy" and "redeploy" and can be used with the fabric strategy.
 
 
- For AutoScaling Group with one or more Haproxy as Load Balancer, the safe deployment process works with Hapi only.
+ For AutoScaling Group with one or more HAproxy as Load Balancer, the safe deployment process works with Hapi only.
 
 *The safe deployment possibilities are:*
 
@@ -182,10 +181,10 @@ Safe deploy documentation:
 
  Application Parameters (In the new Load Balancer section) you can choose:
 
-		* The type of the Load Balancer(ELB or Haproxy) used by this application.
+		* The type of the Load Balancer (ELB or Haproxy) used by this application.
 		  (To identify the Load Balancers, if the type is an ELB, it's the AutoScaling Group parameters which will identify them).
 
- For an HAproxy type, others information will be required(app tag, the Haproxy backend).
+ For an HAproxy type, other information will be required (app tag, the HAproxy backend).
 		* The "Time to wait before deployment"(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
 		  (If the Load Balancer is an ELB, this value will be add to the connection draining value of the ELB)
 		* The "Time to wait after deployment"(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
@@ -194,22 +193,22 @@ Safe deploy documentation:
 		Only if the Load Balancer type is HAproxy:
 
 		* The "HAproxy app tag" is the tag value set for the HAproxy instance which you want to associate to this application.
-		  (The search will be performed against instances with the tags: app(this value), env(auto retrieve. Same as the application), role(fixed: 'loadbalancer'))
-		* The "HAProxy backend name" is the name of the backend where the instances are defined in the Haproxy configuration.
+		  (The search will be performed against instances with the tags: app (this value), env (auto retrieves; same as the application), role (fixed: 'loadbalancer'))
+		* The "HAProxy backend name" is the name of the backend where the instances are defined in the HAproxy configuration.
 		* The "HAproxy API port" is the HAproxy API listening port.
 
  To activate it for a deployment, it's on the commands side. You can used it when you "deploy" or "redeploy" a module.
 
  Commands Parameters:
 		* There is check box, "Deploy with Safe Deployment", to activate it.
-		* The parameter "Safe Deployment Strategy" will appear when the check box is checked. It shows the safe deployment possibilities(dynamically identify by the number of currently running instances).
+		* The parameter "Safe Deployment Strategy" will appear when the check box is checked. It shows the safe deployment possibilities (dynamically identify by the number of currently running instances).
 
  The process safe deployment process is:
 
-		* Check that all instances in the Load Balancer(ELB or HAproxy) are in service and are enough to perform the safe deployment and check also, when there are multiple Load Balancers, that they have the same configuration.
+		* Check that all instances in the Load Balancer (ELB or HAproxy) are in service and are enough to perform the safe deployment and check also, when there are multiple Load Balancers, that they have the same configuration.
 		* Split the instances list in groups according the deployment type chosen (1by1-1/3-25%-50%).
-		* Before begin to deploy on the instances group, remove them from their Load Balancer(Haproxy or ELB)
-		* Wait a moment(depends on the connection draining value for the ELB and/or the custom value defines in Ghost)
+		* Before begin to deploy on the instances group, remove them from their Load Balancer (Haproxy or ELB)
+		* Wait a moment (depends on the connection draining value for the ELB and/or the custom value defines in Ghost)
 		* Launch the standard deployment process
 		* Wait a moment(depends on the custom value defines in Ghost)
 		* Add the updated instances in their Load Balancer.
@@ -232,7 +231,7 @@ Example of safe deployment output:
 		* ...
 		* Resuming auto-scaling group processes ['Terminate', 'Launch']
 
- In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complet deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.
+ In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complete deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.
 
 
 Here is a workflow diagram for more details :
@@ -283,7 +282,7 @@ Run | executescript
 
 This commands allows you to run a custom shell script on running instance(s) in the application.
 
-.. warning:: All modification made by this command are ephemeral. Which means you have to use the classical deploy workflow in order to persist any kind of modification on your instances.
+.. warning:: All modification made by this command are volatile and will not be applied to instances created after the script execution. Which means you have to use the classical deploy workflow in order to persist any kind of modification on your instances.
 
 **Command Options**
 
@@ -301,7 +300,7 @@ This commands allows you to run a custom shell script on running instance(s) in 
 *Execution Strategy* :
   ``string: single | serial | parallel``
 
- This option permits to choose if Ghost should connect to a unique instance, or to all instances in parallel/in serial via SSH.
+ This option permits to choose if Ghost should connect to a unique instance, or to all instances in parallel/serial via SSH.
 
 *Strategy param: Single Host IP or Safe Deploy Group option* :
   ``string: private IPv4`` - mandatory when using **single** in Execution Strategy
@@ -345,9 +344,9 @@ It will swap the two version of the application by swapping the ``blue`` and ``g
 
     This is the Blue/Green swap strategy to choose:
 
-    * ``overlap``: Default behavior. There is no downtime of service with this strategy but both version of the application could be online at the same time because the **N+1** version will be attached to the **online** ELB before the **N** version is detached.
+    * ``overlap``: Default behavior. There is no downtime of service with this strategy but both versions of the application could be online at the same time because the **N+1** version will be attached to the **online** ELB before the **N** version is detached.
 
-    * ``isolated``: This strategy will produce a downtime of service but ensures that only one version of the application is online.
+    * ``isolated``: This strategy will produce a service downtime but ensures that only one version of the application is online.
 
 
 Blue/Green | purgebluegreen
