@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Scripts &mdash; Claranet Cloud Deploy Release 17.05 documentation</title>
+  <title>Ghost Scripts &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Best Practices" href="bestpractices.html"/>
         <link rel="prev" title="Ghost Commands" href="commands.html"/>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                17.05
+                17.05.1
               </div>
             
           
@@ -188,16 +188,17 @@ Here is an overview and a description of thoses scripts.</p>
 And it&#8217;s now possible to define custom variables which will be available in the environment.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="15%" />
-<col width="22%" />
-<col width="8%" />
-<col width="9%" />
+<col width="14%" />
+<col width="20%" />
 <col width="8%" />
 <col width="8%" />
-<col width="6%" />
+<col width="7%" />
+<col width="8%" />
+<col width="5%" />
 <col width="6%" />
 <col width="7%" />
 <col width="9%" />
+<col width="8%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variables</th>
@@ -210,11 +211,13 @@ And it&#8217;s now possible to define custom variables which will be available i
 <th class="head">pre_deploy</th>
 <th class="head">post_deploy</th>
 <th class="head">after_all_deploy</th>
+<th class="head">execute_script</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>GHOST_APP</td>
 <td>Application name</td>
+<td>✔</td>
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
@@ -234,9 +237,11 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
 </tr>
 <tr class="row-even"><td>GHOST_ENV_COLOR</td>
 <td>Application color if Blue/Green enabled</td>
+<td>✔</td>
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
@@ -256,6 +261,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
 </tr>
 <tr class="row-even"><td>GHOST_MODULE_NAME</td>
 <td>Module name</td>
@@ -267,6 +273,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>~</td>
 </tr>
 <tr class="row-odd"><td>GHOST_MODULE_PATH</td>
 <td>Module destination path</td>
@@ -278,6 +285,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>~</td>
 </tr>
 <tr class="row-even"><td>GHOST_MODULE_REPO</td>
 <td>Module git repository</td>
@@ -289,6 +297,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>~</td>
 </tr>
 <tr class="row-odd"><td>GHOST_MODULE_REV</td>
 <td>Module git revision deployed</td>
@@ -300,6 +309,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>GHOST_MODULE_COMMIT</td>
 <td>Module git commit hash deployed</td>
@@ -311,6 +321,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>GHOST_MODULE_COMMIT_MESSAGE</td>
 <td>Module git commit message</td>
@@ -322,6 +333,7 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>GHOST_MODULE_USER</td>
 <td>User who triggered the deployment</td>
@@ -333,9 +345,11 @@ And it&#8217;s now possible to define custom variables which will be available i
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
 </tr>
 <tr class="row-odd"><td><em>custom var</em></td>
 <td>Defined by user in Ghost App</td>
+<td>✔</td>
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
@@ -391,7 +405,7 @@ And it&#8217;s now possible to define custom variables which will be available i
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05',
+            VERSION:'Release 17.05.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

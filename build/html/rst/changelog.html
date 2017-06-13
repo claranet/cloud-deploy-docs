@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.05 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                17.05
+                17.05.1
               </div>
             
           
@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-05-1">Ghost 17.05.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-05">Ghost 17.05</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-04">Ghost 17.04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-03">Ghost 17.03</a></li>
@@ -169,6 +170,18 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="ghost-17-05-1">
+<h2>Ghost 17.05.1<a class="headerlink" href="#ghost-17-05-1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>[GHOST-375] - [UI][Core][Commands] New <code class="docutils literal"><span class="pre">executescript</span></code> command</li>
+</ul>
+</div></blockquote>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="commands.html#cmd-executescript"><span class="std std-ref">Run | executescript</span></a> command documentation for more details.</p>
+</div>
+</div>
 <div class="section" id="ghost-17-05">
 <h2>Ghost 17.05<a class="headerlink" href="#ghost-17-05" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -212,7 +225,7 @@
 <li><dl class="first docutils">
 <dt>Documentation</dt>
 <dd><ul class="first last simple">
-<li>[GHOST-403] - [<code class="docutils literal"><span class="pre">recreatinstance</span></code>] Add LoadBalancer workflow information</li>
+<li>[GHOST-403] - [<code class="docutils literal"><span class="pre">recreateinstance</span></code>] Add LoadBalancer workflow information</li>
 </ul>
 </dd>
 </dl>
@@ -281,7 +294,7 @@
 <dt>Core/API</dt>
 <dd><ul class="first last simple">
 <li>Update python dependencies [GHOST-357][GHOST-220]</li>
-<li>New command <code class="docutils literal"><span class="pre">recreateinstances</span></code> that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy) [GHOST-293]</li>
+<li>New command <code class="docutils literal"><span class="pre">recreateinstances</span></code> that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy). Please check <a class="reference internal" href="commands.html#cmd-recreateinstances"><span class="std std-ref">Build | recreateinstances</span></a> documentation for more information. [GHOST-293]</li>
 <li>New option to purge old Ghost packages in S3 Bucket [GHOST-38]</li>
 <li>Refactoring of Feature provisioner class (SaltStack), ready to handle Ansible as new provisioner [GHOST-353]</li>
 <li>Refactoring on <code class="docutils literal"><span class="pre">find_ec2_instances</span></code> function [GHOST-368]</li>
@@ -998,7 +1011,7 @@ Plus d&#8217;informations sur la documentation: <a class="reference external" hr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05',
+            VERSION:'Release 17.05.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
