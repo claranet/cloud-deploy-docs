@@ -8,6 +8,13 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.05.1
+-------------
+
+    - [GHOST-375] - [UI][Core][Commands] New ``executescript`` command
+
+.. seealso:: :ref:`cmd_executescript` command documentation for more details.
+
 Ghost 17.05
 -----------
 
@@ -69,7 +76,7 @@ Ghost 17.03
 
 * Core/API
     - Update python dependencies [GHOST-357][GHOST-220]
-    - New command ``recreateinstances`` that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy) [GHOST-293]
+    - New command ``recreateinstances`` that allow to safely renew instances with or without an Auto Scaling Group (Rolling update strategy). Please check :ref:`cmd_recreateinstances` documentation for more information. [GHOST-293]
     - New option to purge old Ghost packages in S3 Bucket [GHOST-38]
     - Refactoring of Feature provisioner class (SaltStack), ready to handle Ansible as new provisioner [GHOST-353]
     - Refactoring on ``find_ec2_instances`` function [GHOST-368]
