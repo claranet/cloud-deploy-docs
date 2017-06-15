@@ -12,6 +12,7 @@ Build | buildimage
 | This command should be the first one triggered after an Application creation.
 | It bakes a new AMI with every feature specified in the application on top of the source AMI chosen (generally a Claranet Debian AMI).
 | Claranet uses SaltStack and Ansible to provision all the chosen features and uses Packer (from HashiCorp) to bake the new AMI.
+| Note: The Ansible provisioner use the ansible-galaxy command to get roles. The base ansible repository need to be the one containing the requirements.yml file.
 |
 
 **Command Options**
@@ -21,10 +22,10 @@ Build | buildimage
 
  Choose the instance type of the temporary instance created by Packer for provisionning.
 
-*Skip SALT bootstrap*:
+*Skip Provisioner bootstrap* :
   ``boolean``
 
- This option permits to choose if Packer should install the Salt agent (minion) before applying all feature formulas.
+ This option permits to choose if Packer should install the Salt agent (minion) or/and ansible before applying all feature formulas.
 
 **Life cycle hooks**
 
