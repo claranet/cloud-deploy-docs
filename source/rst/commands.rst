@@ -25,7 +25,7 @@ Build | buildimage
 *Skip Provisioner bootstrap* :
   ``boolean``
 
- This option permits to choose if Packer should install the Salt agent (minion) or/and ansible before applying all feature formulas.
+ This option permits to choose if Packer should install the Salt agent (minion) or/and ansible before applying all features.
 
 **Life cycle hooks**
 
