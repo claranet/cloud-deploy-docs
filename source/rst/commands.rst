@@ -12,7 +12,7 @@ Build | buildimage
 | This command should be the first one triggered after an Application creation.
 | It bakes a new AMI with every feature specified in the application on top of the source AMI chosen (generally a Claranet Debian AMI).
 | Claranet uses SaltStack and Ansible to provision all the chosen features and uses Packer (from HashiCorp) to bake the new AMI.
-| Note: The Ansible provisioner use the `ansible-galaxy<http://docs.ansible.com/ansible/galaxy.html#the-command-line-tool>`_ command to get roles. The base ansible repository need to be the one containing the requirements.yml file.
+| Note: The Ansible provisioner use the `ansible-galaxy <http://docs.ansible.com/ansible/galaxy.html#the-command-line-tool>`_ command to get roles. The base ansible repository need to be the one containing the requirements.yml file.
 |
 
 **Command Options**
