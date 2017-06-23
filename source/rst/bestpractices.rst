@@ -18,14 +18,14 @@ General guidance
 ----------------
 
 Each script is running on Unix systems. If a shebang is present on the top of your script, it will be run with the specified interpreter program.
-By example, this shebang will run the script with python program (if python is installed) : 
+By example, this shebang will run the script with python program (if python is installed):
 
 .. code-block:: none
 
   #!/bin/python
 
-By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is "success". For others status, it will be "failed" status.
-If your script language is bash, it is recommended to add a "set -e" command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.
+By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is ``success``. For others status, it will be ``failed`` status.
+If your script language is bash, it is recommended to add a ``set -e`` command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.
 
 Buildpack
 ---------
@@ -34,8 +34,8 @@ Buildpack overview
 ******************
 
 The first buildpack step is to clone the git repository in a local directory before any upload on each host.
-Please note that the "git clone" step is programmatically executed by Ghost, no need to write it in any user script.
-The buildpack user script begins just after the "git clone" step.
+Please note that the ``git clone`` step is programmatically executed by Ghost, no need to write it in any user script.
+The buildpack user script begins just after the ``git clone`` step.
 The current directory will be set to the root of the git cloned repository.
 
 Buildpack script overview
@@ -50,6 +50,21 @@ Buildpack script prerequisites
 This script is executed once on the Ghost instance during each deployment so any non local installation will be lost by the compression operation.
 For example, global packages installation, like apt or yum packages won't be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
 Use this script to execute all commands that have a high execution cost and any external calls.
+
+Buildpack script example
+************************
+
+.. code-block:: sh
+
+  #!/bin/bash
+
+  set -xe # enable instruction printing, exit on error
+
+  php composer # trigger all command needed to build the php application
+  bower # or any tool needed to minify, compile, prepare assets and code for deployment
+
+  vault # or any password manipulation, injected in application configuration
+
 
 Pre-deploy
 ----------
@@ -71,13 +86,24 @@ It will be executed locally on each host.
 During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
 After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.
 
-Pre-Deploy script prerequisites
-*******************************
+Pre-deploy requirements
+***********************
 
-This script must not depend on external resources :
- - no internet call
- - no package install (apt-get, npm, pip, yum, gem, composer)
- - no downloads except from AWS S3
+.. warning:: This script must not depend on external resources: no internet call, no package install, (apt-get, npm, pip, yum, gem, composer), no downloads except from AWS S3
+
+Pre-deploy script example
+*************************
+
+.. code-block:: sh
+
+  #!/bin/bash
+
+  set -xe # enable instruction printing, exit on error
+
+  # clear cache
+  # update queues
+  # prepare to stop the current running application or service
+
 
 Post-deploy
 -----------
@@ -96,15 +122,23 @@ It will be executed locally on each hosts.
 Most scripts consist in service reloading/restarting.
 The post-deploy execution working directory is the Ghost application target directory.
 
-Post-Deploy Requirements
+Post-deploy requirements
 ************************
 
-This script must not depend on external resources :
- - no internet call
- - no package install (apt-get, npm, pip, yum, gem, composer)
- - no downloads except from AWS S3
+.. warning:: This script must not depend on external resources: no internet call, no package install, (apt-get, npm, pip, yum, gem, composer), no downloads except from AWS S3
 
-After All Deploy
+Post-deploy script example
+**************************
+
+.. code-block:: sh
+
+  #!/bin/bash
+
+  set -xe # enable instruction printing, exit on error
+
+  server xxx-xxx reload # Reload/restart of service
+
+After all deploy
 ----------------
 
 After all deploy overview
@@ -123,9 +157,41 @@ After all deploy script prerequisites
 
 No data will be sent to your application instances at this step.
 
+After all deploy script example
+*******************************
+
+.. code-block:: sh
+
+  #!/bin/bash
+
+  set -xe # enable instruction printing, exit on error
+
+  # Deployment notification (NewRelic ?)
+  # Load Balancer or external dependency notification
+  # Database schema update
+
+
 Keep in mind
 ------------
 
-When autoscaling up, starting instances will only execute pre and post-deploy scripts.
-Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
+When the AutoScalingGroup scales up, starting instances will only execute pre and post-deploy scripts.
+BuildPack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
 As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.
+
+Scripts examples
+----------------
+
+Bash/Shell
+**********
+
+.. code-block:: sh
+
+  #!/bin/bash
+  
+  set -x # enable instruction printing, useful for debugging
+  set -e # enable exit on error
+
+  ./code # script or code to execute
+  my_command || exit 1 # to make sure to exit and stop the script if `my_command` fails
+  my_command || echo "ok" # to continue the script even if `my_command` fails. Warning: not compatible with `set -e`
+
