@@ -8,8 +8,8 @@ Blue/Green Deployment
 .. toctree::
     :maxdepth: 2
 
-How to Blue/green in GHOST
-**************************
+How to Blue/green in GHOST (initial build)
+******************************************
 
 1. Prepare your env resources : **2 ASG, 1 main ELB attached to the first 'blue' ASG**. Plus if necessary 2 SGs and 2 IAM Instance Profiles.
 2. Build and deploy your main Ghost App (future ``blue`` one)
@@ -27,3 +27,18 @@ How to Blue/green in GHOST
 10. Back to step 5 in order to deploy another version of your app !
 
 For more information, please refer to :ref:`commands` page.
+
+
+How to activate Blue/green in GHOST with a production application 
+*****************************************************************
+
+1. Create new autoscaling group (if necessary one SG and one IAM role) with terraform for the new cluster. (futur green app group)
+2. Activate blue/green option on the ghost app. (Blue will be the actual production and green the new cluster)
+3. With ressource details of the blue app, check all running instance and tag them with color:blue on aws console.
+4. Run updatelifecyclehook on blue app.
+5. Run updateAutoScaling on blue app.
+6. Deploy at least one module on blue app.
+7. In the green application change the autoscaling group.
+8. Run updatelifecyclehook on green app.
+9. Run updateAutoScaling on green app.
+10. Follow the classic procedure as describe above from step 5.
