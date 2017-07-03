@@ -58,7 +58,8 @@ Buildpack script example
 
   #!/bin/bash
 
-  set -xe # enable instruction printing, exit on error
+  set -x # display expanded instructions before execution
+  set -e # exit on first error (non-zero status)
 
   php composer # trigger all command needed to build the php application
   bower # or any tool needed to minify, compile, prepare assets and code for deployment
@@ -98,7 +99,8 @@ Pre-deploy script example
 
   #!/bin/bash
 
-  set -xe # enable instruction printing, exit on error
+  set -x # display expanded instructions before execution
+  set -e # exit on first error (non-zero status)
 
   # clear cache
   # update queues
@@ -134,7 +136,8 @@ Post-deploy script example
 
   #!/bin/bash
 
-  set -xe # enable instruction printing, exit on error
+  set -x # display expanded instructions before execution
+  set -e # exit on first error (non-zero status)
 
   server xxx-xxx reload # Reload/restart of service
 
@@ -164,7 +167,8 @@ After all deploy script example
 
   #!/bin/bash
 
-  set -xe # enable instruction printing, exit on error
+  set -x # display expanded instructions before execution
+  set -e # exit on first error (non-zero status)
 
   # Deployment notification (NewRelic ?)
   # Load Balancer or external dependency notification
@@ -189,7 +193,7 @@ Bash/Shell
   #!/bin/bash
   
   set -x # enable instruction printing, useful for debugging
-  set -e # enable exit on error
+  set -e # exit on first error (non-zero status)
 
   ./code # script or code to execute
   my_command || exit 1 # to make sure to exit and stop the script if `my_command` fails
