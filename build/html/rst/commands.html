@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Commands &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
+  <title>Ghost Commands &mdash; Claranet Cloud Deploy Release 17.06 documentation</title>
   
 
+  
+  
   
   
 
@@ -33,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.06 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Scripts" href="scripts.html"/>
         <link rel="prev" title="Ghost API" href="api.html"/>
 
@@ -45,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                17.05.1
+                17.06
               </div>
             
           
@@ -88,7 +91,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
@@ -133,8 +139,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Cloud Deploy</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Claranet Cloud Deploy</a>
+        
       </nav>
 
 
@@ -143,23 +151,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Ghost Commands</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Ghost Commands</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/rst/commands.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/rst/commands.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -260,7 +285,7 @@ The command works for any application in any context, with or without Auto Scali
 <p><em>Without Rolling update strategy option</em> :</p>
 <blockquote>
 <div><ul class="simple">
-<li>Ghost will suspend the ASG&#8217;s processes</li>
+<li>Ghost will suspend the ASG’s processes</li>
 <li>Ghost will deregister the instances from the Load Balancer</li>
 </ul>
 <div class="admonition warning">
@@ -289,7 +314,7 @@ The command works for any application in any context, with or without Auto Scali
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">1by1</span> <span class="pre">|</span> <span class="pre">50%</span> <span class="pre">|</span> <span class="pre">1/3</span> <span class="pre">|</span> <span class="pre">25%</span></code></div></blockquote>
 <p>This option permits to make Ghost use the selected strategy during the rolling update operation</p>
-<p class="last"><em>This option can&#8217;t be used if there is only one instance to recreate</em></p>
+<p class="last"><em>This option can’t be used if there is only one instance to recreate</em></p>
 </dd>
 </dl>
 <p><em>The rolling update options are:</em></p>
@@ -306,7 +331,7 @@ The command works for any application in any context, with or without Auto Scali
 <div class="section" id="run-build-updateautoscaling">
 <h2>Run/Build | updateautoscaling<a class="headerlink" href="#run-build-updateautoscaling" title="Permalink to this headline">¶</a></h2>
 <p>This command allows you to create a new <code class="docutils literal"><span class="pre">LaunchConfiguration</span></code> with every parameter taken from the Ghost application and attach it to the AutoScaling Group.
-It will also update the Auto Scaling Group parameters (update <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">desired</span></code>) and tags (set needed Ghost&#8217;s tags)</p>
+It will also update the Auto Scaling Group parameters (update <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">desired</span></code>) and tags (set needed Ghost’s tags)</p>
 </div>
 <div class="section" id="run-deploy">
 <span id="cmd-deploy"></span><h2>Run | deploy<a class="headerlink" href="#run-deploy" title="Permalink to this headline">¶</a></h2>
@@ -330,12 +355,12 @@ You can choose the revision you want to deploy (git branch, tag, or hash commit)
 <span id="cmd-deploy-safe"></span><h3>Safe deploy documentation:<a class="headerlink" href="#safe-deploy-documentation" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
-the instances stay in the Load Balancer&#8217;s pool during the operation even if the deployment process reload or restart a service. It&#8217;s not a really efficient and safe
+the instances stay in the Load Balancer’s pool during the operation even if the deployment process reload or restart a service. It’s not a really efficient and safe
 because it can break user sessions and create a bad user experience.</p>
-<p>It&#8217;s to tackle this problem that the safe deployment feature as been created. The vision is, for an Auto scaling Group, split the instances in multiple groups.
+<p>It’s to tackle this problem that the safe deployment feature as been created. The vision is, for an Auto scaling Group, split the instances in multiple groups.
 The feature gives the possibility to choose the split strategy of the whole Auto Scaling instances and so create multiple instance groups. Each instance groups will be remove from their Load Balancer  before to
 be deployed in a standard way and then registered.</p>
-<p>The safe deployment feature can be used with the commands &#8220;deploy&#8221; and &#8220;redeploy&#8221; and can be used with the fabric strategy.</p>
+<p>The safe deployment feature can be used with the commands “deploy” and “redeploy” and can be used with the fabric strategy.</p>
 <p>For AutoScaling Group with one or more HAproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
 </div></blockquote>
 <p><em>The safe deployment possibilities are:</em></p>
@@ -353,32 +378,32 @@ be deployed in a standard way and then registered.</p>
 <blockquote>
 <div><ul class="simple">
 <li>The type of the Load Balancer (ELB or Haproxy) used by this application.
-(To identify the Load Balancers, if the type is an ELB, it&#8217;s the AutoScaling Group parameters which will identify them).</li>
+(To identify the Load Balancers, if the type is an ELB, it’s the AutoScaling Group parameters which will identify them).</li>
 </ul>
 </div></blockquote>
 <dl class="docutils">
 <dt>For an HAproxy type, other information will be required (app tag, the HAproxy backend).</dt>
 <dd><ul class="first simple">
-<li>The &#8220;Time to wait before deployment&#8221;(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
+<li>The “Time to wait before deployment”(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
 (If the Load Balancer is an ELB, this value will be add to the connection draining value of the ELB)</li>
-<li>The &#8220;Time to wait after deployment&#8221;(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
+<li>The “Time to wait after deployment”(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
 in their Load Balancer.</li>
 </ul>
 <p>Only if the Load Balancer type is HAproxy:</p>
 <ul class="last simple">
-<li>The &#8220;HAproxy app tag&#8221; is the tag value set for the HAproxy instance which you want to associate to this application.
-(The search will be performed against instances with the tags: app (this value), env (auto retrieves; same as the application), role (fixed: &#8216;loadbalancer&#8217;))</li>
-<li>The &#8220;HAProxy backend name&#8221; is the name of the backend where the instances are defined in the HAproxy configuration.</li>
-<li>The &#8220;HAproxy API port&#8221; is the HAproxy API listening port.</li>
+<li>The “HAproxy app tag” is the tag value set for the HAproxy instance which you want to associate to this application.
+(The search will be performed against instances with the tags: app (this value), env (auto retrieves; same as the application), role (fixed: ‘loadbalancer’))</li>
+<li>The “HAProxy backend name” is the name of the backend where the instances are defined in the HAproxy configuration.</li>
+<li>The “HAproxy API port” is the HAproxy API listening port.</li>
 </ul>
 </dd>
 </dl>
-<p>To activate it for a deployment, it&#8217;s on the commands side. You can used it when you &#8220;deploy&#8221; or &#8220;redeploy&#8221; a module.</p>
+<p>To activate it for a deployment, it’s on the commands side. You can used it when you “deploy” or “redeploy” a module.</p>
 <dl class="docutils">
 <dt>Commands Parameters:</dt>
 <dd><ul class="first last simple">
-<li>There is check box, &#8220;Deploy with Safe Deployment&#8221;, to activate it.</li>
-<li>The parameter &#8220;Safe Deployment Strategy&#8221; will appear when the check box is checked. It shows the safe deployment possibilities (dynamically identify by the number of currently running instances).</li>
+<li>There is check box, “Deploy with Safe Deployment”, to activate it.</li>
+<li>The parameter “Safe Deployment Strategy” will appear when the check box is checked. It shows the safe deployment possibilities (dynamically identify by the number of currently running instances).</li>
 </ul>
 </dd>
 </dl>
@@ -401,19 +426,19 @@ in their Load Balancer.</li>
 <blockquote>
 <div><blockquote>
 <div><ul class="simple">
-<li>Suspending auto-scaling group processes [&#8216;Terminate&#8217;, &#8216;Launch&#8217;]</li>
-<li>Instances [u&#8217;i-87bc5b05&#8217;, u&#8217;i-87bcei97&#8217;] well deregistered in the ELB test</li>
+<li>Suspending auto-scaling group processes [‘Terminate’, ‘Launch’]</li>
+<li>Instances [u’i-87bc5b05’, u’i-87bcei97’] well deregistered in the ELB test</li>
 <li>Waiting 15s: The connection draining time more the custom value set for wait_before_deploy</li>
-<li>Updating current instances in serial: [u&#8216;10.10.12.80&#8217;, u&#8216;10.10.11.50&#8217;]</li>
+<li>Updating current instances in serial: [u‘10.10.12.80’, u‘10.10.11.50’]</li>
 <li>Waiting 10s: The value set for wait_after_deploy</li>
-<li>Instances [u&#8217;i-87bc5b05&#8217;, u&#8217;i-87bcei97&#8217;] well registered in the ELB test</li>
+<li>Instances [u’i-87bc5b05’, u’i-87bcei97’] well registered in the ELB test</li>
 <li>Waiting 10s because the instance is not in service in the ELB</li>
 <li>Waiting 10s because the instance is not in service in the ELB</li>
-<li>Instances: [u&#8216;10.10.10.189&#8217;, u&#8216;10.10.11.50&#8217;] have been deployed and are registered in their ELB</li>
-<li>...</li>
-<li>... (same process for the others safe deployment groups)</li>
-<li>...</li>
-<li>Resuming auto-scaling group processes [&#8216;Terminate&#8217;, &#8216;Launch&#8217;]</li>
+<li>Instances: [u‘10.10.10.189’, u‘10.10.11.50’] have been deployed and are registered in their ELB</li>
+<li>…</li>
+<li>… (same process for the others safe deployment groups)</li>
+<li>…</li>
+<li>Resuming auto-scaling group processes [‘Terminate’, ‘Launch’]</li>
 </ul>
 </div></blockquote>
 <p>In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complete deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.</p>
@@ -431,7 +456,7 @@ in their Load Balancer.</li>
 </div>
 <dl class="docutils">
 <dt>Step 2)</dt>
-<dd>Remove the current group&#8217;s instances from the Load Balancer - no more traffic on those instances</dd>
+<dd>Remove the current group’s instances from the Load Balancer - no more traffic on those instances</dd>
 </dl>
 <div class="figure">
 <img alt="../_images/safe_deploy_workflow_3.png" src="../_images/safe_deploy_workflow_3.png" />
@@ -491,7 +516,7 @@ Ghost will bring back this archive (generated by the <code class="docutils liter
 <dt><em>Module context</em> :</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">string</span></code> - can be empty or null</div></blockquote>
-<p class="last">The module name to use if set. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module&#8217;s scripts.
+<p class="last">The module name to use if set. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module’s scripts.
 It will also execute the script with the UID/user configured in the module (or with <strong>root</strong> by default if no user UID is set).</p>
 </dd>
 <dt><em>Execution Strategy</em> :</dt>
@@ -559,15 +584,18 @@ It will purge the <strong>stand by</strong> env by deleting the temporary ELB, u
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scripts.html" class="btn btn-neutral float-right" title="Ghost Scripts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scripts.html" class="btn btn-neutral float-right" title="Ghost Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="api.html" class="btn btn-neutral" title="Ghost API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral" title="Ghost API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -598,10 +626,11 @@ It will purge the <strong>stand by</strong> env by deleting the temporary ELB, u
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05.1',
+            VERSION:'Release 17.06',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

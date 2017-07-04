@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Claranet Cloud Deploy (Ghost project) documentation! &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
+  <title>Welcome to Claranet Cloud Deploy (Ghost project) documentation! &mdash; Claranet Cloud Deploy Release 17.06 documentation</title>
   
 
+  
+  
   
   
 
@@ -33,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="#"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.06 documentation" href="#"/>
         <link rel="next" title="Quick Start" href="rst/quick-start.html"/>
 
 
@@ -44,6 +46,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                17.05.1
+                17.06
               </div>
             
           
@@ -87,7 +90,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="rst/quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/api.html">Ghost API</a></li>
@@ -111,8 +117,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Claranet Cloud Deploy</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Claranet Cloud Deploy</a>
+        
       </nav>
 
 
@@ -121,23 +129,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Welcome to Claranet Cloud Deploy (Ghost project) documentation!</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to Claranet Cloud Deploy (Ghost project) documentation!</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -189,8 +214,9 @@
 <li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#buildpack">Buildpack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#pre-deploy">Pre-deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#post-deploy">Post-deploy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#after-all-deploy">After All Deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#after-all-deploy">After all deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#keep-in-mind">Keep in mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/bestpractices.html#scripts-examples">Scripts examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/ui.html">Web User Interface</a><ul>
@@ -208,13 +234,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/bluegreen.html">Blue/Green Deployment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rst/bluegreen.html#how-to-blue-green-in-ghost">How to Blue/green in GHOST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/bluegreen.html#how-to-blue-green-in-ghost-initial-build">How to Blue/green in GHOST (initial build)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/bluegreen.html#how-to-activate-blue-green-in-ghost-with-a-production-application">How to activate Blue/green in GHOST with a production application</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/matrix.html">Feature matrix comparison</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/changelog.html">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-06">Ghost 17.06</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-05-1">Ghost 17.05.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-05">Ghost 17.05</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-04">Ghost 17.04</a></li>
@@ -244,12 +272,15 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rst/quick-start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rst/quick-start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -281,10 +312,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'Release 17.05.1',
+            VERSION:'Release 17.06',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

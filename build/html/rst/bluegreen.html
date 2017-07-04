@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Blue/Green Deployment &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
+  <title>Blue/Green Deployment &mdash; Claranet Cloud Deploy Release 17.06 documentation</title>
   
 
+  
+  
   
   
 
@@ -33,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.06 documentation" href="../index.html"/>
         <link rel="next" title="Feature matrix comparison" href="matrix.html"/>
         <link rel="prev" title="Casper: CLI client" href="cli.html"/>
 
@@ -45,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                17.05.1
+                17.06
               </div>
             
           
@@ -88,7 +91,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
@@ -98,7 +104,8 @@
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Blue/Green Deployment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-blue-green-in-ghost">How to Blue/green in GHOST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-blue-green-in-ghost-initial-build">How to Blue/green in GHOST (initial build)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-activate-blue-green-in-ghost-with-a-production-application">How to activate Blue/green in GHOST with a production application</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
@@ -115,8 +122,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Cloud Deploy</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Claranet Cloud Deploy</a>
+        
       </nav>
 
 
@@ -125,23 +134,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Blue/Green Deployment</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Blue/Green Deployment</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/rst/bluegreen.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/rst/bluegreen.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -151,10 +177,10 @@
 <span id="bluegreen"></span><h1>Blue/Green Deployment<a class="headerlink" href="#blue-green-deployment" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="how-to-blue-green-in-ghost">
-<h2>How to Blue/green in GHOST<a class="headerlink" href="#how-to-blue-green-in-ghost" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-blue-green-in-ghost-initial-build">
+<h2>How to Blue/green in GHOST (initial build)<a class="headerlink" href="#how-to-blue-green-in-ghost-initial-build" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Prepare your env resources : <strong>2 ASG, 1 main ELB attached to the first &#8216;blue&#8217; ASG</strong>. Plus if necessary 2 SGs and 2 IAM Instance Profiles.</p>
+<li><p class="first">Prepare your env resources : <strong>2 ASG, 1 main ELB attached to the first ‘blue’ ASG</strong>. Plus if necessary 2 SGs and 2 IAM Instance Profiles.</p>
 </li>
 <li><p class="first">Build and deploy your main Ghost App (future <code class="docutils literal"><span class="pre">blue</span></code> one)</p>
 </li>
@@ -174,7 +200,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">If there is any problem with <code class="docutils literal"><span class="pre">swap</span></code> deploy, it&#8217;s possible to run swap again in order to <code class="docutils literal"><span class="pre">rollback</span></code></p>
+<li><p class="first">If there is any problem with <code class="docutils literal"><span class="pre">swap</span></code> deploy, it’s possible to run swap again in order to <code class="docutils literal"><span class="pre">rollback</span></code></p>
 </li>
 <li><p class="first">When everything is fully tested and online, you can run <code class="docutils literal"><span class="pre">purgebluegreen</span></code> to destroy the old pool of instances and destroy the temporary ELB.</p>
 </li>
@@ -183,19 +209,37 @@
 </ol>
 <p>For more information, please refer to <a class="reference internal" href="commands.html#commands"><span class="std std-ref">Ghost Commands</span></a> page.</p>
 </div>
+<div class="section" id="how-to-activate-blue-green-in-ghost-with-a-production-application">
+<h2>How to activate Blue/green in GHOST with a production application<a class="headerlink" href="#how-to-activate-blue-green-in-ghost-with-a-production-application" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Create new autoscaling group (if necessary one SG and one IAM role) with terraform for the new cluster. (futur green app group)</li>
+<li>Activate blue/green option on the ghost app. (Blue will be the actual production and green the new cluster)</li>
+<li>With ressource details of the blue app, check all running instance and tag them with color:blue on aws console.</li>
+<li>Run updatelifecyclehook on blue app.</li>
+<li>Run updateAutoScaling on blue app.</li>
+<li>Deploy at least one module on blue app.</li>
+<li>In the green application change the autoscaling group.</li>
+<li>Run updatelifecyclehook on green app.</li>
+<li>Run updateAutoScaling on green app.</li>
+<li>Follow the classic procedure as describe above from step 5.</li>
+</ol>
+</div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="matrix.html" class="btn btn-neutral float-right" title="Feature matrix comparison" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="matrix.html" class="btn btn-neutral float-right" title="Feature matrix comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cli.html" class="btn btn-neutral" title="Casper: CLI client" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cli.html" class="btn btn-neutral" title="Casper: CLI client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -226,10 +270,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05.1',
+            VERSION:'Release 17.06',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

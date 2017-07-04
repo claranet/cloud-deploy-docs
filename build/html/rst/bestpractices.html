@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Best Practices &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
+  <title>Ghost Best Practices &mdash; Claranet Cloud Deploy Release 17.06 documentation</title>
   
 
+  
+  
   
   
 
@@ -33,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.06 documentation" href="../index.html"/>
         <link rel="next" title="Web User Interface" href="ui.html"/>
         <link rel="prev" title="Ghost Scripts" href="scripts.html"/>
 
@@ -45,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                17.05.1
+                17.06
               </div>
             
           
@@ -88,7 +91,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
@@ -101,27 +107,35 @@
 <li class="toctree-l3"><a class="reference internal" href="#buildpack-overview">Buildpack overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#buildpack-script-overview">Buildpack script overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#buildpack-script-prerequisites">Buildpack script prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buildpack-script-example">Buildpack script example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pre-deploy">Pre-deploy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pre-deploy-overview">Pre-deploy overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pre-deploy-script-overview">Pre-deploy script overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-script-prerequisites">Pre-Deploy script prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-requirements">Pre-deploy requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-deploy-script-example">Pre-deploy script example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#post-deploy">Post-deploy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#post-deploy-overview">Post-deploy overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#post-deploy-script-overview">Post-deploy script overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#post-deploy-requirements">Post-Deploy Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-deploy-requirements">Post-deploy requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-deploy-script-example">Post-deploy script example</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#after-all-deploy">After All Deploy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#after-all-deploy">After all deploy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-overview">After all deploy overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-script-overview">After all deploy script overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-script-prerequisites">After all deploy script prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-all-deploy-script-example">After all deploy script example</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#keep-in-mind">Keep in mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts-examples">Scripts examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bash-shell">Bash/Shell</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
@@ -141,8 +155,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Cloud Deploy</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Claranet Cloud Deploy</a>
+        
       </nav>
 
 
@@ -151,23 +167,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Ghost Best Practices</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Ghost Best Practices</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/rst/bestpractices.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/rst/bestpractices.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -185,20 +218,20 @@ In complement, please refer to the <a class="reference internal" href="commands.
 <div class="section" id="general-guidance">
 <h2>General guidance<a class="headerlink" href="#general-guidance" title="Permalink to this headline">¶</a></h2>
 <p>Each script is running on Unix systems. If a shebang is present on the top of your script, it will be run with the specified interpreter program.
-By example, this shebang will run the script with python program (if python is installed) :</p>
+By example, this shebang will run the script with python program (if python is installed):</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>#!/bin/python
 </pre></div>
 </div>
-<p>By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is &#8220;success&#8221;. For others status, it will be &#8220;failed&#8221; status.
-If your script language is bash, it is recommended to add a &#8220;set -e&#8221; command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.</p>
+<p>By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is <code class="docutils literal"><span class="pre">success</span></code>. For others status, it will be <code class="docutils literal"><span class="pre">failed</span></code> status.
+If your script language is bash, it is recommended to add a <code class="docutils literal"><span class="pre">set</span> <span class="pre">-e</span></code> command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.</p>
 </div>
 <div class="section" id="buildpack">
 <h2>Buildpack<a class="headerlink" href="#buildpack" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="buildpack-overview">
 <h3>Buildpack overview<a class="headerlink" href="#buildpack-overview" title="Permalink to this headline">¶</a></h3>
 <p>The first buildpack step is to clone the git repository in a local directory before any upload on each host.
-Please note that the &#8220;git clone&#8221; step is programmatically executed by Ghost, no need to write it in any user script.
-The buildpack user script begins just after the &#8220;git clone&#8221; step.
+Please note that the <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span></code> step is programmatically executed by Ghost, no need to write it in any user script.
+The buildpack user script begins just after the <code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span></code> step.
 The current directory will be set to the root of the git cloned repository.</p>
 </div>
 <div class="section" id="buildpack-script-overview">
@@ -209,8 +242,22 @@ After the buildpack script execution, the application directory will be compress
 <div class="section" id="buildpack-script-prerequisites">
 <h3>Buildpack script prerequisites<a class="headerlink" href="#buildpack-script-prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>This script is executed once on the Ghost instance during each deployment so any non local installation will be lost by the compression operation.
-For example, global packages installation, like apt or yum packages won&#8217;t be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
+For example, global packages installation, like apt or yum packages won’t be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
 Use this script to execute all commands that have a high execution cost and any external calls.</p>
+</div>
+<div class="section" id="buildpack-script-example">
+<h3>Buildpack script example<a class="headerlink" href="#buildpack-script-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x <span class="c1"># display expanded instructions before execution</span>
+<span class="nb">set</span> -e <span class="c1"># exit on first error (non-zero status)</span>
+
+php composer <span class="c1"># trigger all command needed to build the php application</span>
+bower <span class="c1"># or any tool needed to minify, compile, prepare assets and code for deployment</span>
+
+vault <span class="c1"># or any password manipulation, injected in application configuration</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="pre-deploy">
@@ -230,17 +277,25 @@ It will be executed locally on each host.
 During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
 After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.</p>
 </div>
-<div class="section" id="pre-deploy-script-prerequisites">
-<h3>Pre-Deploy script prerequisites<a class="headerlink" href="#pre-deploy-script-prerequisites" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt>This script must not depend on external resources :</dt>
-<dd><ul class="first last simple">
-<li>no internet call</li>
-<li>no package install (apt-get, npm, pip, yum, gem, composer)</li>
-<li>no downloads except from AWS S3</li>
-</ul>
-</dd>
-</dl>
+<div class="section" id="pre-deploy-requirements">
+<h3>Pre-deploy requirements<a class="headerlink" href="#pre-deploy-requirements" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This script must not depend on external resources: no internet call, no package install, (apt-get, npm, pip, yum, gem, composer), no downloads except from AWS S3</p>
+</div>
+</div>
+<div class="section" id="pre-deploy-script-example">
+<h3>Pre-deploy script example<a class="headerlink" href="#pre-deploy-script-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x <span class="c1"># display expanded instructions before execution</span>
+<span class="nb">set</span> -e <span class="c1"># exit on first error (non-zero status)</span>
+
+<span class="c1"># clear cache</span>
+<span class="c1"># update queues</span>
+<span class="c1"># prepare to stop the current running application or service</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="post-deploy">
@@ -258,20 +313,26 @@ Most scripts consist in service reloading/restarting.
 The post-deploy execution working directory is the Ghost application target directory.</p>
 </div>
 <div class="section" id="post-deploy-requirements">
-<h3>Post-Deploy Requirements<a class="headerlink" href="#post-deploy-requirements" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt>This script must not depend on external resources :</dt>
-<dd><ul class="first last simple">
-<li>no internet call</li>
-<li>no package install (apt-get, npm, pip, yum, gem, composer)</li>
-<li>no downloads except from AWS S3</li>
-</ul>
-</dd>
-</dl>
+<h3>Post-deploy requirements<a class="headerlink" href="#post-deploy-requirements" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This script must not depend on external resources: no internet call, no package install, (apt-get, npm, pip, yum, gem, composer), no downloads except from AWS S3</p>
+</div>
+</div>
+<div class="section" id="post-deploy-script-example">
+<h3>Post-deploy script example<a class="headerlink" href="#post-deploy-script-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x <span class="c1"># display expanded instructions before execution</span>
+<span class="nb">set</span> -e <span class="c1"># exit on first error (non-zero status)</span>
+
+server xxx-xxx reload <span class="c1"># Reload/restart of service</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="after-all-deploy">
-<h2>After All Deploy<a class="headerlink" href="#after-all-deploy" title="Permalink to this headline">¶</a></h2>
+<h2>After all deploy<a class="headerlink" href="#after-all-deploy" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="after-all-deploy-overview">
 <h3>After all deploy overview<a class="headerlink" href="#after-all-deploy-overview" title="Permalink to this headline">¶</a></h3>
 <p>The After All Deploy script step is executed on the Ghost instance after execution of all pre and post deploy scripts.</p>
@@ -285,26 +346,58 @@ Please keep in mind that your Ghost needs to have rights to do this action.</p>
 <h3>After all deploy script prerequisites<a class="headerlink" href="#after-all-deploy-script-prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>No data will be sent to your application instances at this step.</p>
 </div>
+<div class="section" id="after-all-deploy-script-example">
+<h3>After all deploy script example<a class="headerlink" href="#after-all-deploy-script-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x <span class="c1"># display expanded instructions before execution</span>
+<span class="nb">set</span> -e <span class="c1"># exit on first error (non-zero status)</span>
+
+<span class="c1"># Deployment notification (NewRelic ?)</span>
+<span class="c1"># Load Balancer or external dependency notification</span>
+<span class="c1"># Database schema update</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="keep-in-mind">
 <h2>Keep in mind<a class="headerlink" href="#keep-in-mind" title="Permalink to this headline">¶</a></h2>
-<p>When autoscaling up, starting instances will only execute pre and post-deploy scripts.
-Buildpack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
+<p>When the AutoScalingGroup scales up, starting instances will only execute pre and post-deploy scripts.
+BuildPack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
 As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.</p>
 </div>
+<div class="section" id="scripts-examples">
+<h2>Scripts examples<a class="headerlink" href="#scripts-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bash-shell">
+<h3>Bash/Shell<a class="headerlink" href="#bash-shell" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x <span class="c1"># enable instruction printing, useful for debugging</span>
+<span class="nb">set</span> -e <span class="c1"># exit on first error (non-zero status)</span>
+
+./code <span class="c1"># script or code to execute</span>
+my_command <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span> <span class="c1"># to make sure to exit and stop the script if `my_command` fails</span>
+my_command <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;ok&quot;</span> <span class="c1"># to continue the script even if `my_command` fails. Warning: not compatible with `set -e`</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ui.html" class="btn btn-neutral float-right" title="Web User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="scripts.html" class="btn btn-neutral" title="Ghost Scripts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="scripts.html" class="btn btn-neutral" title="Ghost Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -335,10 +428,11 @@ As external networking could be restricted or unavailable on deployed hosts, it 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05.1',
+            VERSION:'Release 17.06',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

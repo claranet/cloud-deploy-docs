@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; Claranet Cloud Deploy Release 17.05.1 documentation</title>
+  <title>Quick Start &mdash; Claranet Cloud Deploy Release 17.06 documentation</title>
   
 
+  
+  
   
   
 
@@ -33,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.05.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.06 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Resources" href="resources.html"/>
         <link rel="prev" title="Welcome to Claranet Cloud Deploy (Ghost project) documentation!" href="../index.html"/>
 
@@ -45,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                17.05.1
+                17.06
               </div>
             
           
@@ -88,7 +91,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ghost-features">Ghost Features</a></li>
@@ -126,8 +132,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Claranet Cloud Deploy</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Claranet Cloud Deploy</a>
+        
       </nav>
 
 
@@ -136,23 +144,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Quick Start</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Quick Start</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/rst/quick-start.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/rst/quick-start.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -184,24 +209,24 @@ Actual version support only AWS.</p>
 <h2>Application<a class="headerlink" href="#application" title="Permalink to this headline">¶</a></h2>
 <p>Its the client code and all the requirements to set up on the instance.
 Working in separate environments is one of major feature. Each <code class="docutils literal"><span class="pre">application</span></code>
-is identified by it&#8217;s <strong>name</strong>, <strong>env</strong> and <strong>role</strong>.</p>
+is identified by it’s <strong>name</strong>, <strong>env</strong> and <strong>role</strong>.</p>
 <div class="section" id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
 <p>An application is define by:</p>
 <blockquote>
 <div><ul class="simple">
 <li>The AWS characteristics (in which region the application must be deployed,
-its instance type, VPC...)</li>
+its instance type, VPC…)</li>
 <li>The AutoScaling parameters (number of instances, minimum/maximum)</li>
 <li>The instance specifications (number and size of the disks, the ssh key to
-associate, the security group to associate,...)</li>
+associate, the security group to associate,…)</li>
 <li>The mails to receive the deployment notifications.</li>
 <li>Their features (a feature is the application requirement which will be
 installed on the EC2 instances. For example: PHP 5.4, Zabbix Agent, Nginx,
 PHP5-CURL)</li>
 <li>Their modules(a module represent the code to deploy with some actions to
 realized before or/and after the code deployment. The code is system
-(example: Apache configuration&#8217;s files) or client(the &#8220;pure&#8221; client
+(example: Apache configuration’s files) or client(the “pure” client
 application code)).</li>
 </ul>
 </div></blockquote>
@@ -234,15 +259,18 @@ finally create a new AMI)</li>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resources.html" class="btn btn-neutral float-right" title="Ghost Resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resources.html" class="btn btn-neutral float-right" title="Ghost Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Welcome to Claranet Cloud Deploy (Ghost project) documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to Claranet Cloud Deploy (Ghost project) documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -273,10 +301,11 @@ finally create a new AMI)</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.05.1',
+            VERSION:'Release 17.06',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
