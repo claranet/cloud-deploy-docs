@@ -8,6 +8,31 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.06
+-----------
+
+* WebUI
+    - [GHOST-417] - [UI] Module deployment state (in ``app_view``, ``app_command``, ``app_list``)
+    - [GHOST-394] - [UI] 404 Page, don't show ``back button`` after an object deletion
+    - [GHOST-416] - [UI] Fix - Draggabble feature is not editable on Firefox v54
+
+* Core/API
+    - [GHOST-422] - [Mail Notifications] Notifications do not show the correct job end date and time
+    - [GHOST-313] - [bluegreen] Handle ALB in BlueGreen commands
+    - [GHOST-407] - [stage2] Use ``--only-show-errors`` for ``aws s3 cp`` call - less verbose log
+    - [GHOST-409] - [command/deploy] Reduce Deploy package size by excluding git metadata (optional)
+    - [GHOST-220] - Update python dependencies
+
+* Improvements & Bug fixes
+    - [GHOST-410][GHOST-412] - [Blue/Green] Manage all listeners on ELB copy
+    - Hotfix [GHOST-375] - Import ``ghost_abbrev_field`` macro
+    - [GHOST-430] - Include Nginx & Supervisor config in backup/restore scripts
+
+* Documentation
+    - [GHOST-391] - BlueGreen documentation update
+    - [GHOST-183] - Upgrade Sphinx doc lib
+    - [GHOST-337] - Some more script example in ``bestpractices`` page
+
 Ghost 17.05.1
 -------------
 
