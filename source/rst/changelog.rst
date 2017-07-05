@@ -27,6 +27,7 @@ Ghost 17.06
     - [GHOST-410][GHOST-412] - [Blue/Green] Manage all listeners on ELB copy
     - Hotfix [GHOST-375] - Import ``ghost_abbrev_field`` macro
     - [GHOST-430] - Include Nginx & Supervisor config in backup/restore scripts
+    - [GHOST-434] - [UI] An AMI without name make application form crash
 
 * Documentation
     - [GHOST-391] - BlueGreen documentation update
