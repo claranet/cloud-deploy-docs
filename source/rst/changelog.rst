@@ -8,6 +8,22 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.06.1
+-------------
+
+* WebUI
+    - [GHOST-435] - [UI] Use ``format`` in all forms functions helper to prevent formatting errors
+
+* Core/API
+    - [GHOST-424] - The comma char is now allowed in feature value field
+
+* Improvements & Bug fixes
+    - [GHOST-442] - [UI] App Command - retrieve revisions function (was broken in previous version)
+    - [GHOST-433] - Upgrading from an older Ghost version breaks AutoScaling tag Name
+
+* Documentation
+    - [GHOST-356] - ``updateautoscaling`` no longer updates ASG's desired
+
 Ghost 17.06
 -----------
 
