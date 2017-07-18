@@ -132,7 +132,7 @@ Run/Build | updateautoscaling
 -----------------------------
 
 This command allows you to create a new ``LaunchConfiguration`` with every parameter taken from the Ghost application and attach it to the AutoScaling Group.
-It will also update the Auto Scaling Group parameters (update ``min``, ``max``, ``desired``) and tags (set needed Ghost's tags)
+It will also update the Auto Scaling Group parameters (update ``min``, ``max``) and tags (set needed Ghost's tags)
 
 
 .. _cmd_deploy:
