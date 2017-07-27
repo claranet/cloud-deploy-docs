@@ -8,6 +8,27 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.07
+-----------
+
+* WebUI
+    - [GHOST-431] - [UI] Answering "no" to the delete action make the user redirect to object list page
+    - [GHOST-419] - [UI] Messages when saving an app - propose which commands to launch based on modified fields
+    - [GHOST-427] - [UI] Refactor code macro, templates, models, and Javascript imports
+    - [GHOST-437] - [UI] Switch on Material Kit theme and improve UI/UX
+
+* Core/API
+    - [GHOST-443] - [API] Verify script b64 validity
+    - [GHOST-438] - [API] Forbid ``/ghost`` as module folder
+    - [GHOST-414] - Create a Ghost update script
+
+* Improvements & Bug fixes
+    - [GHOST-440] - [API] Updating an app with API call fails when ``environment_infos`` field is missing
+    - [GHOST-450] - [UI] Wrong ALB are displayed on Resources Details View
+
+* Documentation
+    - [GHOST-447] - [DOC] Update deploy workflow with more details
+
 Ghost 17.06.1
 -------------
 
