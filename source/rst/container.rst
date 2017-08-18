@@ -14,14 +14,14 @@ Concept
 
 Before introducing this concept, the understanding of the buildpack step of the deployment workflow is required: cf :ref:`scripts` page.
 
-The buildpack deployment in a container makes possible to isolate the build of source arfifacts during a module's deployment.
+The buildpack deployment in a container isolates the module deployment artifact building phase from the local system.
 
 Why do we need to isolate that build?
 *************************************
 
 Applications have thirdparty dependencies requirements: for example Ghost depends on a list of python modules which are defined in ``requirements.txt``.
 
-To be sure that packages do not create conflicts with the Ghost instance, we need to execute this installation in a container.
+We execute this build in a container to prevent any conflict between the local system and build environments.
 
 To do that, we have added steps in the initial deployment workflow.
 
