@@ -8,6 +8,24 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.08
+-----------
+
+* WebUI
+    - [GHOST-452] - [UI] Fix - Logout mechanism is buggy
+    - [GHOST-460] - [UI] "Click to expand" text on code blocks stay visible for new modules
+    - [GHOST-463] - [UI] Special characters in user's input script crash the application view
+
+* Core/API
+    - [GHOST-456] - Cannot go back to Root Block Device Name default value once it has been set
+    - [GHOST-312] - Zabbix Hostname is now set with IPv4 suffix (using dots instead of dashes)
+    - [GHOST-458] - [API] Filter available commands by application context
+
+* Improvements & Bug fixes
+    - [GHOST-454] - Proposed commands: ``updateautoscale`` is proposed even if app has no auto scale group
+    - [GHOST-220] - Requirements dependencies update (pip packages)
+    - Available AWS EC2 instance types updated (with g3 and p2 types)
+
 Ghost 17.07
 -----------
 
