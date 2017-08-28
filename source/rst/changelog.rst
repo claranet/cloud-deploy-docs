@@ -39,13 +39,14 @@ Ghost 17.07
     - [GHOST-443] - [API] Verify script b64 validity
     - [GHOST-438] - [API] Forbid ``/ghost`` as module folder
     - [GHOST-414] - Create a Ghost update script
+    - [GHOST-262] - Avoid deleting an used LaunchConfiguration (and also rewrite all purge mechanism)
 
 * Improvements & Bug fixes
     - [GHOST-440] - [API] Updating an app with API call fails when ``environment_infos`` field is missing
     - [GHOST-450] - [UI] Wrong ALB are displayed on Resources Details View
 
 * Documentation
-    - [GHOST-447] - [DOC] Update deploy workflow with more details
+    - [GHOST-449] - [DOC] Update deploy workflow with more details
 
 Ghost 17.06.1
 -------------
