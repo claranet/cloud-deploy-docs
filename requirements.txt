@@ -5,22 +5,22 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 alabaster==0.7.10         # via sphinx
-babel==2.4.0              # via sphinx
-certifi==2017.4.17        # via requests
+babel==2.5.0              # via sphinx
+certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
 click==6.7
-docutils==0.13.1          # via sphinx
+docutils==0.14            # via sphinx
 first==2.0.1              # via pip-tools
 gitdb2==2.0.2             # via gitpython
 gitpython==2.1.5          # via sphinx-git
-idna==2.5                 # via requests
+idna==2.6                 # via requests
 imagesize==0.7.1          # via sphinx
 jinja2==2.9.6             # via sphinx
 markupsafe==1.0           # via jinja2
 pip-tools==1.9.0
 pygments==2.2.0           # via sphinx
 pytz==2017.2              # via babel
-requests==2.18.1          # via sphinx
+requests==2.18.4          # via sphinx
 six==1.10.0               # via pip-tools, sphinx, sphinx-git
 smmap2==2.0.3             # via gitdb2
 snowballstemmer==1.2.1    # via sphinx
@@ -28,5 +28,5 @@ sphinx-git==10.0.0
 sphinx-rtd-theme==0.2.4
 sphinx==1.6.3
 sphinxcontrib-websupport==1.0.1  # via sphinx
-typing==3.6.1             # via sphinx
-urllib3==1.21.1           # via requests
+typing==3.6.2             # via sphinx
+urllib3==1.22             # via requests
