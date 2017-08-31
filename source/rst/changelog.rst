@@ -19,6 +19,7 @@ Ghost 17.08.1
 
 * Documentation
     - [GHOST-374] - Ansible usage when baking Images with ``buildimage`` command
+    - [GHOST-464] - Global documentation update
 
 Ghost 17.08
 -----------
