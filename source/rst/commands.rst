@@ -326,6 +326,8 @@ This command allows you to run a custom shell script on running instance(s) in t
 .. seealso:: Please see :ref:`Run | deploy <cmd_deploy>` documentation for more details about :ref:`Safe deployment strategies and flow <cmd_deploy_safe>`
 
 
+.. _cmd_preparebluegreen:
+
 Blue/Green | preparebluegreen
 -----------------------------
 
@@ -340,6 +342,8 @@ After this command, you can update the **stand by** environment by triggering ``
   ``boolean``
 
  This option permits to duplicate the AMI id from the **online** Auto Scaling Group when updating the **stand by** Auto Scaling Group.
+
+.. _cmd_swapbluegreen:
 
 Blue/Green | swapbluegreen
 --------------------------
@@ -358,6 +362,10 @@ It will swap the two versions of the application by swapping the ``blue`` and ``
 
     * ``isolated``: This strategy will produce a service downtime but ensures that only one version of the application is online.
 
+.. figure:: /images/swap_bluegreen.png
+
+
+.. _cmd_purgebluegreen:
 
 Blue/Green | purgebluegreen
 ---------------------------
