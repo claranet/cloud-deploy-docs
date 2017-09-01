@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.08 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.08.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.08 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.08.1 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
 
 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                17.08
+                17.08.1
               </div>
             
           
@@ -97,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="commands.html">Ghost Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Cloud Deploy Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bestpractices.html">Ghost Best Practices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
@@ -105,6 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-08-1">Ghost 17.08.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-08">Ghost 17.08</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-07">Ghost 17.07</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-06-1">Ghost 17.06.1</a></li>
@@ -199,6 +200,37 @@
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
+<div class="section" id="ghost-17-08-1">
+<h2>Ghost 17.08.1<a class="headerlink" href="#ghost-17-08-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last">
+<li>[GHOST-374] - Ansible provisioner generic bootstrap script (for Packer)</li>
+<li>[GHOST-374] - Ansible provisioner full implementation</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last">
+<li>[GHOST-426] - Provisioner unit test with mocks</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last">
+<li>[GHOST-374] - Ansible usage when baking Images with <code class="docutils literal"><span class="pre">buildimage</span></code> command</li>
+<li>[GHOST-464] - Global documentation update</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 <div class="section" id="ghost-17-08">
 <h2>Ghost 17.08<a class="headerlink" href="#ghost-17-08" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -254,6 +286,7 @@
 <li>[GHOST-443] - [API] Verify script b64 validity</li>
 <li>[GHOST-438] - [API] Forbid <code class="docutils literal"><span class="pre">/ghost</span></code> as module folder</li>
 <li>[GHOST-414] - Create a Ghost update script</li>
+<li>[GHOST-262] - Avoid deleting an used LaunchConfiguration (and also rewrite all purge mechanism)</li>
 </ul>
 </dd>
 </dl>
@@ -270,7 +303,7 @@
 <li><dl class="first docutils">
 <dt>Documentation</dt>
 <dd><ul class="first last">
-<li>[GHOST-447] - [DOC] Update deploy workflow with more details</li>
+<li>[GHOST-449] - [DOC] Update deploy workflow with more details</li>
 </ul>
 </dd>
 </dl>
@@ -1198,7 +1231,7 @@ Plus d’informations sur la documentation: <a class="reference external" href="
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.08',
+            VERSION:'Release 17.08.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

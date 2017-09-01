@@ -30,7 +30,7 @@ Cloud Configuration
 Features: Libs and services
 ---------------------------
 
-  * Salt formulas
+  * Salt formulas or/and ansible roles
 
   * Versions
 

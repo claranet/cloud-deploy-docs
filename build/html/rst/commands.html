@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Commands &mdash; Claranet Cloud Deploy Release 17.08 documentation</title>
+  <title>Cloud Deploy Commands &mdash; Claranet Cloud Deploy Release 17.08.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.08 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.08.1 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Scripts" href="scripts.html"/>
         <link rel="prev" title="Ghost API" href="api.html"/>
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                17.08
+                17.08.1
               </div>
             
           
@@ -98,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Commands</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cloud Deploy Commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#build-buildimage">Build | buildimage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-updatelifecyclehooks">Build | updatelifecyclehooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-createinstance">Build | createinstance</a></li>
@@ -171,7 +171,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Ghost Commands</li>
+      <li>Cloud Deploy Commands</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,29 +190,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ghost-commands">
-<span id="commands"></span><h1>Ghost Commands<a class="headerlink" href="#ghost-commands" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloud-deploy-commands">
+<span id="commands"></span><h1>Cloud Deploy Commands<a class="headerlink" href="#cloud-deploy-commands" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <div class="section" id="build-buildimage">
 <h2>Build | buildimage<a class="headerlink" href="#build-buildimage" title="Permalink to this headline">¶</a></h2>
 <div class="line-block">
-<div class="line">This command should be the first one triggered after a Ghost Application creation.</div>
-<div class="line">It bakes a new AMI with every feature specified in the application on top of the source AMI chosen. (Generally a Morea/Claranet Debian AMI)</div>
+<div class="line">This command should be the first one triggered after an Application creation.</div>
+<div class="line">It bakes a new AMI with every feature specified in the application on top of the source AMI chosen (generally a Claranet Debian AMI).</div>
 <div class="line">Claranet uses SaltStack and Ansible to provision all the chosen features and uses Packer (from HashiCorp) to bake the new AMI.</div>
+<div class="line">Note: The Ansible provisioner uses the <a class="reference external" href="http://docs.ansible.com/ansible/galaxy.html#installing-multiple-roles-from-a-file">ansible-galaxy</a> command to get roles.</div>
+<div class="line">The base ansible repository needs to be the one containing the requirements.yml file.</div>
 <div class="line"><br /></div>
 </div>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Instance Type</em> :</dt>
+<dt><em>Instance Type</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">string</span></code></div></blockquote>
 <p class="last">Choose the instance type of the temporary instance created by Packer for provisionning.</p>
 </dd>
-<dt><em>Skip SALT bootstrap</em> :</dt>
+<dt><em>Skip Provisioner bootstrap</em> :</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">boolean</span></code></div></blockquote>
-<p class="last">This option permits to choose if Packer should install the Salt agent (minion) before applying all feature formulas.</p>
+<p class="last">This option permits to choose if Packer should install the Salt agent (minion) or/and Ansible (at global level) before applying all features.
+Note: Ansible is not required in the baked image since we can use Ansible with remote execution.</p>
 </dd>
 </dl>
 <p><strong>Life cycle hooks</strong></p>
@@ -221,8 +224,8 @@
 Those hooks are scripts:</p>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">pre_buildimage</span></code> : Script executed on the temporary instance <em>before</em> the features provisioning</li>
-<li><code class="docutils literal"><span class="pre">post_buildimage</span></code> : Script executed on the temporary instance <em>after</em> the features provisioning</li>
+<li><code class="docutils literal"><span class="pre">pre_buildimage</span></code>: Script executed on the temporary instance <em>before</em> the features provisioning</li>
+<li><code class="docutils literal"><span class="pre">post_buildimage</span></code>: Script executed on the temporary instance <em>after</em> the features provisioning</li>
 </ul>
 </div></blockquote>
 </div></blockquote>
@@ -236,8 +239,8 @@ Those hooks are scripts:</p>
 <div class="section" id="build-updatelifecyclehooks">
 <h2>Build | updatelifecyclehooks<a class="headerlink" href="#build-updatelifecyclehooks" title="Permalink to this headline">¶</a></h2>
 <p>This command allows you to upload and upgrade the pre-bootstrap and post-bootstrap scripts defined in the application.
-Those scripts will be executed when a new instance is create by the auto-scaling group or when the <code class="docutils literal"><span class="pre">createinstance</span></code> command is triggered in Ghost.</p>
-<p>Here is a workflow diagram for more details :</p>
+Those scripts will be executed when a new instance is created by the Auto Scaling Group or when the <code class="docutils literal"><span class="pre">createinstance</span></code> command is triggered.</p>
+<p>Here is a workflow diagram for more details:</p>
 <div class="figure">
 <img alt="../_images/bootstrap_workflow.png" src="../_images/bootstrap_workflow.png" />
 </div>
@@ -248,12 +251,12 @@ Those scripts will be executed when a new instance is create by the auto-scaling
 You can validate and test your module deployments and the AMI generated by <code class="docutils literal"><span class="pre">buildimage</span></code></p>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Subnet</em> :</dt>
+<dt><em>Subnet</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">subnet_id</span></code></div></blockquote>
 <p class="last">This option permits to choose in which subnet the instance must be created.</p>
 </dd>
-<dt><em>Private IP address</em> :</dt>
+<dt><em>Private IP address</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">empty</span> <span class="pre">by</span> <span class="pre">default</span></code></div></blockquote>
 <p class="last">If specified, this option permits to choose the Private IP address to affect to the created instance.</p>
@@ -262,38 +265,38 @@ You can validate and test your module deployments and the AMI generated by <code
 </div>
 <div class="section" id="build-destroyallinstances">
 <h2>Build | destroyallinstances<a class="headerlink" href="#build-destroyallinstances" title="Permalink to this headline">¶</a></h2>
-<p>This command allows you to destroy all instances mapped to the current application (based on EC2 Tags: <code class="docutils literal"><span class="pre">app</span></code>, <code class="docutils literal"><span class="pre">env</span></code>, <code class="docutils literal"><span class="pre">role</span></code>, <code class="docutils literal"><span class="pre">color</span></code>).
+<p>This command allows you to destroy all the instances mapped to the current application (based on EC2 Tags: <code class="docutils literal"><span class="pre">app</span></code>, <code class="docutils literal"><span class="pre">env</span></code>, <code class="docutils literal"><span class="pre">role</span></code>, <code class="docutils literal"><span class="pre">color</span></code>).
 Both <em>standalone</em> and <em>in AutoScale</em> instances are destroyed.</p>
 </div>
 <div class="section" id="build-recreateinstances">
 <span id="cmd-recreateinstances"></span><h2>Build | recreateinstances<a class="headerlink" href="#build-recreateinstances" title="Permalink to this headline">¶</a></h2>
-<p>This command allows you to renew all the instances associated to a Ghost application.
+<p>This command allows you to renew all the instances associated to an Application.
 It is useful when you have made changes in the baking or bootstrapping steps of your application instances and want to apply them with automation.
 The command works for any application in any context, with or without Auto Scaling Group. Here are the cases:</p>
 <div class="section" id="application-without-an-auto-scaling-group">
 <h3>Application without an Auto Scaling Group<a class="headerlink" href="#application-without-an-auto-scaling-group" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li>Ghost will destroy all standalone instances</li>
+<li>Destroy all standalone instances</li>
 <li>Wait until the instances release their private IPs</li>
-<li>Create new instances using subnet and private IP matching the old destroyed ones.</li>
+<li>Create new instances using subnet and private IP matching the old destroyed ones</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="application-with-an-auto-scaling-group-and-one-or-many-loadbalancers">
 <h3>Application with an Auto Scaling Group and one or many LoadBalancers<a class="headerlink" href="#application-with-an-auto-scaling-group-and-one-or-many-loadbalancers" title="Permalink to this headline">¶</a></h3>
-<p><em>Without Rolling update strategy option</em> :</p>
+<p><em>Without Rolling update strategy option</em>:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Ghost will suspend the ASG’s processes</li>
-<li>Ghost will deregister the instances from the Load Balancer</li>
+<li>Suspend the ASG’s processes</li>
+<li>Deregister the instances from the Load Balancer</li>
 </ul>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Without rolling update strategy this may produce a downtime</p>
 </div>
 <ul class="simple">
-<li>It will double the target and max value of the ASG</li>
+<li>Double the target and max value of the ASG</li>
 <li>Resume the <code class="docutils literal"><span class="pre">Launch</span></code> process, let the ASG creates new instances</li>
 <li>Wait until all the new instances are up, Healthy and InService in the Load Balancer</li>
 <li>Detach the oldest instances from the Load Balancer, wait for the connection draining</li>
@@ -302,7 +305,7 @@ The command works for any application in any context, with or without Auto Scali
 <li>Resume all ASG processes</li>
 </ul>
 </div></blockquote>
-<p><em>With a Rolling update strategy option</em> :</p>
+<p><em>With a Rolling update strategy option</em>:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Split the instances into groups (see next chapter for details), and apply the previous workflow on each group one after the other.</li>
@@ -310,10 +313,10 @@ The command works for any application in any context, with or without Auto Scali
 </div></blockquote>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Rolling update strategy</em> :</dt>
+<dt><em>Rolling update strategy</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">1by1</span> <span class="pre">|</span> <span class="pre">50%</span> <span class="pre">|</span> <span class="pre">1/3</span> <span class="pre">|</span> <span class="pre">25%</span></code></div></blockquote>
-<p>This option permits to make Ghost use the selected strategy during the rolling update operation</p>
+<p>This option permits to use the selected strategy during the rolling update operation</p>
 <p class="last"><em>This option can’t be used if there is only one instance to recreate</em></p>
 </dd>
 </dl>
@@ -330,38 +333,38 @@ The command works for any application in any context, with or without Auto Scali
 </div>
 <div class="section" id="run-build-updateautoscaling">
 <h2>Run/Build | updateautoscaling<a class="headerlink" href="#run-build-updateautoscaling" title="Permalink to this headline">¶</a></h2>
-<p>This command allows you to create a new <code class="docutils literal"><span class="pre">LaunchConfiguration</span></code> with every parameter taken from the Ghost application and attach it to the AutoScaling Group.
-It will also update the Auto Scaling Group parameters (update <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">max</span></code>) and tags (set needed Ghost’s tags)</p>
+<p>This command allows you to create a new <code class="docutils literal"><span class="pre">LaunchConfiguration</span></code> with every parameter taken from the application and attach it to the Auto Scaling Group.
+It will also update the Auto Scaling Group parameters (update <code class="docutils literal"><span class="pre">min</span></code>, <code class="docutils literal"><span class="pre">max</span></code>) and tags (set needed application’s tags).</p>
 </div>
 <div class="section" id="run-deploy">
 <span id="cmd-deploy"></span><h2>Run | deploy<a class="headerlink" href="#run-deploy" title="Permalink to this headline">¶</a></h2>
 <p>This command allows you to deploy a new configuration version or a new revision of the application.
 You can choose the revision you want to deploy (git branch, tag, or hash commit).</p>
-<p>Here is a workflow diagram for more details :</p>
+<p>Here is a workflow diagram for more details:</p>
 <div class="figure">
 <img alt="../_images/deploy_workflow.png" src="../_images/deploy_workflow.png" />
 </div>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Strategy</em> :</dt>
+<dt><em>Strategy</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">serial</span> <span class="pre">|</span> <span class="pre">parallel</span></code></div></blockquote>
-<p class="last">This option permits to choose if Ghost should connect to all instances in parallel via SSH or not.</p>
+<p class="last">This option permits to choose if the SSH connection to all instances should occur in parallel or not.</p>
 </dd>
-<dt><em>Safe Deploy</em> :</dt>
+<dt><em>Safe Deploy</em>:</dt>
 <dd><code class="docutils literal"><span class="pre">boolean</span> <span class="pre">and</span> <span class="pre">parameters</span></code></dd>
 </dl>
 <div class="section" id="safe-deploy-documentation">
 <span id="cmd-deploy-safe"></span><h3>Safe deploy documentation:<a class="headerlink" href="#safe-deploy-documentation" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment with Ghost,
+<div><p>The Safe Deployment feature aims to create a sweet way to deploy on EC2 instances. Currently when you perform a deployment,
 the instances stay in the Load Balancer’s pool during the operation even if the deployment process reload or restart a service. It’s not a really efficient and safe
 because it can break user sessions and create a bad user experience.</p>
 <p>It’s to tackle this problem that the safe deployment feature as been created. The vision is, for an Auto scaling Group, split the instances in multiple groups.
-The feature gives the possibility to choose the split strategy of the whole Auto Scaling instances and so create multiple instance groups. Each instance groups will be remove from their Load Balancer  before to
-be deployed in a standard way and then registered.</p>
+The feature gives the possibility to choose the split strategy of the whole Auto Scaling instances and so create multiple instance groups.
+Each instance groups will be removed from their Load Balancer before being deployed in a standard way and then registered.</p>
 <p>The safe deployment feature can be used with the commands “deploy” and “redeploy” and can be used with the fabric strategy.</p>
-<p>For AutoScaling Group with one or more HAproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
+<p>For Auto Scaling Group with one or more HAproxy as Load Balancer, the safe deployment process works with Hapi only.</p>
 </div></blockquote>
 <p><em>The safe deployment possibilities are:</em></p>
 <blockquote>
@@ -377,15 +380,15 @@ be deployed in a standard way and then registered.</p>
 <p>Application Parameters (In the new Load Balancer section) you can choose:</p>
 <blockquote>
 <div><ul class="simple">
-<li>The type of the Load Balancer (ELB or Haproxy) used by this application.
-(To identify the Load Balancers, if the type is an ELB, it’s the AutoScaling Group parameters which will identify them).</li>
+<li>The type of the Load Balancer (CLB, ALB or Haproxy) used by this application.
+(To identify the Load Balancers, if the type is an ELB or an ALB, it’s the Auto Scaling Group parameters which will identify them).</li>
 </ul>
 </div></blockquote>
 <dl class="docutils">
 <dt>For an HAproxy type, other information will be required (app tag, the HAproxy backend).</dt>
 <dd><ul class="first simple">
 <li>The “Time to wait before deployment”(seconds) which is the time to wait after the instances deregistration process, to allow the client to finalize their requests.
-(If the Load Balancer is an ELB, this value will be add to the connection draining value of the ELB)</li>
+(If the Load Balancer is an ELB or an ALB, this value will be added to the connection draining value of the ELB)</li>
 <li>The “Time to wait after deployment”(seconds) which is the time to wait after having been deployed. After this time the instances will be registered
 in their Load Balancer.</li>
 </ul>
@@ -412,10 +415,10 @@ in their Load Balancer.</li>
 <div><ul class="simple">
 <li>Check that all instances in the Load Balancer (ELB or HAproxy) are in service and are enough to perform the safe deployment and check also, when there are multiple Load Balancers, that they have the same configuration.</li>
 <li>Split the instances list in groups according the deployment type chosen (1by1-1/3-25%-50%).</li>
-<li>Before begin to deploy on the instances group, remove them from their Load Balancer (Haproxy or ELB)</li>
-<li>Wait a moment (depends on the connection draining value for the ELB and/or the custom value defines in Ghost)</li>
-<li>Launch the standard deployment process</li>
-<li>Wait a moment(depends on the custom value defines in Ghost)</li>
+<li>Before beginning to deploy on the instances group, remove them from their Load Balancer (Haproxy or ELB).</li>
+<li>Wait a moment (depends on the connection draining value for the ELB and/or the custom value defined).</li>
+<li>Launch the standard deployment process.</li>
+<li>Wait a moment (depends on the custom value defined).</li>
 <li>Add the updated instances in their Load Balancer.</li>
 <li>Wait until instances become healthy (checked every 10s).</li>
 <li>Do the same process for the next instance groups.</li>
@@ -426,7 +429,7 @@ in their Load Balancer.</li>
 <blockquote>
 <div><blockquote>
 <div><ul class="simple">
-<li>Suspending auto-scaling group processes [‘Terminate’, ‘Launch’]</li>
+<li>Suspending Auto Scaling Group processes [‘Terminate’, ‘Launch’]</li>
 <li>Instances [u’i-87bc5b05’, u’i-87bcei97’] well deregistered in the ELB test</li>
 <li>Waiting 15s: The connection draining time more the custom value set for wait_before_deploy</li>
 <li>Updating current instances in serial: [u‘10.10.12.80’, u‘10.10.11.50’]</li>
@@ -438,12 +441,12 @@ in their Load Balancer.</li>
 <li>…</li>
 <li>… (same process for the others safe deployment groups)</li>
 <li>…</li>
-<li>Resuming auto-scaling group processes [‘Terminate’, ‘Launch’]</li>
+<li>Resuming Auto Scaling Group processes [‘Terminate’, ‘Launch’]</li>
 </ul>
 </div></blockquote>
 <p>In case of failure during the safe deployment process, if the instances were disabled/deregistered from their Load Balancer, they stay in this state. At the next deploy/redeploy action, a new complete deployment will be performed on them and if no error occurs, they will be enabled/registered in their Load Balancer.</p>
 </div></blockquote>
-<p>Here is a workflow diagram for more details :</p>
+<p>Here is a workflow diagram for more details:</p>
 <div class="figure">
 <img alt="../_images/safe_deploy_workflow_1.png" src="../_images/safe_deploy_workflow_1.png" />
 </div>
@@ -483,13 +486,13 @@ in their Load Balancer.</li>
 </div>
 <div class="section" id="run-redeploy">
 <h2>Run | redeploy<a class="headerlink" href="#run-redeploy" title="Permalink to this headline">¶</a></h2>
-<p>This commands allows you to deploy an old version that has already been deployed in the past. This command is useful in order to rollback a bad deployment of an application or a system configuration.</p>
+<p>This command allows you to deploy an old version that has already been deployed. This command is useful in order to rollback a bad deployment of an application or a system configuration.</p>
 <p>When you choose to use this command, you have to specify which deployment you want to re-deploy.
-Ghost will bring back this archive (generated by the <code class="docutils literal"><span class="pre">buildpack</span></code> step from the <code class="docutils literal"><span class="pre">deploy</span></code> command) and execute the half second part of the <code class="docutils literal"><span class="pre">deploy</span></code> workflow:</p>
+This archive will be brought back (generated by the <code class="docutils literal"><span class="pre">buildpack</span></code> step from the <code class="docutils literal"><span class="pre">deploy</span></code> command) and executed in the half second part of the <code class="docutils literal"><span class="pre">deploy</span></code> workflow:</p>
 <blockquote>
 <div><ul class="simple">
 <li>Executes pre deploy script</li>
-<li>Symlink the deployment content</li>
+<li>Symlinks the deployment content</li>
 <li>Executes post deploy script</li>
 <li>Notification (by mail)</li>
 </ul>
@@ -501,30 +504,30 @@ Ghost will bring back this archive (generated by the <code class="docutils liter
 </div>
 <div class="section" id="run-executescript">
 <span id="cmd-executescript"></span><h2>Run | executescript<a class="headerlink" href="#run-executescript" title="Permalink to this headline">¶</a></h2>
-<p>This commands allows you to run a custom shell script on running instance(s) in the application.</p>
+<p>This command allows you to run a custom shell script on running instance(s) in the application.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">All modification made by this command are volatile and will not be applied to instances created after the script execution. Which means you have to use the classical deploy workflow in order to persist any kind of modification on your instances.</p>
 </div>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Script</em> :</dt>
+<dt><em>Script</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">b64</span> <span class="pre">content</span></code></div></blockquote>
 <p class="last">The script file (base64 encoded at API level) to run</p>
 </dd>
-<dt><em>Module context</em> :</dt>
+<dt><em>Module context</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">string</span></code> - can be empty or null</div></blockquote>
 <p class="last">The module name to use if set. The script file will be executed in the module target path/directory, useful if you need to run or interact with existing module’s scripts.
 It will also execute the script with the UID/user configured in the module (or with <strong>root</strong> by default if no user UID is set).</p>
 </dd>
-<dt><em>Execution Strategy</em> :</dt>
+<dt><em>Execution Strategy</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">string:</span> <span class="pre">single</span> <span class="pre">|</span> <span class="pre">serial</span> <span class="pre">|</span> <span class="pre">parallel</span></code></div></blockquote>
-<p class="last">This option permits to choose if Ghost should connect to a unique instance, or to all instances in parallel/serial via SSH.</p>
+<p class="last">This option permits to choose if the SSH connection would be to a unique instance, or to all instances in parallel/serial.</p>
 </dd>
-<dt><em>Strategy param: Single Host IP or Safe Deploy Group option</em> :</dt>
+<dt><em>Strategy param: Single Host IP or Safe Deploy Group option</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">string:</span> <span class="pre">private</span> <span class="pre">IPv4</span></code> - mandatory when using <strong>single</strong> in Execution Strategy</div></blockquote>
 <p>This option permits to specify a single instance and launch the command only on this instance. When this parameter is set (private IPv4 address), other parameters will be ignored (Safe option).</p>
@@ -540,13 +543,13 @@ It will also execute the script with the UID/user configured in the module (or w
 </div>
 <div class="section" id="blue-green-preparebluegreen">
 <h2>Blue/Green | preparebluegreen<a class="headerlink" href="#blue-green-preparebluegreen" title="Permalink to this headline">¶</a></h2>
-<p>This commands is the first step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
-It will duplicate the actual <strong>online</strong> Elastic Load Balancer to create a temporary one and attach this temporary ELB to the <strong>stand by</strong> Auto Scaling Group.
+<p>This command is the first step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
+It will duplicate the current <strong>online</strong> Elastic Load Balancer to create a temporary one and attach this temporary ELB to the <strong>stand by</strong> Auto Scaling Group.
 It will also update the <strong>stand by</strong> Auto Scaling Group (Please see <strong>Run/Build | updateautoscaling</strong> for more details.)
-After this command, you can update the <strong>stand by</strong> env by triggering <code class="docutils literal"><span class="pre">buildimage</span></code> and <code class="docutils literal"><span class="pre">deploy</span></code> commands.</p>
+After this command, you can update the <strong>stand by</strong> environment by triggering <code class="docutils literal"><span class="pre">buildimage</span></code> and <code class="docutils literal"><span class="pre">deploy</span></code> commands.</p>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Copy AMI</em> :</dt>
+<dt><em>Copy AMI</em>:</dt>
 <dd><blockquote class="first">
 <div><code class="docutils literal"><span class="pre">boolean</span></code></div></blockquote>
 <p class="last">This option permits to duplicate the AMI id from the <strong>online</strong> Auto Scaling Group when updating the <strong>stand by</strong> Auto Scaling Group.</p>
@@ -555,11 +558,11 @@ After this command, you can update the <strong>stand by</strong> env by triggeri
 </div>
 <div class="section" id="blue-green-swapbluegreen">
 <h2>Blue/Green | swapbluegreen<a class="headerlink" href="#blue-green-swapbluegreen" title="Permalink to this headline">¶</a></h2>
-<p>This commands is the main step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
-It will swap the two version of the application by swapping the <code class="docutils literal"><span class="pre">blue</span></code> and <code class="docutils literal"><span class="pre">green</span></code> env.</p>
+<p>This command is the main step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
+It will swap the two versions of the application by swapping the <code class="docutils literal"><span class="pre">blue</span></code> and <code class="docutils literal"><span class="pre">green</span></code> environments.</p>
 <p><strong>Command Options</strong></p>
 <dl class="docutils">
-<dt><em>Swap strategy</em> :</dt>
+<dt><em>Swap strategy</em>:</dt>
 <dd><p class="first"><code class="docutils literal"><span class="pre">overlap</span> <span class="pre">|</span> <span class="pre">isolated</span></code></p>
 <blockquote class="last">
 <div><p>This is the Blue/Green swap strategy to choose:</p>
@@ -573,8 +576,8 @@ It will swap the two version of the application by swapping the <code class="doc
 </div>
 <div class="section" id="blue-green-purgebluegreen">
 <h2>Blue/Green | purgebluegreen<a class="headerlink" href="#blue-green-purgebluegreen" title="Permalink to this headline">¶</a></h2>
-<p>This commands is the last step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
-It will purge the <strong>stand by</strong> env by deleting the temporary ELB, updating the <strong>stand by</strong> Auto Scaling Group and destroying all instances for this env.</p>
+<p>This command is the last step in the <code class="docutils literal"><span class="pre">Blue/Green</span></code> deployment process.
+It will purge the <strong>stand by</strong> environment by deleting the temporary ELB, updating the <strong>stand by</strong> Auto Scaling Group and destroying all instances for this environment.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">Please see <strong>Build | destroyallinstances</strong> for more details</p>
@@ -626,7 +629,7 @@ It will purge the <strong>stand by</strong> env by deleting the temporary ELB, u
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.08',
+            VERSION:'Release 17.08.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
