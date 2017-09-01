@@ -8,6 +8,19 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.08.1
+-------------
+* Core/API
+    - [GHOST-374] - Ansible provisioner generic bootstrap script (for Packer)
+    - [GHOST-374] - Ansible provisioner full implementation
+
+* Improvements & Bug fixes
+    - [GHOST-426] - Provisioner unit test with mocks
+
+* Documentation
+    - [GHOST-374] - Ansible usage when baking Images with ``buildimage`` command
+    - [GHOST-464] - Global documentation update
+
 Ghost 17.08
 -----------
 
