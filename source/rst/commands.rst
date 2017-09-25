@@ -343,6 +343,13 @@ After this command, you can update the **stand by** environment by triggering ``
 
  This option permits to duplicate the AMI id from the **online** Auto Scaling Group when updating the **stand by** Auto Scaling Group.
 
+*Create temporary ELB* :
+  ``boolean``
+
+ This option permits to duplicate the current **online** ELB to a temporary ELB attached to the **stand by** Auto Scaling Group.
+ This temporary ELB will be destroyed on the **purgebluegreen** command if created.
+
+
 .. _cmd_swapbluegreen:
 
 Blue/Green | swapbluegreen
