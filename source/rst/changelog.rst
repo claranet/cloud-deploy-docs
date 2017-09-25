@@ -8,6 +8,28 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.09
+-----------
+* WebUI
+    - [GHOST-472] - [UI] Fix - Delete Optional Volume button doesn't work on first item
+
+* Core/API
+    - [GHOST-466] - ``/etc/hosts`` modifications by stage2 are rewritten on reboot on some Debian Jessie instances
+    - [GHOST-459] - [BlueGreen] - Blue/Green properly handle managed LoadBalancers
+    - [GHOST-465] - [BlueGreen] - Add pre and post swap BlueGreen hooks
+    - [GHOST-453] - Add option to create and attach additional EBS volumes during ``buildimage`` with packer
+    - [GHOST-478] - [API] - Fixing IAM ``instance_profile`` name length range
+    - [GHOST-445] - Use our own git lock system to avoid concurrent access on local git mirrors
+
+* Improvements & Bug fixes
+    - [GHOST-470] - [CI] - Improve BitBucket pipeline performance
+    - [GHOST-471] - [BlueGreen] - LoadBalancer Health check is not restored in case of error or roll back during swap
+
+* Documentation
+    - [GHOST-459] - [BlueGreen] - New option introduced: creates the temporary LoadBalancer when triggering ``preparebluegreen``
+    - [GHOST-465] - [BlueGreen] - Current active color is now an environment available variable
+    - [GHOST-465] - [BlueGreen] - ``swapbluegreen`` detailed diagram flow
+
 Ghost 17.08.1
 -------------
 * Core/API
