@@ -9,7 +9,7 @@ Ghost Scripts
 Scripts
 -------
 
-In Ghost, it is possible to launch custom scripts at every steps of the deployment and build process (bake image template).
+Ghost enables you to launch custom scripts at every steps of the deployment and build process (bake image template).
 Here is an overview and a description of thoses scripts.
 
     - **pre_buildimage**: Script executed in the `buildimage` command before formulas provisioning. It allows you to prepare the source AMI before the execution of all of your application's features formulas. It can be usefull in order to change package's mirrors location for example.
@@ -40,7 +40,7 @@ Environment variables
 ---------------------
 
 When custom scripts and binaries are triggered in the Ghost deployment workflow, many variables are available in the environment to help you making generic scripts.
-And it's now possible to define custom variables which will be available in the environment.
+It's also possible to define custom variables which will be configured within the Ghost server environment and therefore available when running scripts over instances.
 
 +-----------------------------+------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+----------------+
 | Variables                   | Purpose                                  | pre_buildimage | post_buildimage | pre_bootstrap | post_bootstrap | buildpack | pre_deploy | post_deploy  | after_all_deploy | execute_script |
