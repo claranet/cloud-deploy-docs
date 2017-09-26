@@ -29,6 +29,7 @@ Ghost 17.09
     - [GHOST-459] - [BlueGreen] - New option introduced: creates the temporary LoadBalancer when triggering ``preparebluegreen``
     - [GHOST-465] - [BlueGreen] - Current active color is now an environment available variable
     - [GHOST-465] - [BlueGreen] - ``swapbluegreen`` detailed diagram flow
+    - [GHOST-464] - Some documentation improvements
 
 Ghost 17.08.1
 -------------
