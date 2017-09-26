@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ghost Scripts &mdash; Claranet Cloud Deploy Release 17.08.1 documentation</title>
+  <title>Ghost Scripts &mdash; Claranet Cloud Deploy Release 17.09 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.08.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.09 documentation" href="../index.html"/>
         <link rel="next" title="Ghost Best Practices" href="bestpractices.html"/>
         <link rel="prev" title="Cloud Deploy Commands" href="commands.html"/>
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                17.08.1
+                17.09
               </div>
             
           
@@ -179,7 +179,7 @@
 </div>
 <div class="section" id="id1">
 <h2>Scripts<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>In Ghost, it is possible to launch custom scripts at every steps of the deployment and build process (bake image template).
+<p>Ghost enables you to launch custom scripts at every steps of the deployment and build process (bake image template).
 Here is an overview and a description of thoses scripts.</p>
 <blockquote>
 <div><ul class="simple">
@@ -205,25 +205,31 @@ Here is an overview and a description of thoses scripts.</p>
 <div class="figure">
 <img alt="../_images/deploy_workflow.png" src="../_images/deploy_workflow.png" />
 </div>
+<ul class="simple">
+<li><strong>pre_swap</strong>: Script executed in the <cite>swapbluegreen</cite> command <em>before</em> swapping the two environments in this order: active application, inactive application. Scripts of both application are ran. This script is executed on the Cloud Deploy instance and not application instances. See <a class="reference internal" href="commands.html#cmd-swapbluegreen"><span class="std std-ref">Blue/Green | swapbluegreen</span></a> for more details.</li>
+<li><strong>post_swap</strong>: Script executed in the <cite>swapbluegreen</cite> command <em>after</em> swapping the two environments in this order: newly inactive application, newly active application. Scripts of both application are ran. This script is executed on the Cloud Deploy instance and not application instances. See <a class="reference internal" href="commands.html#cmd-swapbluegreen"><span class="std std-ref">Blue/Green | swapbluegreen</span></a> for more details.</li>
+</ul>
 </div></blockquote>
 </div>
 <div class="section" id="environment-variables">
 <span id="scripts-vars"></span><h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
 <p>When custom scripts and binaries are triggered in the Ghost deployment workflow, many variables are available in the environment to help you making generic scripts.
-And it’s now possible to define custom variables which will be available in the environment.</p>
+It’s also possible to define custom variables which will be configured within the Ghost server environment and therefore available when running scripts over instances.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
-<col width="20%" />
-<col width="8%" />
-<col width="8%" />
+<col width="12%" />
+<col width="19%" />
 <col width="7%" />
-<col width="8%" />
-<col width="5%" />
+<col width="7%" />
 <col width="6%" />
 <col width="7%" />
-<col width="9%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
 <col width="8%" />
+<col width="7%" />
+<col width="5%" />
+<col width="6%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Variables</th>
@@ -237,11 +243,15 @@ And it’s now possible to define custom variables which will be available in th
 <th class="head">post_deploy</th>
 <th class="head">after_all_deploy</th>
 <th class="head">execute_script</th>
+<th class="head">pre_swap</th>
+<th class="head">post_swap</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>GHOST_APP</td>
 <td>Application name</td>
+<td>✔</td>
+<td>✔</td>
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
@@ -263,6 +273,8 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 <tr class="row-even"><td>GHOST_ENV_COLOR</td>
 <td>Application color if Blue/Green enabled</td>
@@ -275,8 +287,24 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
-<tr class="row-odd"><td>GHOST_ROLE</td>
+<tr class="row-odd"><td>GHOST_ACTIVE_COLOR</td>
+<td>Current active color if Blue/Green enabled</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>GHOST_ROLE</td>
 <td>Application role</td>
 <td>✔</td>
 <td>✔</td>
@@ -287,8 +315,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
-<tr class="row-even"><td>GHOST_MODULE_NAME</td>
+<tr class="row-odd"><td>GHOST_MODULE_NAME</td>
 <td>Module name</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -299,8 +329,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>~</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>GHOST_MODULE_PATH</td>
+<tr class="row-even"><td>GHOST_MODULE_PATH</td>
 <td>Module destination path</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -311,8 +343,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>~</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>GHOST_MODULE_REPO</td>
+<tr class="row-odd"><td>GHOST_MODULE_REPO</td>
 <td>Module git repository</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -323,8 +357,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>~</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>GHOST_MODULE_REV</td>
+<tr class="row-even"><td>GHOST_MODULE_REV</td>
 <td>Module git revision deployed</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -335,8 +371,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>GHOST_MODULE_COMMIT</td>
+<tr class="row-odd"><td>GHOST_MODULE_COMMIT</td>
 <td>Module git commit hash deployed</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -347,8 +385,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>GHOST_MODULE_COMMIT_MESSAGE</td>
+<tr class="row-even"><td>GHOST_MODULE_COMMIT_MESSAGE</td>
 <td>Module git commit message</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -359,8 +399,10 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td>GHOST_MODULE_USER</td>
+<tr class="row-odd"><td>GHOST_MODULE_USER</td>
 <td>User who triggered the deployment</td>
 <td>&#160;</td>
 <td>&#160;</td>
@@ -371,9 +413,13 @@ And it’s now possible to define custom variables which will be available in th
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><em>custom var</em></td>
+<tr class="row-even"><td><em>custom var</em></td>
 <td>Defined by user in Ghost App</td>
+<td>✔</td>
+<td>✔</td>
 <td>✔</td>
 <td>✔</td>
 <td>✔</td>
@@ -433,7 +479,7 @@ And it’s now possible to define custom variables which will be available in th
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.08.1',
+            VERSION:'Release 17.09',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

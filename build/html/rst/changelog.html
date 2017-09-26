@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.08.1 documentation</title>
+  <title>Changelog &mdash; Claranet Cloud Deploy Release 17.09 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.08.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.09 documentation" href="../index.html"/>
         <link rel="prev" title="Feature matrix comparison" href="matrix.html"/>
 
 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                17.08.1
+                17.09
               </div>
             
           
@@ -105,6 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-17-09">Ghost 17.09</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-08-1">Ghost 17.08.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-08">Ghost 17.08</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ghost-17-07">Ghost 17.07</a></li>
@@ -199,6 +200,52 @@
   <div class="section" id="ghost-changelog">
 <span id="changelog"></span><h1>Ghost Changelog<a class="headerlink" href="#ghost-changelog" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="ghost-17-09">
+<h2>Ghost 17.09<a class="headerlink" href="#ghost-17-09" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>WebUI</dt>
+<dd><ul class="first last">
+<li>[GHOST-472] - [UI] Fix - Delete Optional Volume button doesn’t work on first item</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Core/API</dt>
+<dd><ul class="first last">
+<li>[GHOST-459] - [BlueGreen] - Blue/Green properly handle managed LoadBalancers</li>
+<li>[GHOST-465] - [BlueGreen] - Add pre and post swap BlueGreen hooks</li>
+<li>[GHOST-453] - Add option to create and attach additional EBS volumes during <code class="docutils literal"><span class="pre">buildimage</span></code> with packer</li>
+<li>[GHOST-445] - Use our own git lock system to avoid concurrent access on local git mirrors</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Improvements &amp; Bug fixes</dt>
+<dd><ul class="first last">
+<li>[GHOST-466] - <code class="docutils literal"><span class="pre">/etc/hosts</span></code> modifications by stage2 are rewritten on reboot on some Debian Jessie instances</li>
+<li>[GHOST-470] - [CI] - Improve BitBucket pipeline performance</li>
+<li>[GHOST-471] - [BlueGreen] - LoadBalancer Health check is not restored in case of error or roll back during swap</li>
+<li>[GHOST-478] - [API] - Fixing IAM <code class="docutils literal"><span class="pre">instance_profile</span></code> name length range</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Documentation</dt>
+<dd><ul class="first last">
+<li>[GHOST-459] - [BlueGreen] - New option introduced: creates the temporary LoadBalancer when triggering <code class="docutils literal"><span class="pre">preparebluegreen</span></code></li>
+<li>[GHOST-465] - [BlueGreen] - Current active color is now an environment available variable</li>
+<li>[GHOST-465] - [BlueGreen] - <code class="docutils literal"><span class="pre">swapbluegreen</span></code> detailed diagram flow</li>
+<li>[GHOST-464] - Some documentation improvements</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="ghost-17-08-1">
 <h2>Ghost 17.08.1<a class="headerlink" href="#ghost-17-08-1" title="Permalink to this headline">¶</a></h2>
@@ -1231,7 +1278,7 @@ Plus d’informations sur la documentation: <a class="reference external" href="
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.08.1',
+            VERSION:'Release 17.09',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
