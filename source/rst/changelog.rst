@@ -8,6 +8,23 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.09.1
+-------------
+
+* WebUI
+    - [GHOST-500] - [UI] Parse deployments timestamp as Date (``RFC1123_DATE_FORMAT`` format)
+    - [GHOST-482] - [UI] Allow to copy code in modal windows
+    - [GHOST-473] - [UI] Optional Volume Device Name App field's documentation does not match API
+
+* Core/API
+    - [GHOST-477] - Add link to job in email notification
+    - [GHOST-496] - Ensure git mirror locks are released in case of failure
+
+* Improvements & Bug fixes
+    - [GHOST-481] - Stage1 Bootstrap enhancement
+    - [GHOST-475] - Cleanup Stage2 and remove Salt dependency
+    - [GHOST-494] - Remove Ansible provisioner Bootstrap (no longer needed with Ansible remote execution)
+
 Ghost 17.09
 -----------
 * WebUI
