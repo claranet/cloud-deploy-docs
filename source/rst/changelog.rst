@@ -8,6 +8,24 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.10
+-----------
+
+* CLI
+    - [GHOST-492] - [Casper] Overall CLI upgrade and refactoring (Please check :ref:`CLI section <cli>` for more information)
+
+* Core/API
+    - [GHOST-514] - Ansible provisioner: debug level option (log verbosity when using ``buildimage`` command)
+    - [GHOST-520] - Update AWS EC2 Instance type list with new C5, P3, F1 and X1E
+
+* Improvements & Bug fixes
+    - [GHOST-483] - [API] Unable to enable BlueGreen on some old application
+    - [GHOST-508] - Can't use default xvda as default root device with AWS Debian Strech AMI
+
+* System update
+    - [GHOST-485] - [Upgrade Ansible Role] Restart supervisor service instead of reload
+    - [GHOST-514] - Ansible provisioner: debug level parameter available when deploying Ghost upgrade
+
 Ghost 17.09.1
 -------------
 
