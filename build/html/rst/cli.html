@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Casper: CLI client &mdash; Claranet Cloud Deploy Release 17.09.1 documentation</title>
+  <title>Casper: CLI client &mdash; Claranet Cloud Deploy Release 17.10 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.09.1 documentation" href="../index.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.10 documentation" href="../index.html"/>
         <link rel="next" title="Blue/Green Deployment" href="bluegreen.html"/>
         <link rel="prev" title="Web User Interface" href="ui.html"/>
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                17.09.1
+                17.10
               </div>
             
           
@@ -103,9 +103,9 @@
 <li class="toctree-l1"><a class="reference internal" href="bestpractices.html">Ghost Best Practices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Casper: CLI client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
@@ -178,16 +178,40 @@
 <span id="cli"></span><h1>Casper: CLI client<a class="headerlink" href="#casper-cli-client" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>intro</p>
+<p>Casper is a command line tool that interacts with Cloud Deploy (Ghost project).</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>With <a class="reference external" href="https://pip.pypa.io">pip</a> (in a <a class="reference external" href="https://virtualenv.pypa.io">virtualenv</a> or not)</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>pip install git+ssh://bitbucket.org/morea/casper
+</pre></div>
+</div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>Usage</p>
+<p>Usage documentation is embedded in command.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>casper --help
+</pre></div>
 </div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Location and credentials to access the Cloud Deploy instance are prompted if needed.</p>
+<p>Configuration details can also be specified in a <code class="docutils literal"><span class="pre">.casper</span></code> configuration file.
+The command will look for this file in the current directory and the user home directory, in this order.
+Also, the configuration file can be specified with the <code class="docutils literal"><span class="pre">--config-file</span></code> option.</p>
+<p>The configuration file can contain many profiles, the default one is named <code class="docutils literal"><span class="pre">default</span></code> and is mandatory. The profile can be chosen with the <code class="docutils literal"><span class="pre">--profile</span></code> option.</p>
+<p>Here is an example of a configuration file.</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[default]</span>
+<span class="na">endpoint</span><span class="o">=</span><span class="s">https://my_instance.cloudeploy.io</span>
+<span class="na">username</span><span class="o">=</span><span class="s">casper</span>
+
+<span class="k">[customer_x]</span>
+<span class="na">endpoint</span><span class="o">=</span><span class="s">https://customer-x.cloudeploy.io</span>
+<span class="na">username</span><span class="o">=</span><span class="s">casper</span>
+<span class="na">password</span><span class="o">=</span><span class="s">XXXXXX</span>
+</pre></div>
+</div>
+<p>Any missing information for a profile will be prompted.</p>
 </div>
 </div>
 
@@ -235,7 +259,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'Release 17.09.1',
+            VERSION:'Release 17.10',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
