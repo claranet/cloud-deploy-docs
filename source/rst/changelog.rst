@@ -8,6 +8,16 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.11
+-----------
+
+* Global
+    - [GHOST-73] - *New optional feature*: ``buildpack`` in a secure isolated environment (a container).
+        An LXC image is now built at ``buildimage`` and when deploying, the ``buildpack`` step is launched in an isolated LXC container (based on the generated image).
+        Please check :ref:`LXC/LXD build section <container>` for more information
+
+.. warning:: Using the container feature with LXC/LXD requires to have an up-to-date Ghost instance OS (Debian 9+ or Ubuntu 16+).
+
 Ghost 17.10
 -----------
 
