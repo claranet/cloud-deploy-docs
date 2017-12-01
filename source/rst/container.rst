@@ -51,9 +51,14 @@ How to enable buildpack in container
 
 **System requirements**
 
-1. LXD installed.
-2. LXD daemon run with ``lxd`` group.
-3. ``ghost`` user added to the ``lxd`` group.
+1. Ghost installed on :
+
+    * Debian >= 9 (Stretch) to install lxd with snapd because lxd is not available on debian natively
+    * Ubuntu >= 16.04 LTS (The Xenial Xerus) to install lxd on stable canonical system 
+
+2. LXD installed via apt on Ubuntu and snapd on Debian.
+3. LXD daemon run with ``lxd`` group.
+4. ``ghost`` user added to the ``lxd`` group.
 
 **Configuration**
 
