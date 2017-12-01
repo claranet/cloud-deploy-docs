@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Claranet Cloud Deploy (Ghost project) documentation! &mdash; Claranet Cloud Deploy Release 17.10 documentation</title>
+  <title>Welcome to Claranet Cloud Deploy (Ghost project) documentation! &mdash; Claranet Cloud Deploy Release 17.11 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Claranet Cloud Deploy Release 17.10 documentation" href="#"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.11 documentation" href="#"/>
         <link rel="next" title="Quick Start" href="rst/quick-start.html"/>
 
 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                17.10
+                17.11
               </div>
             
           
@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="rst/ui.html">Web User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/cli.html">Casper: CLI client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/bluegreen.html">Blue/Green Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst/container.html">Deployment With Buildpack Execution in Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/matrix.html">Feature matrix comparison</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rst/changelog.html">Ghost Changelog</a></li>
 </ul>
@@ -238,10 +239,17 @@
 <li class="toctree-l2"><a class="reference internal" href="rst/bluegreen.html#how-to-activate-blue-green-in-ghost-with-a-production-application">How to activate Blue/green in GHOST with a production application</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rst/container.html">Deployment With Buildpack Execution in Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/container.html#concept">Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/container.html#why-do-we-need-to-isolate-that-build">Why do we need to isolate that build?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst/container.html#how-to-enable-buildpack-in-container">How to enable buildpack in container</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rst/matrix.html">Feature matrix comparison</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rst/changelog.html">Ghost Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-11">Ghost 17.11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-10">Ghost 17.10</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-09-1">Ghost 17.09.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rst/changelog.html#ghost-17-09">Ghost 17.09</a></li>
@@ -319,7 +327,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'Release 17.10',
+            VERSION:'Release 17.11',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deployment With Buildpack Execution in Container &mdash; Claranet Cloud Deploy Release 17.11 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/ghost-doc.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Claranet Cloud Deploy Release 17.11 documentation" href="../index.html"/>
+        <link rel="next" title="Feature matrix comparison" href="matrix.html"/>
+        <link rel="prev" title="Blue/Green Deployment" href="bluegreen.html"/>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Claranet Cloud Deploy
+          
+
+          
+            
+            <img src="../_static/logo_cloud_deploy.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                17.11
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Ghost Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Ghost API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Cloud Deploy Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Ghost Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bestpractices.html">Ghost Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ui.html">Web User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Casper: CLI client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluegreen.html">Blue/Green Deployment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deployment With Buildpack Execution in Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#concept">Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-do-we-need-to-isolate-that-build">Why do we need to isolate that build?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-enable-buildpack-in-container">How to enable buildpack in container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Feature matrix comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Ghost Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Claranet Cloud Deploy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Deployment With Buildpack Execution in Container</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rst/container.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deployment-with-buildpack-execution-in-container">
+<span id="container"></span><h1>Deployment With Buildpack Execution in Container<a class="headerlink" href="#deployment-with-buildpack-execution-in-container" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="concept">
+<h2>Concept<a class="headerlink" href="#concept" title="Permalink to this headline">¶</a></h2>
+<p>Before introducing this concept, the understanding of the buildpack step of the deployment workflow is required: cf <a class="reference internal" href="scripts.html#scripts"><span class="std std-ref">Ghost Scripts</span></a> page.</p>
+<p>The buildpack deployment in a container isolates the module deployment artifact building phase from the local system.</p>
+</div>
+<div class="section" id="why-do-we-need-to-isolate-that-build">
+<h2>Why do we need to isolate that build?<a class="headerlink" href="#why-do-we-need-to-isolate-that-build" title="Permalink to this headline">¶</a></h2>
+<p>Applications have thirdparty dependencies requirements: for example Ghost depends on a list of python modules which are defined in <code class="docutils literal"><span class="pre">requirements.txt</span></code>.</p>
+<p>We execute this build in a container to prevent any conflict between the local system and build environments.</p>
+<p>To do that, we have added steps in the initial deployment workflow.</p>
+<p><strong>Ghost additional workflow steps</strong></p>
+<p><strong>Build image</strong></p>
+<ol class="arabic simple">
+<li>When the <code class="docutils literal"><span class="pre">buildimage</span></code> of an AWS AMI is completed, an LXC container is launched, selected by its <code class="docutils literal"><span class="pre">OS</span> <span class="pre">type</span></code> and <code class="docutils literal"><span class="pre">OS</span> <span class="pre">family</span></code>.</li>
+<li>In that container, the <code class="docutils literal"><span class="pre">features</span></code> formulas and <code class="docutils literal"><span class="pre">post/pre</span> <span class="pre">buildimage</span></code> lifecycle hooks are applied.</li>
+<li>When those steps are completed in the container, an image is taken and is stored in the local registry, aliased with the corresponding job ID.</li>
+<li>This alias is then stored in the Ghost application to use it as a reference container for future deployments.</li>
+<li>The container is destroyed.</li>
+</ol>
+<p>Note: Container image retention is matched to AMI retention, i.e. each AWS AMI has its corresponding LXC image.</p>
+<p><strong>Deployment</strong></p>
+<ol class="arabic simple">
+<li>Set a buildpack script in the Ghost application’s module.</li>
+<li>If the buildpack is set, a container is launched from the image in the local registry selected by its alias (i.e. the last successful buildimage job ID).</li>
+<li>A container profile is created, and the module’s path is mounted inside it.</li>
+<li>The buildpack script is executed inside the container.</li>
+<li>The container is destroyed.</li>
+</ol>
+</div>
+<div class="section" id="how-to-enable-buildpack-in-container">
+<h2>How to enable buildpack in container<a class="headerlink" href="#how-to-enable-buildpack-in-container" title="Permalink to this headline">¶</a></h2>
+<p><strong>System requirements</strong></p>
+<ol class="arabic">
+<li><p class="first">Ghost installed on :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Debian &gt;= 9 (Stretch) to install lxd with snapd because lxd is not available on debian natively</li>
+<li>Ubuntu &gt;= 16.04 LTS (The Xenial Xerus) to install lxd on stable canonical system</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">LXD installed via apt on Ubuntu and snapd on Debian.</p>
+</li>
+<li><p class="first">LXD daemon run with <code class="docutils literal"><span class="pre">lxd</span></code> group.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">ghost</span></code> user added to the <code class="docutils literal"><span class="pre">lxd</span></code> group.</p>
+</li>
+</ol>
+<p><strong>Configuration</strong></p>
+<ol class="arabic simple">
+<li>A container needs to be selected in the Build Infos section of the Ghost application.</li>
+<li><code class="docutils literal"><span class="pre">container_debug</span></code> can be enabled in <code class="docutils literal"><span class="pre">config.yml</span></code> to understand what’s happening under the hood during <code class="docutils literal"><span class="pre">buildimage</span></code> and <code class="docutils literal"><span class="pre">deployment</span></code> steps (containers are not terminated).</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="matrix.html" class="btn btn-neutral float-right" title="Feature matrix comparison" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bluegreen.html" class="btn btn-neutral" title="Blue/Green Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Claranet Cloud Practice.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Release 17.11',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
