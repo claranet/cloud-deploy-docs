@@ -8,6 +8,17 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+
+Ghost 17.11.1
+-------------
+
+* Core/API
+    - [GHOST-520] - Update AWS EC2 Instance type list with new M5, H1 and X1E types
+    - [GHOST-474] - Update packer from 0.12.2 to 1.1.2
+
+* Improvements & Bug fixes
+    - [GHOST-220] - Requirements dependencies update (pip packages)
+
 Ghost 17.11
 -----------
 
