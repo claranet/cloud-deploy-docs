@@ -8,6 +8,16 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 17.12
+-----------
+
+* WebUI
+    - [GHOST-63] Feature - Ansible Role dynamic parameters and SaltStack formula list from Inventory JSON Schema
+        UI form is based on the schema declared for each Ansible role and displays an appropriate input for each available role parameter (Ansible variable).
+
+* Core/API
+    - [GHOST-63] Feature - Ansible Role dynamic parameters
+        All Ansible Role parameters can now be a generic object passed to the API (Serialized by the Web UI) and used when baking images via the ``buildimage`` command.
 
 Ghost 17.11.1
 -------------
