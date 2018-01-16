@@ -8,8 +8,8 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
-Ghost 17.12
------------
+Ghost 17.12.1
+-------------
 
 * WebUI
     - [GHOST-63] Feature - Ansible Role dynamic parameters and SaltStack formula list from Inventory JSON Schema
