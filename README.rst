@@ -1,15 +1,15 @@
 .. title:README file
 
+Claranet Cloud Deploy documentation
+===================================
 
-Read the doc
-------------
+Read the documentation
+----------------------
 
-    * git clone
+HTML built version is available online at https://docs.cloud-deploy.io/
 
-    * open ``REPO PATH``/build/html/index.html in browser.
-
-Edit page
----------
+Edit the documentation
+----------------------
 
 ReST syntax
 ___________
@@ -22,19 +22,16 @@ Install *sphinx*::
     source sphinx/bin/activate
     pip install -r requirements.txt
 
-Edit the targeted file from ``source/rst/``::
+Edit the targeted source file from ``source/rst/``::
 
     vim source/rst/api.rst
 
-Follow sphinx documentation `online`_ or from your locally by installing the
-following package::
-
-    sudo apt-get install sphinx-doc
+Follow sphinx documentation `online`_.
 
 .. _online: http://www.sphinx-doc.org/en/stable/contents.html
 
 
-Generate new doc::
+Generate new doc locally::
 
     make html
 
@@ -43,16 +40,3 @@ Generate Epub::
     make html epub
 
 You can read the generated doc from ``build/html/index.html``.
-
-Edit from other format
-______________________
-
-Just write your doc in the any text format and mail it to Zied. He will convert 
-it into ReST.
-
-Create new page
----------------
-::
-
-    TODO
-
