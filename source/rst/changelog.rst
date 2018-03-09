@@ -8,6 +8,25 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 18.02
+-----------
+
+* Global
+    - [GHOST-544, GHOST-545, GHOST-548] - Global repository revamp
+        - CORE/API code ready to be published in public
+        - Web UI still under proprietary license, available only for Claranet customers
+        - Submodules updates to use public git repositories
+
+* Core/API
+    - [GHOST-543] - Disable SSH known_hosts check in Fabric
+
+* Improvements & Bug fixes
+    - [Hotfix GHOST-73] - Fix ``execute_module_script_on_ghost`` function call on redeploy command
+    - [GHOST-518] - Allow to disable tar warning if file timestamps are in the future during extraction
+
+* System update
+    - [GHOST-578] - [Role update] Update setuptools version in virtualenv, needed for old Debian instances
+
 Ghost 17.12.1
 -------------
 
