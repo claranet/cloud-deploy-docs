@@ -8,6 +8,36 @@ Ghost Changelog
 .. toctree::
     :maxdepth: 2
 
+Ghost 18.03
+-----------
+
+* Global
+    - [GHOST-587] - ``ghost-doc`` CI - Bitbucket Pipeline
+    - [GHOST-593] - Update dependencies
+    - [GHOST-594] - Update AWS EC2 instance types
+    - [GHOST-595] - Update documentation changelog
+
+* WebUI
+    - [GHOST-604] - UI exception when LXD endpoint is down, better check on LXD endpoints
+    - [GHOST-532] - trim the ``path`` parameters of a module
+
+* Core/API
+    - [GHOST-586] - Trigger a ``git prune`` on local mirrors to cleanup bad git objects
+    - [GHOST-519] - More options for Packer instances, uses private SSH connection and a custom SecurityGroup
+    - [GHOST-564] - Too many open files when deploying, trigger ``git gc`` on local mirrors
+    - [GHOST-606] - Fix API exception on /lxd/images path
+    - [GHOST-607] - Fix local permissions of previous deployment workspace
+    - [GHOST-553] - [api] Refactor 422 (wrong user input) error codes and give more explicit messages
+
+* Improvements & Bug fixes
+    - [GHOST-534] - No job log sent to S3 when notification email fails
+    - [GHOST-540] - ``buildimage`` fails if an environment variable has no value
+    - [GHOST-542] - Fix an error at deploy related to blue/green options
+
+* System update
+    - [GHOST-541] - [ghost update] Remove ghost version from role, version need to be specified
+    - [GHOST-558] - [ghost update] Build documentation when deploying and remove artefacts from git
+
 Ghost 18.02
 -----------
 
