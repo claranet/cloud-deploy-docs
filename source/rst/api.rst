@@ -6,10 +6,10 @@
 
 .. _api:
 
-Ghost API
-=========
+API
+===
 
-Ghost's API is RESTful:
+Cloud Deploy (Ghost) API is RESTful:
 
 .. figure:: /images/ghost_rest_api.png
 
@@ -21,3 +21,8 @@ OpenAPI Specification
 .. rst-class:: swagger-ui-link
 
 `View in ReDoc UI </docs/_static/api.html>`_
+
+.. toctree::
+    :maxdepth: 2
+
+    resources

@@ -7,7 +7,6 @@ Table of Contents:
     :maxdepth: 2
 
     rst/quick-start
-    rst/resources
     rst/api
     rst/commands
     rst/scripts
