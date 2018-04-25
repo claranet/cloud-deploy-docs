@@ -1,14 +1,20 @@
 Quick Start
 ===========
 
+- Documentation: `https://docs.cloud-deploy.io/ <https://docs.cloud-deploy.io/>`_
+- Related repositories: `Claranet Github <https://github.com/claranet?utf8=%E2%9C%93&q=cloud-deploy&type=&language=>`_
+- Cloud Deploy CLI: `Casper <https://github.com/claranet/casper>`_
+
+.. figure:: https://www.cloudeploy.io/ghost/full_logo.png
+
 Introduction
 ------------
 
-Ghost aims to deploy applications in the Cloud, in a secure and reliable way. 
-Actual version support only AWS.
+Cloud Deploy (Ghost Project) aims to deploy applications in the Cloud, in a secure and reliable way.
+Current version supports only AWS.
 
-Ghost Features
-______________
+Key Features:
+_____________
 
   * Developed in Python.
 
@@ -16,21 +22,19 @@ ______________
 
   * Create, configure and update AWS EC2 instances.
 
-  * Used to deploy client application code
+  * Used to deploy customer application code.
 
-  * Ghost core build within a REST API that any REST client could use it
+  * Cloud Deploy core is built with a REST API that any REST client can use.
 
-  * A :ref:`ui`
+  * A :ref:`ui`, available only for Claranet customers or with Enterprise license.
 
   * A :ref:`cli`
-
-The Ghost API is the core of this tool. Different elements compose this API
 
 
 Application
 -----------
 
-Its the client code and all the requirements to set up on the instance.
+It's the client code and all the requirements to set up on the instance.
 Working in separate environments is one of major feature. Each ``application``
 is identified by it's **name**, **env** and **role**.
 
@@ -69,7 +73,7 @@ For each command, you can view the logs in real time.
 For more information, please refer to :ref:`job` page.
 
 Commands
-_________
+________
 
   * ``Deploy``: To make a new deployment of an application module.
 
