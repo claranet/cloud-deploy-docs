@@ -9,10 +9,7 @@ Table of Contents:
     rst/quick-start
     rst/api
     rst/commands
-    rst/scripts
-    rst/bestpractices
-    rst/bluegreen
-    rst/container
+    rst/tutorials
     rst/matrix
     rst/cli
     rst/ui

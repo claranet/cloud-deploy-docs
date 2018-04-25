@@ -1,6 +1,6 @@
 .. _bestpratices:
 
-Ghost Best Practices
+Usage best practices
 ====================
 
 .. toctree::
@@ -10,7 +10,7 @@ Ghost Best Practices
 Introduction
 ------------
 
-This documentation aims to provide data about what can be done with Ghost scripts.
+This documentation aims to provide data about what can be done with Cloud Deploy scripts.
 In complement, please refer to the :ref:`commands` documentation.
 
 
@@ -24,8 +24,8 @@ By example, this shebang will run the script with python program (if python is i
 
   #!/bin/python
 
-By default, Ghost will check the exit status of the entire script. If the exit status is equal to 0, the Ghost job status is ``success``. For others status, it will be ``failed`` status.
-If your script language is bash, it is recommended to add a ``set -e`` command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Ghost job.
+By default, Cloud Deploy will check the exit status of the entire script. If the exit status is equal to 0, the Cloud Deploy job status is ``success``. For others status, it will be ``failed`` status.
+If your script language is bash, it is recommended to add a ``set -e`` command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Cloud Deploy job.
 
 Buildpack
 ---------
@@ -34,7 +34,7 @@ Buildpack overview
 ******************
 
 The first buildpack step is to clone the git repository in a local directory before any upload on each host.
-Please note that the ``git clone`` step is programmatically executed by Ghost, no need to write it in any user script.
+Please note that the ``git clone`` step is programmatically executed by Cloud Deploy, no need to write it in any user script.
 The buildpack user script begins just after the ``git clone`` step.
 The current directory will be set to the root of the git cloned repository.
 
@@ -47,7 +47,7 @@ After the buildpack script execution, the application directory will be compress
 Buildpack script prerequisites
 ******************************
 
-This script is executed once on the Ghost instance during each deployment so any non local installation will be lost by the compression operation.
+This script is executed once on the Cloud Deploy instance during each deployment so any non local installation will be lost by the compression operation.
 For example, global packages installation, like apt or yum packages won't be kept whereas local composer, pip, npm, gem installations will be kept in the archive.
 Use this script to execute all commands that have a high execution cost and any external calls.
 
@@ -74,9 +74,9 @@ Pre-deploy overview
 *******************
 
 The pre-deploy step copies the application directory modified by the buildpack script on each deployed hosts.
-Copy and extraction step are programmatically executed by Ghost, no need to write them in any user script.
+Copy and extraction step are programmatically executed by Cloud Deploy, no need to write them in any user script.
 The pre-deploy user script begins just after the extraction step.
-During pre-deploy, the soon-to-be-deployed sources are in a /ghost/ subdirectory which will be symlinked to the target directory at the deploy step.
+During pre-deploy, the soon-to-be-deployed sources are in a ``/ghost/`` subdirectory which will be symlinked to the target directory at the deploy step.
 The current directory will be set to the root directory of the extracted copied directory.
 
 Pre-deploy script overview
@@ -122,7 +122,7 @@ Post-deploy script overview
 The post-deploy script aims to activate the new sources.
 It will be executed locally on each hosts.
 Most scripts consist in service reloading/restarting.
-The post-deploy execution working directory is the Ghost application target directory.
+The post-deploy execution working directory is the Cloud Deploy application target directory.
 
 Post-deploy requirements
 ************************
@@ -147,13 +147,13 @@ After all deploy
 After all deploy overview
 *************************
 
-The After All Deploy script step is executed on the Ghost instance after execution of all pre and post deploy scripts.
+The After All Deploy script step is executed on the Cloud Deploy instance after execution of all pre and post deploy scripts.
  
 After all deploy script overview
 ********************************
 
-The script is executed on the Ghost then you can add an action at the end of the module deployment that you have to execute once.
-Please keep in mind that your Ghost needs to have rights to do this action.
+The script is executed on the Cloud Deploy then you can add an action at the end of the module deployment that you have to execute once.
+Please keep in mind that your Cloud Deploy needs to have rights to do this action.
 
 After all deploy script prerequisites
 *************************************
@@ -179,7 +179,7 @@ Keep in mind
 ------------
 
 When the AutoScalingGroup scales up, starting instances will only execute pre and post-deploy scripts.
-BuildPack user script with costlier commands and external calls is only executed once on the Ghost instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
+BuildPack user script with costlier commands and external calls is only executed once on the Cloud Deploy instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
 As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.
 
 Scripts examples
