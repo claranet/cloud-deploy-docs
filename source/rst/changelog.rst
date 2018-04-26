@@ -8,6 +8,35 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v18.04
+-------------------
+
+* Global
+    - [GHOST-563] - Add a new ``description`` field to application, shown as tooltip in UI (app list)
+    - [GHOST-597] - Update dependencies (pip)
+    - [GHOST-598] - Update instance types
+    - [GHOST-599] - Update changelog
+
+* WebUI
+    - [GHOST-461] - Disable submit button while loading (ajax call) on command page, prevent from submitting incomplete HTML form.
+    - [GHOST-549] - Fix display bug on resource details (wrong label size)
+    - [GHOST-557] - Fix remote file inclusion vulnerability on websocket
+    - [GHOST-573] - Incomplete job display with some Latin/ISO characters
+    - [GHOST-559] - Enable header layout templating for instance distinction: background image, menu color or custom logo
+
+* Core/API
+    - [GHOST-613] - Replace deprecated Packer ``ssh_private_ip`` option, requires Packer > ``v1.2.0``
+    - [GHOST-577] - Add new AWS region ``eu-west-3`` (Paris) support
+    - [GHPST-629] - [API] - Disable ``replace`` CRUD method (``PATCH verb``) in Eve
+
+* Improvements & Bug fixes
+    - [GHOST-615] - Fix - Command deploy crashes when ``safe_deployment`` isn't defined
+    - [GHOST-622] - Job exception when ``log_notifications`` is not defined
+
+* System update
+    - [GHOST-559] - Deployment of specific ```config.yml`` for UI
+    - [GHOST-577] - Upgrade to Packer ``v1.2.1``
+
 Cloud Deploy v18.03
 -------------------
 
