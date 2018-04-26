@@ -1,14 +1,12 @@
 .. _resources:
 
-.. title:: Resources
+.. title:: API Model
 
-Ghost Resources
-===============
+API Model
+=========
 
 .. toctree::
     :maxdepth: 1
 
     application
     job
-
-

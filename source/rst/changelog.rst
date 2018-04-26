@@ -2,14 +2,14 @@
 
 .. title:: Changelog
 
-Ghost Changelog
-===============
+Release Changelog
+=================
 
 .. toctree::
     :maxdepth: 2
 
-Ghost 18.03
------------
+Cloud Deploy v18.03
+-------------------
 
 * Global
     - [GHOST-587] - ``ghost-doc`` CI - Bitbucket Pipeline
@@ -38,8 +38,8 @@ Ghost 18.03
     - [GHOST-541] - [ghost update] Remove ghost version from role, version need to be specified
     - [GHOST-558] - [ghost update] Build documentation when deploying and remove artefacts from git
 
-Ghost 18.02
------------
+Cloud Deploy v18.02
+-------------------
 
 * Global
     - [GHOST-544, GHOST-545, GHOST-548] - Global repository revamp

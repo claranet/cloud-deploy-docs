@@ -7,14 +7,10 @@ Table of Contents:
     :maxdepth: 2
 
     rst/quick-start
-    rst/resources
     rst/api
     rst/commands
-    rst/scripts
-    rst/bestpractices
-    rst/ui
-    rst/cli
-    rst/bluegreen
-    rst/container
+    rst/tutorials
     rst/matrix
+    rst/cli
+    rst/ui
     rst/changelog
