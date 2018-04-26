@@ -20,12 +20,13 @@ General guidance
 Each script is running on Unix systems. If a shebang is present on the top of your script, it will be run with the specified interpreter program.
 By example, this shebang will run the script with python program (if python is installed):
 
-.. code-block:: none
+.. code-block:: sh
 
   #!/bin/python
 
-By default, Cloud Deploy will check the exit status of the entire script. If the exit status is equal to 0, the Cloud Deploy job status is ``success``. For others status, it will be ``failed`` status.
-If your script language is bash, it is recommended to add a ``set -e`` command on the top of your script to cancel the script execution on exit status different of 0 and return a failed status to the Cloud Deploy job.
+By default, Cloud Deploy will check the exit status of the entire script.
+If the exit code is equal to 0, the Cloud Deploy status of the job is ``success``, any other codes will result as a ``failed`` status for the job.
+If your script language is bash/shell, it is recommended to add a ``set -e`` command on the top of your script to cancel the script execution on exit status different than zero and return a failed status to the Cloud Deploy job.
 
 Buildpack
 ---------
@@ -34,7 +35,7 @@ Buildpack overview
 ******************
 
 The first buildpack step is to clone the git repository in a local directory before any upload on each host.
-Please note that the ``git clone`` step is programmatically executed by Cloud Deploy, no need to write it in any user script.
+Please note that the ``git clone`` step is automatically executed by Cloud Deploy, no need to write it in any user script.
 The buildpack user script begins just after the ``git clone`` step.
 The current directory will be set to the root of the git cloned repository.
 
@@ -74,7 +75,7 @@ Pre-deploy overview
 *******************
 
 The pre-deploy step copies the application directory modified by the buildpack script on each deployed hosts.
-Copy and extraction step are programmatically executed by Cloud Deploy, no need to write them in any user script.
+Copy and extraction steps are automatically executed by Cloud Deploy, no need to write them in any user script.
 The pre-deploy user script begins just after the extraction step.
 During pre-deploy, the soon-to-be-deployed sources are in a ``/ghost/`` subdirectory which will be symlinked to the target directory at the deploy step.
 The current directory will be set to the root directory of the extracted copied directory.
@@ -84,8 +85,8 @@ Pre-deploy script overview
 
 The pre-deploy script is used to do every mandatory operations before the symbolic link creation.
 It will be executed locally on each host.
-During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed sources are in another directory.
-After the pre-deploy script execution, the target symlink is changed to point to the new copy directory, the new sources are ready to run.
+During the pre-deploy script execution, the previous code is still operational, the soon-to-be-deployed source files are in another directory.
+After the pre-deploy script execution, the symlink target is changed to the new directory, the new source files are ready to run.
 
 Pre-deploy requirements
 ***********************
@@ -121,7 +122,7 @@ Post-deploy script overview
 
 The post-deploy script aims to activate the new sources.
 It will be executed locally on each hosts.
-Most scripts consist in service reloading/restarting.
+Usually, scripts are about service reloading/restarting.
 The post-deploy execution working directory is the Cloud Deploy application target directory.
 
 Post-deploy requirements
@@ -147,13 +148,13 @@ After all deploy
 After all deploy overview
 *************************
 
-The After All Deploy script step is executed on the Cloud Deploy instance after execution of all pre and post deploy scripts.
+The ``after all deploy`` script step is executed on the Cloud Deploy instance after execution of all pre and post deploy scripts.
  
 After all deploy script overview
 ********************************
 
-The script is executed on the Cloud Deploy then you can add an action at the end of the module deployment that you have to execute once.
-Please keep in mind that your Cloud Deploy needs to have rights to do this action.
+The script is executed on the Cloud Deploy instance, it allows you to perform an action at the end of the module deployment.
+Please keep in mind that your Cloud Deploy instance needs to have rights to do this action.
 
 After all deploy script prerequisites
 *************************************
@@ -179,7 +180,8 @@ Keep in mind
 ------------
 
 When the AutoScalingGroup scales up, starting instances will only execute pre and post-deploy scripts.
-BuildPack user script with costlier commands and external calls is only executed once on the Cloud Deploy instance to reduce risks of inconsistency between host deployments and permit faster new instance bootstrapping on autoscale up.
+BuildPack user script, due to it costlier commands and external calls, is executed only once on the Cloud Deploy instance.
+This reduce the risk of inconsistency between host deployments and also reduce the bootstrapping time of new instances during a scale up.
 As external networking could be restricted or unavailable on deployed hosts, it is strongly advised against to use external network to install of download during pre-deploy or post-deploy user scripts.
 
 Scripts examples

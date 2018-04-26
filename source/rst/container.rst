@@ -53,10 +53,10 @@ How to enable buildpack in container
 
 1. Cloud Deploy installed on:
 
-    * Debian >= 9 (Stretch) to install lxd with snapd because lxd is not available on debian natively
-    * Ubuntu >= 16.04 LTS (The Xenial Xerus) to install lxd on stable canonical system 
+    * Debian >= 9 (Stretch) to install LXD with snapd because LXD is not available on debian natively
+    * Ubuntu >= 16.04 LTS (The Xenial Xerus) to install LXD on stable canonical system
 
-2. LXD installed via apt on Ubuntu and snapd on Debian.
+2. LXD installed via ``apt`` on Ubuntu or via ``snapd`` on Debian.
 3. LXD daemon run with ``lxd`` group.
 4. ``ghost`` user added to the ``lxd`` group.
 

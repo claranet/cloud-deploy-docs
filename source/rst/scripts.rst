@@ -9,12 +9,12 @@ Scripts (Hooks)
 Scripts
 -------
 
-Cloud Deploy enables you to launch custom scripts at every steps of the deployment and build process (bake image template).
+Cloud Deploy allows you to launch custom scripts at every steps of the deployment and build process (bake image template).
 Here is an overview and a description of thoses scripts.
 
-    - **pre_buildimage**: Script executed in the `buildimage` command before formulas provisioning. It allows you to prepare the source AMI before the execution of all of your application's features formulas. It can be usefull in order to change package's mirrors location for example.
+    - **pre_buildimage**: Script executed in the `buildimage` command before feature receipes provisioning. It allows you to prepare the source AMI before the execution of all of your application's features receipes. It can be usefull in order to change package's mirrors location for example.
 
-    - **post_buildimage**: Script executed in the `buildimage` command after formulas provisioning. You can tweak and install custom system packages after the features provisioning.
+    - **post_buildimage**: Script executed in the `buildimage` command after feature receipes provisioning. You can tweak and install custom system packages after the features provisioning.
 
     .. figure:: /images/buildimage_workflow.png
 
@@ -24,13 +24,13 @@ Here is an overview and a description of thoses scripts.
 
     .. figure:: /images/bootstrap_workflow.png
 
-    - **buildpack**: Script executed on Cloud Deploy when deploying a new version of a module (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependencies required by the application **must** be resolved in this script.
+    - **buildpack**: Script executed on Cloud Deploy when deploying a new module version (new package). This script will prepare the git repository before making the archive package which will be pushed on S3. Every external dependencies required by the application **must** be resolved in this script.
 
     - **pre_deploy**: Script executed on every instance when deploying a module package. This script will prepare the target instance *before* symbolic link swap. This script **must not** depend on external resources (no internet call, no package install, no downloads).
 
     - **post_deploy**: Script executed on every instance when deploying a module package. This script will prepare the target instance *after* symbolic link swap. This script **must not** depend on external resources (no internet call, no package install, no downloads).
 
-    - **after_all_deploy**: Script executed on Cloud Deploy when deploying a new version of a module (new package). This script is executed after the package deployment on every instance of the current application.
+    - **after_all_deploy**: Script executed on Cloud Deploy when deploying a new module version (new package). This script is executed after the package deployment on every instance of the current application.
 
     .. figure:: /images/deploy_workflow.png
 
@@ -43,8 +43,8 @@ Here is an overview and a description of thoses scripts.
 Environment variables
 ---------------------
 
-When custom scripts and binaries are triggered in the Cloud Deploy deployment workflow, many variables are available in the environment to help you making generic scripts.
-It's also possible to define custom variables which will be configured within the Cloud Deploy server environment and therefore available when running scripts over instances.
+When custom scripts and binaries are triggered during the Cloud Deploy deployment workflow, many environment variables are available in order to help you make generic scripts.
+It's also possible to define custom variables which will be configured within the Cloud Deploy server environment and therefore, be available when running scripts over instances.
 
 +-----------------------------+---------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+----------------+------------+--------------+
 | Variables                   | Purpose                                     | pre_buildimage | post_buildimage | pre_bootstrap | post_bootstrap | buildpack | pre_deploy | post_deploy  | after_all_deploy | execute_script | pre_swap   | post_swap    |
@@ -75,4 +75,3 @@ It's also possible to define custom variables which will be configured within th
 +-----------------------------+---------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+----------------+------------+--------------+
 | *custom var*                | Defined by user in Cloud Deploy App         | ✔              | ✔               | ✔             | ✔              | ✔         | ✔          | ✔            | ✔                | ✔              | ✔          | ✔            |
 +-----------------------------+---------------------------------------------+----------------+-----------------+---------------+----------------+-----------+------------+--------------+------------------+----------------+------------+--------------+
-
