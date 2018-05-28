@@ -8,6 +8,34 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v18.05
+-------------------
+
+* WebUI
+    - [GHOST-573] - Fix job logs with special characters that weren't fully displayed (text encoding)
+    - [GHOST-294] - [UI] Add customizable shortcuts actions on home page
+    - [GHOST-567] - Display job duration in web UI
+    - [GHOST-626] - Display friendly region name in UI
+    - [GHOST-627] - Make env & role fields read only during edits
+    - [GHOST-634] - Move specific UI ``aws_data`` to ``web_ui/data``
+    - [GHOST-644] - Update AWS EC2 instance types
+
+* Core/API
+    - [GHOST-633] - Update app updates check function to fix incompatibility with terraform provider
+    - [GHOST-639] - Fix root block size issue when using both root and optional block devices, config update in command ``buildimage`` using ``Packer``
+    - [GHOST-632] - Expose Cloud Deploy (Ghost) version in API
+    - [GHOST-635] - Change error return code when app already exists (HTTP 409)
+    - [GHOST-608] - Make app name, env and role fields immutable
+
+* Improvements & Bug fixes
+    - [GHOST-600] - Error 500 on POST /apps if no modules
+    - [GHOST-493] - Improve ``stage2`` (bootstrap and deploy script) checks to avoid loop until timeout
+    - [GHOST-636] - [Core] Revamp git lock algorithm (prevent concurrent access errors)
+
+* Misc
+    - [GHOST-643] - Update pip dependencies
+    - [GHOST-641] - Update CI and use private Docker registry
+
 Cloud Deploy v18.04
 -------------------
 
