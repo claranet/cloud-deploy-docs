@@ -8,6 +8,26 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v18.05.1
+---------------------
+
+* WebUI
+    - [GHOST-495] - [UI] Display instance tags in app resources view, highlight invalid tags regarding the app configuration
+    - [GHOST-574] - [UI] Show if running instances for a specific app are not based on the current app AMI
+    - [GHOST-529] - [API/UI update for CLI] Live command logs 😎
+
+* Core/API
+    - [GHOST-638] - Send emails only for jobs in a specific state (only failed for example)
+    - [GHOST-523] - [API update for CLI] Allow to see/download command logs
+
+* Improvements & Bug fixes
+    - [GHOST-647] - [UI] Update feature details modal title
+    - [GHOST-649] - [UI] Update ``psutils.virtual_memory()`` return tuple (Hotfix, breaking change with psutils 5.4.4)
+
+* Misc
+    - [GHOST-648] - [CI] Split UI and Core pipeline/tests
+
+
 Cloud Deploy v18.05
 -------------------
 
