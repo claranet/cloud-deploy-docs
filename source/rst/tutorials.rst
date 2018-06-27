@@ -12,3 +12,4 @@ Tutorials and detailed workflows
     scripts
     bluegreen
     container
+    run

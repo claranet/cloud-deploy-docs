@@ -68,6 +68,8 @@ Buildpack script example
   vault # or any password manipulation, injected in application configuration
 
 
+.. _reco_pre_deploy:
+
 Pre-deploy
 ----------
 
@@ -107,6 +109,8 @@ Pre-deploy script example
   # update queues
   # prepare to stop the current running application or service
 
+
+.. _reco_post_deploy:
 
 Post-deploy
 -----------
