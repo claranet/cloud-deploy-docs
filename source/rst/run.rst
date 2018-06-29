@@ -15,7 +15,7 @@ There are two main cases you may have to debug on:
  - An error during a hot deployment (via the :ref:`cmd_deploy` command)
  - An error on a running instance, probably at first bootstrap
 
-This section details every tips you need to know and which may help you debug those kind of cases.
+This section details most of the tips you need to know and which may help you debug those kind of cases.
 
 Debug hot deployment
 --------------------
@@ -27,6 +27,7 @@ Reminder:
 
  - The job log is available through the WebUI, via API and via CLI (with :ref:`cli`)
  - The job log file is also stored and available on the S3 bucket used by Cloud Deploy, with this path: ``/log/job/{job-id}.txt``
+ - There are also some job logs available locally on Cloud Deploy, at ``/var/log/ghost/{job-id}.txt``
 
 Keep in mind that you must follow our :ref:`bestpratices` to avoid unsuccessful deployments.
 
@@ -44,6 +45,8 @@ At first boot, `cloud-init <http://cloudinit.readthedocs.io/en/latest/>`_ config
 You can check the cloud-init log in ``/var/log/cloud-init-output.log``.
 
 If your instance cannot connect to the S3 bucket, you will see in this log some errors when cloud-init tries to download and run the Cloud Deploy bootstrap script (called ``stage2``).
+
+.. warning:: Regarding internet connectivity issues, please check where is located your instance. It must be in a Subnet routed via an Internet Gateway (AKA "public subnet") or routed via a NAT Gateway (AKA "private subnet").
 
 Here is an example of a log with a correct early bootstrap execution:
 
