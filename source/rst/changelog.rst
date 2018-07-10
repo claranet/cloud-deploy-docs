@@ -8,6 +8,25 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v18.06
+-------------------
+
+* WebUI
+    - [GHOST-661] - LXD endpoint check and UI update to use the API
+
+* Core/API
+    - [GHOST-660] - Protect blueprints with Eve authentication
+    - [GHOST-584] - Email account information upon creation (using One time secret service for retrieving your password)
+    - [GHOST-651] - Use ``/ghost`` working directory for backup instead of ``/tmp``
+
+* Improvements & Bug fixes
+    - [GHOST-537] - [Refactor] Image builder lib refactoring and improvements (for both LXD builder and AWS AMI builder)
+
+* Misc
+    - [GHOST-666] - Update dependencies
+    - [GHOST-667] - Update instance types
+    - [GHOST-658] - CI - Bitbucket Pipeline cleanup with ``pylxd 2.2.7``
+
 Cloud Deploy v18.05.1
 ---------------------
 
