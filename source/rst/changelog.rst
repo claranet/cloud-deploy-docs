@@ -12,7 +12,7 @@ Cloud Deploy v18.06.1
 ---------------------
 
 * Improvements & Bug fixes
-    - [GHOST-584] - Upgrade job email templates (more commatible mail clients)
+    - [GHOST-584] - Upgrade job email templates (more compatible mail clients)
     - [GHOST-669] - [UI] - Can't update scripts area after adding a new env var entry
 
 Cloud Deploy v18.06
