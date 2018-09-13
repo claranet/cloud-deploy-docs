@@ -8,6 +8,33 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v18.08
+-------------------
+
+* WebUI
+    - [GHOST-161] - Provide search for deployments page
+    - [GHOST-191] - Filters improvements
+    - [GHOST-672] - Properly display "Log file not found" error in the WebUI
+
+* Core/API
+    - [GHOST-507] - Module deployment from AWS S3 (new type of module)
+    - [GHOST-406] - Data access layer, to normalize objects retrieved from the backend
+    - [GHOST-664] - Major updates of dependencies with breaking changes (Flask, Cerberus, Eve)
+    - [GHOST-556] - Move websocket (real time logs) from UI to API core
+    - [GHOST-677] - boto sts assume role as an autonomous pip package
+
+* Improvements & Bug fixes
+    - [GHOST-678] - Do not allow modules with conflicting paths
+    - [GHOST-679] - Fix bug to pass environment variables as parameter on each necessary LXD container execute method
+    - [GHOST-681] - Buildimage fails when AWS assume-role is required
+
+* Documentation
+    - [GHOST-680] - how to configure features and provisoners
+
+* Misc
+    - [GHOST-674] - Update dependencies
+    - [GHOST-675] - Update instance types
+
 Cloud Deploy v18.06.1
 ---------------------
 
