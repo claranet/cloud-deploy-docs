@@ -17,10 +17,10 @@ Create a webhook configuration using Cloud Deploy UI:
     1. Create a webhook configuration on Cloud Deploy webhooks page.
     2. Fill the form:
 
-        * Application ID: select your application to use,
-        * Module name: select the apropriate module, it must contains the git repository you will use to trigger the webhook
+        * Application ID: select the Cloud Deploy application to use,
+        * Module name: select the apropriate module, it must correspond to the git repository you will use to trigger the webhook
         * Revision regex: regex must match expected revision. This can be a branch, a tag or a specific commit hash
-        * Secret token: strenghthen security by adding a token of your choice,
+        * Secret token: strengthen security by adding a token of your choice (supported on Github and Gitlab),
         * Events: all events that should trigger the webhook. By default the ``push`` event should be enought for most scenarios
         * Command to run: deploy, all other fields are depending on the command to run.
 
