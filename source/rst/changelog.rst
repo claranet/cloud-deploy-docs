@@ -8,6 +8,29 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+
+Cloud Deploy v18.10
+-------------------
+
+* WebUI
+    - [GHOST-601] - Dynamically list instance types using AWS Pricing API
+
+* Core/API
+    - [GHOST-76]  - Hot reload credentials when accounts.yml has changed on disk
+    - [GHOST-625] - Expose standard webhooks and allow CI integration (Bitbucket, Github, Gitlab, custom handlers)
+    - [GHOST-552] - Add and force authentification on websocket server
+
+* Improvements & Bug fixes
+    - [GHOST-686] - Safe deploy with multiple ALB and TargetGroups on multiple ASG: we must not wait for draining on unrelated Targets
+    - [GHOST-687] - Safe deploy with multiple ALB and TargetGroups on multiple ASG: don't deregister unrelated instances
+    - [GHOST-689] - Module path inclusion check should handle only nested directories
+    - [GHOST-481] - Stage1 Bootstrap enhancement and boot deploy notifications
+
+* Misc
+    - [GHOST-692] - Update dependencies
+    - [GHOST-693] - Update instance types - AWS China EC2 types
+    - [GHOST-690] - Use https for Github public submodules
+
 Cloud Deploy v18.08
 -------------------
 

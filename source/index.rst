@@ -10,6 +10,7 @@ Table of Contents:
     rst/api
     rst/commands
     rst/tutorials
+    rst/webhooks
     rst/matrix
     rst/cli
     rst/ui
