@@ -8,6 +8,14 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v19.01
+-------------------
+
+* Improvements & Bug fixes
+    - [GHOST-698] - Fix ghost-metadata permissions
+    - [GHOST-699] - Improve backup script 
+    - [GHOST-700] - Move to Gitlab CI for unit-tests pipelines
+    - [GHOST-701] - Uses default provisioner options if not provided when baking AMIs
 
 Cloud Deploy v18.10
 -------------------
