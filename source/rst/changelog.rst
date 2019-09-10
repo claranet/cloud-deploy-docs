@@ -8,6 +8,23 @@ Release Changelog
 .. toctree::
     :maxdepth: 2
 
+Cloud Deploy v19.08
+-------------------
+
+* WebUI
+    - [GHOST-724] - Fix error 500 on health-status page if NIC status is not readable
+    - [GHOST-728] - Overall UI Cleanup and fixes
+
+* Improvements & Bug fixes
+    - [GHOST-726] - All components fail to start if the .git directory is not available
+    - [GHOST-734] - Block device mapping from old AMI is used to create launch config
+    - [GHOST-722] - Optimize mongo heavy queries
+    - [GHOST-727] - Query to retrieve running blue/green jobs should not hard code limit to 3 hours
+
+* Misc
+    - [GHOST-733] - Update doc Sphinx dependencies
+    - [GHOST-712] - Fix deprecation warning on Ansible playbook/role (Product deployment)
+
 Cloud Deploy v19.01
 -------------------
 
