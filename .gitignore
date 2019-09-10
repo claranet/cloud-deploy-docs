@@ -1,4 +1,5 @@
 build/doctrees/
 build/
 sphinx/
+venv/
 venv-ghost-doc/
